@@ -1,0 +1,195 @@
+\chapter{整环的整除性}
+
+\section{整除关系, 不可约元, 素元, 最大公因子}
+
+\begin{definition}\label{整除}\label{因子}\label{倍元}
+	设 $R$ 是\hr{整环}, 对于 $a,b\in R$, 若存在 $c\in R$, 使得 $a=bc$, 则称 $b$ \textbf{整除} $a$, 记作 $b\mid a$. 否则称 $b$ \textbf{不能整除} $a$, 记作 $b \nmid a$. 当 $b\mid a$ 时, 称 $b$ 是 $a$ 的\textbf{因子}, $a$ 是 $b$ 的\textbf{倍元}.
+\end{definition}
+
+\begin{property}\
+	
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)]由\hr{整除}的定义立即得到: 在\hr{整环} $R$ 中, $b\mid a\Leftrightarrow (a)\subseteq(b)$.
+		\item[(2)]任意元素都是 $0$ 的一个因子. 特别的, $0$ 也是 $0$ 的因子.
+		\item[(3)]在\hr{整环}中 $u\t{ 可逆}\Leftrightarrow\ \exists\ v\in R,\ s.t.\ uv=1\Leftrightarrow u\mid 1\Leftrightarrow 1\in (u)\Leftrightarrow (u)=R$.
+		\item[(4)]设 $u$ 可逆, 则 $\forall\ a\in R,$ 有 $a=u(u^{-1}a)$, 从而 $u\mid a$.
+		因此可逆元是 $R$ 中任意元素的\hr{因子}.
+		\item[(5)]	若 $b\mid a_1,b\mid a_2$ 则有 $$b\mid(r_1a_1+r_2a_2),\quad\forall\ r_1,r_2\in R.$$
+	\end{itemize}
+\end{property}
+
+\begin{definition}\label{相伴}
+	在\hr{整环} $R$ 中, 若 $b\mid a\wedge a\mid b$, 则称 $a$ 与 $b$ \textbf{相伴}, 记作 $a\sim b$.
+\end{definition}
+
+容易验证, \hr{相伴}是 $R$ 上的一个\hr{等价关系}.
+
+\begin{proposition}
+	在\hr{整环} $R$ 中, $a\sim b$ 当且仅当存在可逆元 $u$ 使得 $a=bu$.
+\end{proposition}
+
+\begin{corollary}
+	在\hr{整环} $R$ 中, 若 $a\sim b,c\sim d$, 则 $ac\sim bd$.
+\end{corollary}
+
+\begin{definition}\label{真因子}
+	在\hr{整环} $R$ 中, 若 $b\mid a$ 但是 $a\nmid b$ (即 $b$ 是 $a$ 的一个\hr{因子}, 但是 $b$ 不是 $a$ 的\hr{相伴}元), 则称 $b$ 是 $a$ 的一个\textbf{真因子}.
+\end{definition}
+
+\begin{definition}\label{平凡因子}\label{非平凡因子}
+	在\hr{整环} $R$ 中, $a$ 的任一\hr{相伴}元, 以及 $R$ 中任一可逆元都是 $a$ 的\hr{因子}, 称这些\hr{因子}是 $a$ 的\textbf{平凡因子}. 其他因子称为 $a$ 的\textbf{非平凡因子}.
+\end{definition}
+
+\begin{definition}\label{可约元}\label{不可约元}
+	在\hr{整环} $R$ 中, 设 $a\neq 0$, 且 $a$ 不可逆. 如果 $a$ 只有\hr{平凡因子}, 那么称 $a$ 是\textbf{不可约的}, 否则称 $a$ 是\textbf{可约的}.
+\end{definition}
+
+利用\hr{相伴}的性质可以推出, \hr{不可约元}的\hr{相伴}元也是\hr{不可约元}.
+
+\begin{definition}\label{素元}
+	设 $a\neq 0$, 且 $a$ 不可逆. 如果从 $a\mid bc$ 可以推出 $a\mid b$ 或 $a\mid c$, 那么称 $a$ 是一个\textbf{素元}.
+\end{definition}
+
+\begin{proposition}
+	在\hr{整环} $R$ 中, \hr{素元}一定是\hr{不可约元}.
+\end{proposition}
+
+\begin{proposition}
+	在\hr{整环} $R$ 中, $a$ 为素元当且仅当 $(a)$ 是非零\hr{素理想}
+\end{proposition}
+
+\begin{definition}\label{公因子}\label{最大公因子}
+	在\hr{整环} $R$ 中, 对于 $a,b\in R$. 如果有 $c\in R$ 使得 $c\mid a\wedge c \mid b$ 那么称 $c$ 是 $a$ 与 $b$ 的一个\textbf{公因子}. 如果 $a$ 与 $b$ 的一个公因子 $d$ 满足: 对于 $a,b$ 的任一公因子 $c$ 有 $c\mid d$. 那么称 $d$ 是 $a,b$ 的一个\textbf{最大公因子}.
+\end{definition}
+
+\begin{property}
+	若 $d_1,d_2$ 是 $a$ 与 $b$ 的最大公因子, 那么从定义 \ref{最大公因子} 得出, $d_1\sim d_2$. 反之, 若 $d_1$ 是 $a,b$ 的\hr{最大公因子}, 且 $d_1\sim d_2$, 则 $d_2$ 也是 $a$ 与 $b$ 的一个最大公因子. 记作 $(a,b)$.
+\end{property}
+
+\begin{proposition}
+	在\hr{整环} $R$ 中, 如果每一对元素都有\hr{最大公因子}, 那么对任意 $a,b,c\in R$, 有 $(ca,cb)\sim c(a,b)$.
+\end{proposition}
+
+\section{欧几里得整环, 主理想整环, 唯一因子分解整环}
+
+\begin{definition}\label{欧几里得整环}
+	设 $R$ 为\hr{整环}, 如果存在 $R^*\ (R^*=R\backslash\{0\})$ 到 $\N$ 的一个映射 $\delta$, 使得对任意 $a,b\in R\wedge b\neq 0$, 都有 $h,r\in R$ 满足 $$a=hb+r,\quad r=0\ \t{或}\ r\neq0\ \t{且}\ \delta(r)<\delta(b),$$ 那么称 $R$ 是一个\textbf{欧几里得整环}. 
+\end{definition}
+
+\begin{theorem}
+	\hr{欧几里得整环} $R$ 的每一个\hr{理想}都是\hr{主理想}.
+\end{theorem}
+
+\begin{definition}\label{主理想整环}
+	设 $R$ 为\hr{整环}, 如果 $R$ 的每一个\hr{理想}都是\hr{主理想}, 那么称 $R$ 是一个\textbf{主理想整环}.
+\end{definition}
+
+\begin{theorem}
+	设 $R$ 是\hr{主理想整环}, 则 $$a\ \t{是}\hr{不可约元}\Leftrightarrow (a) \t{ 是非零}\hr{极大理想}.$$
+\end{theorem}
+
+\begin{corollary}
+	设 $R$ 是\hr{主理想整环}, 则 $R$ 的\hr{不可约元} $a$ 一定是\hr{素元}.
+\end{corollary}
+
+\begin{definition}\label{唯一因子分解整环}\label{高斯整环}
+	\hr{整环} $R$ 如果满足下列两个条件: 
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] $R$ 中每个非零且不可逆的元素 $a$ 可以分解成有限多个\hr{不可约元}的乘积 $$a=p_1p_2\cdots p_s;$$
+		\item[(2)] 上述分解在\hr{相伴}的意义下是唯一的, 即如果 $a$ 有两个这样的分解式: $$a=p_1p_2\cdots p_s=q_1q_2\cdots q_t$$ 那么 $s=t$, 并且可以通过适当的调换位置使得 $p_i\sim q_i$.
+		
+	\end{itemize}
+	那么称 $R$ 是一个\textbf{唯一因子分解整环}或者\textbf{高斯整环}.
+\end{definition}
+
+\begin{theorem}\label{整环的整除性定理4}
+	\hr{整环} $R$ 如果满足下列两个条件:
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] \textbf{因子链条件}\label{因子链条件}: 在\hr{整环} $R$ 中, 如果序列 $a_1,a_2,a_3,\ldots$ 中, 每一个 $a_i$ 是 $a_{i-1}$ 的\hr{真因子}, 那么这个序列是有限序列.
+		
+		\item[(2)] 每一个\hr{不可约元}都是\hr{素元}. 
+	\end{itemize}
+	那么称 $R$ 是\hr{唯一因子分解整环}.
+\end{theorem}
+
+\begin{proposition}
+	设 $R$ 是\hr{整环}, 如果 $R$ 的每一对元素都有最大公因子, 那么 $R$ 的每一个不可约元都是\hr{素元}.
+\end{proposition}
+
+基于上述命题, 我们可以将定理 \ref{整环的整除性定理4} 中的条件 $2$ 进行替换.
+
+\begin{theorem}
+	若 $R$ 是\hr{唯一因子分解整环}, 则 $R$ 的每一对元素都有最大公因子.
+\end{theorem}
+
+\begin{theorem}
+	\hr{主理想整环}都是\hr{唯一因子分解整环}.
+\end{theorem}
+
+\begin{definition}\label{本原多项式}
+	设 $R$ 是\hr{唯一因子分解整环}, 任给 $f(x)=a_0+a_1x+\cdots+a_nx^n\in R[x]$. 用 $(a_0,a_1,\ldots,a_n)$ 表示 $a_0,a_1,\ldots,a_n$ 的最大公因子. 如果有 $(a_0,a_1,\ldots,a_n)\sim 1$, 那么称 $f$ 是一个\textbf{本原多项式}.
+\end{definition}
+
+
+\begin{proposition}
+	$R[x]$ 中的\hr{可逆元}只能是 $0$ 次多项式, 且是 $R$ 的\hr{可逆元}. 反之, $R$  的\hr{可逆元}也是 $R[x]$ 的\hr{可逆元}. 根据定义, $R[x]$ 的\hr{可逆元}是零次\hr{本原多项式}.
+\end{proposition}
+
+\begin{proposition}
+	若 $p(x)$ 是 $R[x]$ 中的一个\hr{不可约元}, 则 $p(x)\neq 0$, $p(x)$ 不是 $R$ 的\hr{可逆元}, 并且 $p(x)$ 的因式只有 $R$ 的\hr{可逆元}和 $p(x)$ 的\hr{相伴元}. 从而 $p(x)$ 要么是 $R$ 的一个\hr{不可约元}, 要么是一个次数大于 $0$ 的\hr{不可约}的\hr{本原多项式}.
+	
+	反之, $R[x]$ 的一个\hr{不可约}的\hr{本原多项式}是 $R[x]$ 的一个\hr{不可约元}.
+\end{proposition}
+
+\begin{lemma}
+	设 $R$ 是\hr{唯一因子分解整环}, 则 $R[x]$ 中任一非零多项式 $f(x)$ 可以写成 $$f(x)=df_1(x),$$ 其中 $d\in R$ 且 $d\neq 0$, $f_1(x)$ 是一个\hr{本原多项式}, 并且 $d$ 和 $f_1(x)$ 在\hr{相伴}的意义下由 $f(x)$ 唯一确定.
+\end{lemma}
+
+\begin{lemma}[高斯引理]
+	设 $R$ 是\hr{唯一因子分解整环}, 则 $R[x]$ 中两个\hr{本原多项式}的乘积还是\hr{本原多项式}.
+\end{lemma}
+
+\begin{lemma}
+	设 $R$ 是\hr{唯一因子分解整环}, $F$ 是 $R$ 的\hr{分式域}, 则 $R[x]$ 中两个\hr{本原多项式} $g(x)$ 与 $f(x)$ 在 $F[x]$ 中\hr{相伴}当且仅当 $g(x)$ 与 $h(x)$ 在 $R[x]$ 中\hr{相伴}.
+\end{lemma}
+
+\begin{lemma}
+	
+\end{lemma}
+
+
+\section{诺特环}
+
+
+
+\begin{definition}\label{理想升链}\label{理想升链条件}\label{诺特环}
+	 设 $R$ 是一个交换环, 如果 $R$ 的每一条\textbf{理想升链} $$I_1\subsetneqq I_2\subsetneqq I_3\subsetneqq\cdots$$ 都有限, 那么称 $R$ 满足\textbf{理想升链条件}, 此时称 $R$ 是一个\textbf{诺特环 (Noether ring)}.
+\end{definition}
+
+\begin{corollary}
+	\hr{主理想整环}都是\hr{诺特环}.
+\end{corollary}
+
+\begin{proof}
+	因为\hr{主理想整环}都是\hr{唯一因子分解整环}, 则对于该环的每一个\hr{理想升链}, 取其中每个主理想的代表元, 就构成了一个因子链, 从而是有限的.
+\end{proof}
+
+\begin{theorem}
+	设 $R$ 是一个交换环, 则 $R$ 是\hr{诺特环}当且仅当 $R$ 的每一个\hr{理想}都是有限生成的.
+\end{theorem}
+
+\begin{theorem}[希尔伯特 (Hilbert) 基定理]
+	如果 $R$ 是一个有单位元 $1(\neq 0)$ 的\hr{诺特环}, 那么 $R$ 上的一元多项式环 $R[x]$ 也是\hr{诺特环}.
+\end{theorem}
+
+\begin{corollary}
+	如果 $R$ 是有幺元的\hr{诺特环}, 那么 $R$ 上的 $n$ 元多项式环 $R[x_1,x_2,\ldots,x_n]$ 也是\hr{诺特环}.
+\end{corollary}
+
+\begin{proof}
+	考虑 $R[x_1,x_2]$ 可以视作 $R[x_1]$ 上的一元多项式环 $R[x_1][x_2]$, 从而利用归纳法可知 $n$ 元多项式环也是诺特环.
+\end{proof}
+
+\begin{proposition}
+	域 $F$ 是\hr{诺特环}, 因为 $F$ 只有平凡的理想, 从而 $F[x_1,x_2,\ldots,x_n]$ 是\hr{诺特环}. 因此 $F[x_1,x_2\ldots,x_n]$ 的每个理想都是有限生成的.
+\end{proposition}

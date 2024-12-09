@@ -1,0 +1,588 @@
+\newpage
+\specialtrue
+\specialchapter{欧拉积分}
+\section{第一型欧拉积分}
+
+\begin{definition}
+	我们称 $\text B(a,b)=\int_0^1 x^{a-1}(1-x)^{b-1}\text{d} x\ (a,b>0)$ 为第一型欧拉积分.
+\end{definition}
+
+下面我们给出几个它的简单性质.
+
+\begin{property}
+	作变量替换 $x=1-t$ 易知 $\text B(a,b)=\text B(b,a)$ 也就是说第一型欧拉积分具有对称性.
+\end{property}
+
+\begin{property}
+	当 $b>1$ 时，由分部积分可得
+	$$
+	\begin{aligned}
+		\text B(a,b) &= \int_0^1 (1-x)^{b-1} \text{d}\frac{x^a}{a}\\
+		&= \left.\dfrac{x^a(1-x)^{b-1}}{a}\right|_0^1+\dfrac{b-1}{a}\int_0^1 x^{a}(1-x)^{b-2}\text{d}x\\
+		&= \dfrac{b-1}{a}\int_0^1 x^{a-1}(1-x)^{b-2}\text{d} x - \dfrac{b-1}{a}\int_0^1 x^{a-1}(1-x)^{b-1} \text{d}x\\
+		&= \dfrac{b-1}{a}\text B(a,b-1)-\dfrac{b-1}a \text B(a,b).
+	\end{aligned}
+	$$
+
+	其中第三个等号用到了 $x^a=x^{a-1}-x^{a-1}(1-x)$.
+
+	由此 $\text B(a,b)=\dfrac{b-1}{a+b-1}\text B(a,b-1).$
+
+	那么由对称性, 我们也能得到 $\text B(a,b)=\dfrac{a-1}{a+b-1}\text B(a-1,b)\quad(a>1)$.
+
+	而当 $a,b$ 均为正整数时, 我们有 $$\text B(n,m)=\dfrac{(n-1)!(m-1)!}{(n+m-1)!}.$$
+
+
+\end{property}
+
+\begin{property}
+	我们作变量替换 $x=\dfrac{y}{1+y}$ 可将 $\t B(a,b)$ 转化为无穷积分, 这种形式也有很好的性质.
+	$$\t B(a,b)=\int_0^\infty \dfrac{y^{a-1}}{(1+y)^{a+b}}\t d y$$
+
+	而如果令 $b=1-a \ (0<a<1)$ 我们就得到
+	$$\t B(a,1-a)=\int_0^\infty \dfrac{y^{a-1}}{1+y} \t d y$$
+
+	而这个积分的值是可以计算的，就是
+	$$\t B(a,1-a)=\dfrac{\pi}{\sin a\pi}$$
+\end{property}
+
+
+
+\section{第二型欧拉积分}
+
+\subsection{定义}
+\begin{definition}\label{第二型欧拉积分}
+	我们称 $$\Gamma(a)=\int_0^\infty x^{a-1}e^{-x} \t d x\ (a>0)$$ 为\textbf{第二型欧拉积分}.
+
+	其实这个 $\Gamma(a)$ 函数在我们之前的课程中也定义过, 不过当时我们是用阶乘函数, 用无穷乘积的形式来定义的.
+	$$\Gamma(x)=\Pi(x-1)=x^{-1}\Pi(x),$$
+	$$ \dfrac{1}{\Gamma(x)}=x\prod\limits_{n=1}^\infty(1+\dfrac{x}{n})(1+\dfrac 1 n)^{-x}.$$
+\end{definition}
+
+下面我们先来探究这两个证明是否等价.
+
+\begin{proof}
+	当 $s>0$ 时有
+
+	\begin{center}
+		$
+		\begin{aligned}
+			\Gamma(s) &= \frac 1 s \prod\limits_{n=1}^\infty(1+\frac s n)^{-1}(1+\frac 1 n)^s \\
+			&= \frac 1 s \cdot \lim\limits_{N\to \infty}\prod\limits_{n=1}^N (1+\frac s n)^{-1}(1+\frac 1 n)^s \\
+			&= \frac 1 s \cdot \lim\limits_{N\to\infty}\dfrac{N!\cdot N^s}{(s+1)(s+2)\cdots(s+N)}.
+		\end{aligned}
+		$
+	\end{center}
+
+	注意到极限中的内容和我们之前推导的 $\t B$ 函数的递推式相似, 不难发现, 当我们取 $a=N+1,b=s$ 时, 我们有
+	$$\t B(s,N+1)=\frac{N}{s+N}\t B(s,N)=\cdots=B(s,1)\dfrac{N!}{(s+1)(s+2)\cdots(s+N)}$$
+
+	又由 $\t B(s,1)=\int_0^1 x^{s-1}(1-x)^0 \t d x=\dfrac 1 s$
+
+	我们可以得到
+
+
+	\begin{center}
+		$
+		\begin{aligned}
+			\Gamma(s) &= \frac 1 s \cdot \lim\limits_{N\to\infty}\dfrac{N!\cdot N^s}{(s+1)(s+2)\cdots(s+N)}\\
+			&= \lim\limits_{N\to \infty}\t B(s,1)\dfrac{N!\cdot N^s}{(s+1)(s+2)\cdots(s+N)}\\
+			&= \lim\limits_{N\to \infty}\t B(s,N+1)N^s\\
+			&= \lim\limits_{N\to \infty}N^s\int_0^1 x^{s-1}(1-x)^N\t d x.
+		\end{aligned}
+		$
+	\end{center}
+
+	接着我们做变量替换 $x\to\frac x N$
+	\begin{center}
+		$
+		\begin{aligned}
+			\Gamma(s) &= \lim\limits_{N\to \infty}N^s\int_0^1 x^{s-1}(1-x)^{N}\t d x\\
+			&= \lim\limits_{N\to \infty}N^s\int_0^N \left(\frac x N\right)^{s-1}(1-\frac x N)^{N}\t d \frac x N\\
+			&= \lim\limits_{N\to \infty} \int_0^N x^{s-1}(1-\frac x N)^N \t d x.
+		\end{aligned}
+		$
+	\end{center}
+	下面我们考虑证明 $$\lim\limits_{N\to \infty}\left(\int_0^N x^{s-1}e^{-x} \t d x - \int_0^N x^{s-1}(1-\frac x N)^N \t d x\right)=0.$$
+
+	由\hr{伯努利不等式} $x>-1$ 时, 有 $(1+x)^N\geqslant 1+Nx$.
+
+	和不等式 $e^t \geqslant 1+t$, 把 $t=\frac x N$ 带入得到 $e^{\frac x N} \geqslant 1+\frac x N$ 即 $e^x \geqslant (1+\frac x N)^N$.
+
+	我们可以得到 $$0 \leqslant e^{-x}-(1-\frac x N)^N=e^{-x}\left[1-e^x(1-\frac x N)^N\right]\leqslant e^{-x}\left[1-(1-\frac {x^2} {N^2})^N\right] \leqslant \frac{e^{-x}x^2}{N}.$$
+
+	进而有 $$\left|\int_0^N e^{-x}x^{s-1}\t d x-\int_0^N\left(1-\frac x N\right)^N x^{s-1}\t d x \right|\leqslant\int_0^N \frac{e^{-x}x^{s+1}}{N}\t d x <\frac 1 N\int_0^{+\infty}e^{-x}x^{s+1}\t d x.$$
+
+	易知 $\displaystyle \int_0^{+\infty}e^{-x}x^{s+1}\t d x$ 收敛, 故当 $N\to \infty$ 时, $\displaystyle\frac 1 N\int_0^{+\infty}e^{-x}x^{s+1}\t d x \to 0$.
+
+	进而可知 $$\lim\limits_{N\to \infty}\left(\int_0^N x^{s-1}e^{-x} \t d x - \int_0^N x^{s-1}(1-\frac x N)^N \t d x\right)=0.$$
+
+	即 $\displaystyle \int_0^N x^{s-1}e^{-x} \t d x = \int_0^N x^{s-1}(1-\frac x N)^N \t d x, \quad N\to \infty$.
+
+	故这两种定义方式等价.
+\end{proof}
+
+除此之外, $\Gamma$ 函数, 还有两种定义方式.
+
+第一种是上述证明过程中出现过的极限定义, 也称\textbf{欧拉-高斯公式}.
+
+$$\Gamma(s)=\lim\limits_{N\to\infty}\dfrac{N!\cdot N^s}{s(s+1)(s+2)\cdots(s+N)}.$$
+
+第二种则引入了\hr{欧拉常数} $\gamma$.
+
+设 $H_n=\sum\limits_{i=1}^n \dfrac{1}{i}$, 则称 $\gamma=\lim\limits_{n\to \infty}H_n-\ln n$.
+
+那么我们就有 $\Gamma$ 函数的 \textbf{Weierstrass 积形式}.
+
+$$\Gamma(s)=\dfrac{e^{-\gamma s}}{s}\prod\limits_{n=1}^\infty \left(1+\dfrac s n\right)^{-1}e^{\frac s n}.$$
+\subsection{性质}
+
+从我们证明两种定义方式等价的过程中, 不难发现这两类欧拉积分并不是孤立的, 下面我们就来探究这两类欧拉积分的关系.
+
+接下来, 我们证明
+\begin{property}
+
+	$$\t B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)},\qquad \forall p>0,q>0.$$
+\end{property}
+
+\begin{proof}
+	对 $\t B(p,q)$ 用 $x=\sin^2\theta$ 换元得到
+
+	$$\t B(p,q)=2\int_0^{\frac \pi 2} \sin ^{2p-1}\theta \cos ^{2q-1} \theta \t d \theta.$$
+
+	对 $\Gamma(p)$ 用 $x=s^2$ 换元得到
+
+	$$\Gamma(p)=2\int_0^\infty s^{2p-1}e^{-s^2}\t d s.$$
+
+	我们考虑 $$\Gamma(p)\Gamma(q)=4\int_0^\infty s^{2p-1}e^{-s^2}\t d s\int_0^\infty t^{2q-1}e^{-t^2}\t d t.$$
+
+	下面我们进行极坐标变换, 令 $s=r\sin\theta,t=r\cos\theta$ 则有 $r^2=s^2+t^2,\t d s \t d t=r\t d r \t d \theta.$
+
+	又由 $\Gamma$ 函数的连续性, 我们可以对积分符号进行交换, 进而得到.
+	\begin{center}
+		$
+		\begin{aligned}
+			\Gamma(p)\Gamma(q)&=4\int_0^\infty r^{2p+2q-2}e^{-r^2}r\t d r \int_0^{\frac \pi 2}\sin^{2p-1}\theta\cos^{2q-1}\theta \t d \theta\\
+			&=4\int_0^\infty r^{2(p+q)-1}e^{-r^2}\t d r \int_0^{\frac \pi 2}\sin^{2p-1}\theta\cos^{2q-1}\theta \t d \theta\\
+			&=\int_0^\infty r^{(p+q)-1}e^{-r}\t d r \cdot 2\int_0^{\frac \pi 2}\sin^{2p-1}\theta\cos^{2q-1}\theta \t d \theta\\
+			&=\Gamma(p+q)\t B(p,q).
+		\end{aligned}
+		$
+	\end{center}
+
+	进而得到
+	$$\t B(p,q)=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.$$
+\end{proof}
+
+
+\begin{corollary}
+	在上述证明过程中, 我们取 $q=\frac{1}{2}$, 则 对于 $j>-1$ 我们有 $$\int_0^\pi \sin^j \theta\td\theta = \t B\left(\frac{j+1}{2},\frac 1 2\right)=\frac{\Gamma\left(\frac{j+1} 2\right)\Gamma\left(\frac 1 2\right)}{\Gamma\left(\frac{j+2} 2\right)}$$
+\end{corollary}
+
+\begin{property}[余元公式]\label{余元公式}
+	$$\Gamma(p)\Gamma(1-p)=\frac{\pi}{\sin p\pi}$$
+\end{property}
+
+为了证明这个事情, 我们先证明一个引理.
+
+\begin{lemma}\label{lemma:sin}
+	$$\sin x = x \prod\limits_{n=1}^\infty \left(1-\dfrac{x^2}{n^2\pi^2}\right)$$
+\end{lemma}
+
+\begin{proof}
+	通过二倍角公式, 我们可以将 $\sin(2n+1)x$ 不断升幂, 可以将其表示为形如 $\sin x \cdot P(\sin^2 x)$ 的式子, 其中 $P(x)$ 表示关于 $x$ 的 $n$ 次多项式.
+
+	因为 $\lim\limits_{x \to 0}{\sin(2n+1)x}{\sin(x)}=2n+1$, 所以 $P(x)$ 的常数项为 $2n+1$.
+
+	同时我们有, $\sin(2n+1)x$ 的根为 $\dfrac{k\pi}{2n+1},\ k \in \mathbb Z$, 所以 $\sin^2\dfrac{k\pi}{2n+1},\ k=1,2,\ldots,n$ 恰为 $P(x)$ 的 $n$ 个根.
+
+	所以
+	$$P(x)=(2n+1)\left(1-\dfrac{x}{\sin^2\frac \pi {2n+1}}\right)\left(1-\dfrac{x}{\sin^2 \frac {2\pi} {2n+1}}\right)\cdots\left(1-\dfrac{x}{\sin^2 \frac{n\pi}{2n+1}}\right)$$
+
+	即
+	$$P(x)=(2n+1)\prod\limits_{k=1}^n\left(1-\dfrac{x}{\sin^2\frac{k\pi}{2n+1}}\right)$$
+
+	故我们有
+	$$\dfrac{\sin(2n+1)x}{\sin x}=P(\sin^2x)=(2n+1)\prod\limits_{k=1}^n\left(1-\dfrac{\sin^2 x}{\sin^2\frac{k\pi}{2n+1}}\right)$$
+
+	带入 $x\to\frac{x}{2n+1}$
+
+	$$\Rightarrow \dfrac{\sin x}{(2n+1)\sin\frac 1 {2n+1}x}=\prod\limits_{k=1}^n\left(1-\dfrac{\sin^2 \frac 1 {2n+1} x}{\sin^2 \frac {k\pi}{2n+1  }}\right)$$
+
+	$\forall 1 \leqslant m<n$ 有
+
+	$$\dfrac{\sin x}{(2n+1)\sin\frac 1 {2n+1}x \prod\limits_{k=1}^m\left(1-\dfrac{\sin^2 \frac 1 {2n+1} x}{\sin^2 \frac {k\pi}{2n+1  }}\right)}=\prod\limits_{k=m+1}^n\left(1-\dfrac{\sin^2 \frac 1 {2n+1} x}{\sin^2 \frac {k\pi}{2n+1  }}\right)$$
+
+	当 $n \to \infty$ 时, 左边为
+	$$\dfrac{\sin x}{x\prod\limits_{k=1}^m\left(1-\frac{x^2}{k^2\pi^2}\right)}$$
+
+	对于右边, 我们考虑下列不等式, 当 $n$ 充分大时.
+	\begin{itemize}[leftmargin=2cm]
+		\item[(1)] $\dfrac 2 \pi x< \sin x < x, x\in (0,\dfrac \pi 2)$
+		\item[(2)] $\sin^2\dfrac{1}{2n+1}x<\dfrac{x^2}{(2n+1)^2}$
+		\item[(3)] $\sin^2 \dfrac{k\pi}{2n+1}>\dfrac{4k^2}{(2n+1)^2}$
+		\item[(4)] $\dfrac{\sin^2\frac{1}{2n+1}x}{\sin^2\frac{k\pi}{2n+1}}<\dfrac{x^2}{4k^2}$
+	\end{itemize}
+
+	其中由 $(1)$ 可得 $(2),(3)$, 进而可知 $(4)$.
+
+	于是我们有
+	$$1>\prod\limits_{k=m+1}^n\left(1-\dfrac{\sin^2 \frac 1 {2n+1}x}{\sin^2\frac{k\pi}{2n+1}}\right)>\prod\limits_{k=m+1}^n\left(1-\dfrac{x^2}{4k^2}\right)>\prod\limits_{k=m+1}^\infty\left(1-\dfrac{x^2}{4k^2}\right)$$
+
+	所以 $n\to \infty$ 时,
+	$$1>\dfrac{\sin x}{x\prod\limits_{k=1}^m\left(1-\frac{x^2}{k^2\pi^2}\right)}>\prod\limits_{k=m+1}^\infty\left(1-\dfrac{x^2}{4k^2}\right)$$
+
+	由 $\prod\limits_{k=1}^\infty\left(1-\dfrac{x^2}{4k^2}\right)$ 收敛,
+
+	可知 $m\to \infty$ 时
+	$$\prod\limits_{k=m+1}^\infty\left(1-\dfrac{x^2}{4k^2}\right)=1$$
+
+	所以由\hr{夹逼定理}, 我们可以得到
+	$$\sin x=x\prod\limits_{k=1}^\infty\left(1-\dfrac{x^2}{k^2\pi^2}\right).$$
+\end{proof}
+
+下面由 $\Gamma$ 函数的极限定义来证明\hr{余元公式}
+
+\begin{proof}
+	$\ $
+	\begin{center}
+		$
+		\begin{aligned}
+			\Gamma(p)\Gamma(1-p)&=\lim\limits_{N\to \infty}\dfrac{N!\cdot N^p \cdot N! \cdot N^{1-p}}{p(p+1)\cdots(p+N)(1-p)(1-p+1)\cdots(1-p+N)} \\
+			&=\lim\limits_{N\to\infty}\dfrac{N\cdot N!\cdot N!}{p(1-p^2)(2^2-p^2)\cdots(N^2-p^2)(1+N-p)} \\
+			&=\lim\limits_{N\to \infty}\dfrac{N}{1-p+N}\cdot \dfrac{1}{p\prod\limits_{k=1}^N(1-\frac{p^2}{k^2})}
+		\end{aligned}
+		$
+	\end{center}
+
+	由引理 \ref{lemma:sin} 可知
+	$$\sin p\pi=p\pi\prod\limits_{n=1}^\infty\left(1-\dfrac{p^2}{n^2}\right)$$
+
+	故
+	$$\Gamma(p)\Gamma(1-p)=1\cdot \dfrac{\pi}{\sin p\pi}=\dfrac{\pi}{\sin p\pi}.$$
+\end{proof}
+
+\begin{property}[倍元公式, 也称勒让德公式]\label{倍元公式}\label{勒让德公式}
+	$$\Gamma\left(\frac 1 2\right)\Gamma(2x)=2^{2x-1}\Gamma(x)\Gamma\left(x+\frac 1 2\right)$$
+\end{property}
+
+在之前的作业中, 我们已经用无穷乘积的定义方式证明过该公式, 下面我们用另一种方式再次证明这个问题.
+
+\begin{proof}
+	由前面给出的性质
+	$$\dfrac{\Gamma(\frac{1}{2})}{\Gamma (x+\frac{1}{2})}=\dfrac{\t B(x,\frac 1 2)}{\Gamma(x)},\quad \dfrac{\Gamma(x)}{\Gamma(2x)}=\dfrac{\t B(x,x)}{\Gamma(x)}.$$
+
+	带入之后, 我们只需证明
+	$$\t B\left(x,\frac{1}{2}\right)=2^{2x-1}\t B(x,x)$$
+
+	$$\Leftrightarrow \int_0^1 t^{x-1}(1-t)^{-\frac 1 2}\t d t=2^{2x-1}\int_0^1 t^{x-1}(1-t)^{x-1}\t d t$$
+
+	接下来通过若干次变量替换可得
+
+	\begin{equation*}
+		\begin{aligned}
+			2^{2x-1}\int_0^1 t^{x-1}(1-t)^{x-1}\t d t &= \int_0^1(2t)^{x-1}(2-2t)^{x-1}\t d (2t)
+			= \int_0^2 t^{x-1}(2-t)^{x-1} \t d t \\
+			&= \int_{-1}^1 (1+t)^{x-1}(1-t)^{x-1} \t d t
+			= \int_{-1}^1 (1-t^2)^{x-1} \t d t \\
+			&= 2\int_0^1 (1-t^2)^{x-1} \t d t
+			= 2 \int _0^1 (1-t)^{x-1} \t d \sqrt{t} \\
+			&= 2 \int _0^1 (1-t)^{x-1}\cdot \frac 1 2 t^{-\frac 1 2} \t d t
+			= \int_0^1 (1-t)^{x-1}t^{-\frac 1 2} \t d t \\
+			&= \int_0^1 t^{x-1}(1-t)^{-\frac 1 2} \t d t
+		\end{aligned}
+	\end{equation*}
+
+	这样我们就证明了
+	$$ \int_0^1 t^{x-1}(1-t)^{-\frac 1 2}\t d t=2^{2x-1}\int_0^1 t^{x-1}(1-t)^{x-1}\t d t$$
+
+	即 $$\Gamma\left(\frac 1 2\right)\Gamma(2x)=2^{2x-1}\Gamma(x)\Gamma\left(x+\frac 1 2\right)$$
+\end{proof}
+\subsection{应用}
+在之前的作业中, 我们已经证明过了斯特林 (Stirling) 公式. 下面我们用另外的两种方式进行证明.
+
+\begin{lemma}
+	对于任意给定的 $a$ 有,
+	$$\dfrac{\Gamma(x)}{\Gamma(x+a)}=x^{-a}+O\left(x^{-a-1}\right)$$
+\end{lemma}
+
+\begin{proof}
+	先假定 $a>1$,
+
+	\begin{center}
+		$
+		\begin{aligned}
+			\dfrac{\Gamma(x)\Gamma(a)}{\Gamma(x+a)} &=\t B(x,a) \\
+			&= \int_0^1 (1-y)^{a-1}y^{x-1} \t d y \\
+			&= \int_0^\infty (1-e^{-t})^{a-1}e^{-xt}\t d t\\
+			&=\int_0^{\frac 1 {\sqrt{x}}} (1-e^{-t})^{a-1}e^{-xt}\t d t+\int_{\frac 1 {\sqrt{x}}}^\infty (1-e^{-t})^{a-1}e^{-xt}\t d t \\
+			&\triangleq I_1+I_2
+		\end{aligned}
+		$
+	\end{center}
+
+	下面我们分别对 $I_1$ 和 $I_2$ 进行估计.
+
+	\begin{center}
+		$
+		\begin{aligned}
+			I_1 &=\int_0^{\frac 1 {\sqrt{x}}} (1-e^{-t})^{a-1}e^{-xt}\t d t \\
+			&= \int_0^{\frac 1 {\sqrt x}} (t+O\left(t^2\right))^{a-1} \cdot e^{-xt} \t d t\\
+			&= \int_0^{\frac 1 {\sqrt x}} t^{a-1}(1+O\left(t\right))^{a-1}\cdot e^{-xt}\t d t
+		\end{aligned}
+		$
+	\end{center}
+
+	当 $x$ 充分大时, $t$ 在 $0$ 附近, 我们有, $(1+O\left(t\right))^{a-1}\sim 1+(a-1)O\left(t\right)\sim 1+O\left(t\right)$
+
+	\begin{center}
+		$
+		\begin{aligned}
+			I_1 &=\int_0^{\frac 1 {\sqrt x}} t^{a-1}(1+O\left(t\right))^{a-1}\cdot e^{-xt}\t d t \\
+			&= \int_0^{\frac 1 {\sqrt x}} t^{a-1}(1+O\left(t\right))\cdot e^{-xt}\t d t \\
+			&= \int_0^{\frac 1 {\sqrt x}} t^{a-1}\cdot e^{-xt} \t d t + \int_0^{\frac 1 {\sqrt x}} O\left(t\right)\cdot t^{a-1}\cdot e^{-xt}\t d t \\
+			&=\int_0^{\frac 1 {\sqrt x}} t^{a-1}\cdot e^{-xt} \t d t +O\left(\int_0^{\frac 1 {\sqrt x}}\cdot t^a\cdot e^{-xt}\t d t\right)
+		\end{aligned}
+		$
+	\end{center}
+
+	作换元 $t=xt$
+
+	\begin{center}
+		$
+		\begin{aligned}
+			I_1 &= \int_0^{\frac 1 {\sqrt x}} t^{a-1}\cdot e^{-xt} \t d t +O\left(\int_0^{\frac {1} {\sqrt x}}\cdot t^a\cdot e^{-xt}\t d t\right) \\
+			&= x^{-a}\int_0^{\sqrt x} t^{a-1}\cdot e^{-t} \t d t + O\left(\int_0^{\frac 1 {\sqrt x}}\cdot t^a\cdot e^{-xt}\t d t\right) \\
+			&= x^{-a}\int_0^\infty t^{a-1}\cdot e^{-t} \t d t + O\left(x^{-a}\int_{\sqrt x}^\infty t^{a-1}\cdot e^{-t} \t d t\right) + O\left(x^{-a-1}\int_0^{{\sqrt x}}\cdot t^a\cdot e^{-t}\t d t\right) \\
+		\end{aligned}
+		$
+	\end{center}
+
+	由 $\Gamma$ 函数收敛, $\int_0^{{\sqrt x}}\cdot t^a\cdot e^{-t}\t d t \sim O\left(1\right).$
+
+	而 $\int_{\sqrt x}^\infty t^{a-1}\cdot e^{-t} \t d t = O\left(\int_{\sqrt x}^\infty e^{-\frac t 2}\t d t\right)=O\left(\frac 1 x\right).$
+
+	故
+	$$I_1=x^{-a}\Gamma(a)+O\left(x^{-a-1}\right)$$
+
+	$$I_2=\int_{\frac 1 {\sqrt x}}^\infty (1-e^{-t})^{a-1}\cdot e^{-xt}\t d t=O\left(\int_{\frac 1 {\sqrt x}}^\infty e^{-xt}\t d t\right)=O\left(\dfrac 1 {xe^{\sqrt x}}\right)=O\left(x^{-a-1}\right).$$
+
+	因此
+	$$I_1+I_2=x^{-a}\Gamma(a)+O(x^{-a-1})$$
+
+	$$\Rightarrow \dfrac{\Gamma(x)}{\Gamma(x+a)}=x^{-a}+O(x^{-a-1})$$
+
+	对于 $0<a<1$ 的情况, 我们取 $k\in \mathbb{Z}_{\geqslant 1}$ 使得 $a+k>1$
+
+	可以得到 $$\dfrac{\Gamma(x)}{\Gamma(x+a+k)}=x^{-a-k}+O(x^{-a-k-1})$$
+
+	进而通过 $\Gamma$ 函数的递推公式可以得到相应的结论.
+\end{proof}
+
+\begin{theorem}[斯特林公式]
+	$$\log \Gamma(s)=(s-\frac 1 2)\log s - s + \frac 1 2 \log 2 \pi +O\left(\frac 1 s\right).$$
+\end{theorem}
+
+\begin{proof}
+	我们先对 $x$ 为正整数的情形进行估计
+
+	\begin{center}
+		$
+		\begin{aligned}
+			\log \Gamma(n)&=\log[(n-1)!]=\sum\limits_{k=1}^{n-1} \log k=\sum\limits_{k=1}^{n-1}\int_k^{k+1}\log k \t d t \\
+			&=\sum\limits_{k=1}^{n-1}\int_k^{k+1}\log k -\log t \t d t+\int_k^{k+1} \log t \t d t \\
+			&=\int_1^n \log t \t d t-\sum\limits_{k=1}^{n-1}\int_{k}^{k+1}\log \dfrac{t}{k}\t d t \\
+			&=n\log n-n+1+\sum\limits_{k=1}^{n-1}\int_0^1 \log \dfrac{t+k}{k}\t d t \\
+			&=n \log n -n+1 +\sum\limits_{k=1}^{n-1} \int_0^1 \log(1+\dfrac t k)\t d t \\
+			&=n \log n-n+1+\sum\limits_{k=1}^{n-1}\left(\dfrac 1 {2k}+O\left(\dfrac 1 {k^2}\right)\right) \\
+			&=n\log n-n+1 - \dfrac 1 2 \log n + C + O\left(\dfrac 1 n\right) \\
+			&=\left(n-\frac 1 2 \right)\log n -n + C +O(\frac 1 n)
+		\end{aligned}
+		$
+	\end{center}
+
+	下面我们将这个结论推广到任意实数上, 令 $x=n+a, 0<a<1$
+
+	由引理可知
+
+	\begin{center}
+		$
+		\begin{aligned}
+			\log \dfrac{\Gamma(n)}{\Gamma(n+a)} &= \log(n^{-a}+O(n^{-a-1})) \\
+			&= \log n^{-a} + \log\left(1+O\left(\frac 1 n\right)\right)\\
+			&=-a \log n+O\left(\frac 1 n\right)
+		\end{aligned}
+		$
+	\end{center}
+
+	从而
+
+	\begin{center}
+		$
+		\begin{aligned}
+			\log \Gamma(x)&=\log \Gamma(n)+a \log n + O\left(\frac 1 n\right)\\
+			&=(n-\frac 1 2)\log n -n +C + a\log n + O\left(\frac 1 2\right) \\
+			&=(x-a-\frac 1 2)\log (x-a)-x+a+C+a\log (x-a) +O\left(\frac 1 x\right) \\
+			&=(x-\frac 1 2)[\log x +\log (1-\frac a x)]-x+a+C+O\left(\frac 1 x\right)\\
+			&=(x-\frac 1 2)\log x-x+C+(x-\frac 1 2)\left(-\frac a x+O\left(\frac 1 {x^2}\right)\right)+a+O\left(\frac 1 x\right) \\
+			&=(x-\frac 1 2)\log x -x +C +O\left(\frac 1 x\right)
+		\end{aligned}
+		$
+	\end{center}
+
+	下面我们来确定常数 $C$ 的值.
+
+	考虑倍元公式
+	$$\Gamma(2x)\Gamma(\frac 1 2)=2^{2x-1}\Gamma(x)\Gamma(x+\frac 1 2)$$
+
+	对两边取对数得
+	$$\log \Gamma(2x) + \log \Gamma(\frac 1 2)=(2x-1)\log 2 + \log \Gamma(x)+ \log \Gamma(x+\frac 1 2)$$
+
+	再带入我们得到的估计式, 并整理可得
+
+	$$x\log (1+\dfrac 1 {2x})-\dfrac 1 2 - \dfrac 1 2 \log 2 + C +O\left(\dfrac 1 x \right)=\log \Gamma(\dfrac 1 2)$$
+
+	当 $x\to +\infty$ 时, $x\log (1+\dfrac 1 {2x})-\dfrac 1 2=x \cdot \dfrac 1 {2x}-\dfrac 1 2=0$
+
+	故
+	$$C=\log\Gamma(\dfrac 1 2) + \dfrac 1 2 \log 2,\qquad x\to +\infty$$
+
+	下面我们来求 $\Gamma(\frac 1 2)$
+
+	由余元公式 $\Gamma(p)\Gamma(1-p)=\dfrac{\pi}{\sin p\pi}$
+
+	我们取 $p=\dfrac{1}{2}$, 则有 $\Gamma(\frac 1 2)^2=\pi \Rightarrow \Gamma(\frac 1 2)=\sqrt{\pi}$
+
+	故 $C=\log \sqrt{\pi}+\dfrac 1 2\log 2=\log \sqrt{2\pi}$
+
+	综上, 我们就得到了斯特林公式 $$\log \Gamma(s)=(s-\frac 1 2)\log s - s + \frac 1 2 \log 2 \pi +O\left(\frac 1 s\right).$$
+\end{proof}
+
+
+除了这种方式之外, 下面再通过书本习题 $14.2$ 中的一组题来证明这件事.
+
+16. 设 $s \geqslant 2$, 利用 (14.17) 以及变量替换证明
+$$\Gamma(s)=(s-1)^s e^{1-s}\int_{-1}^{+\infty}((1+x)e^{-x})^{s-1} \t d x.$$
+
+\begin{proof}
+	做变量替换 $x \to (s-1)(x+1)$ 则有
+
+	\begin{equation*}
+		\begin{aligned}
+			\Gamma(s) &= \int_{0}^{+\infty} e^{-x}x^{s-1} \t d x \\
+			&=  \int_{-1}^{+\infty}e^{-(s-1)(x+1)}[(s-1)(x+1)]^{s-1} \t d x \\
+			&= (s-1)^s e^{1-s} \int_{-1}^{+\infty}((1+x)e^{-x})^{s-1} \t d x
+		\end{aligned}
+	\end{equation*}
+
+\end{proof}
+
+17. 设 $s \geqslant 2$, 并记 $\delta = s^{-0.4}$, 利用 $2.24$ 证明
+$$\int_{-\delta}^{\delta} ((1+x)e^{-x})^{s-1} \t d x = \sqrt{\frac{2\pi}{s}} + O\left(\frac{1}{s\sqrt{s}}\right).$$
+
+\begin{proof}
+	因为当 $|x| \leqslant \delta$ 时
+
+	$
+	\begin{aligned}
+		\log ((1+x)e^{-x})^{s-1} = (s-1)(\log(1+x)-x) = (s-1)(-\frac{x^2}{2}+\frac{x^3}{3}+O(x^4)).
+	\end{aligned}
+	$
+
+	所以 $((1+x)e^{-x})^{s-1} = e^{-\frac{s-1}{2}x^2}(1+\frac{(s-1)}{3}x^3+O(s x^4))$, 进而有
+
+	$
+	\begin{aligned}
+		\int_{-\delta}^{\delta} ((1+x)e^{-x})^{s-1} \t d x & = \int_{-\delta}^{\delta} e^{-\frac{s-1}{2}x^2} \t d x + \int_{-\delta}^{\delta} e^{-\frac{s-1}{2}x^2}\frac{x^3}{3} \t d x + O\left(s\int_{-\delta}^{\delta} e^{-\frac{s-1}{2}x^2}x^4 \t d x\right)\\
+		& = \int_{-\infty}^{\infty} e^{-\frac{s-1}{2}x^2}\t d x + O\left(\int_{\delta}^{\infty} e^{-\frac{s-1}{2}x^2} \t d x\right) + \int_{-\delta}^{\delta} e^{-\frac{s-1}{2}x^2}\frac{x^3}{3} \t d x\\
+		&\quad  + O\left(s\int_{0}^{\delta} e^{-\frac{s-1}{2}x^2}x^4 \t d x\right)\\
+	\end{aligned}
+	$
+
+	其中
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)]
+		\begin{equation*}
+			\begin{aligned}
+				\int_{-\infty}^{+\infty} e^{-\frac{s-1}{2}x^2} \t d x = \sqrt{\frac{2}{s-1}}\int_{-\infty}^{+\infty} e^{-x^2} \t d x = \sqrt{\frac{2\pi}{s-1}}.
+			\end{aligned}
+		\end{equation*}
+		\item[(2)]
+		\begin{equation}\label{欧拉积分1}
+			\begin{aligned}
+				\int_{\delta}^{+\infty} e^{-\frac{s-1}{2}x^2} \t d x &= \sqrt{\frac{2}{s-1}} \int_{\delta \sqrt{\frac{s-1}{2}}}^{+\infty} e^{-x^2} \t d x \ll \frac{1}{\sqrt{s}}\int_{\delta \sqrt{\frac{s-1}{2}}}^{+\infty} e^{-x} \t d x \\
+				&= \frac{1}{\sqrt{s}} \cdot e^{-\delta\sqrt{\frac{s-1}{2}}} \ll \frac{1}{s\sqrt{s}}.
+			\end{aligned}
+		\end{equation}
+		\item[(3)] $e^{-\frac{s-1}{2}x^2}\dfrac{x^3}{3}$ 是奇函数积分是 $0$.
+		\item[(4)]
+		\begin{equation*}
+			\begin{aligned}
+				s\int_0^\delta e^{-\frac{s-1}{2}x^2} x^4 \t d x = s\int_0^{\frac{s-1}{2}\delta^2} e^{-x}\frac{4}{(s-1)^2}x^2 \t d \sqrt{\frac{2}{s-1}x}  \\ \\
+				= \frac{2\sqrt{2}s}{(s-1)^{\frac{5}{2}}} \int_0^{\frac{s-1}{2}\delta^2} e^{-x} x^{\frac{3}{2}} \t d x \ll \frac{1}{s\sqrt{s}}.
+			\end{aligned}
+		\end{equation*}
+	\end{itemize}
+
+	所以有 $$\int_{-\delta}^{\delta}((1+x)e^{-x})^{s-1} \t d x = \sqrt{\frac{2\pi}{s}}+O\left(\frac{1}{s\sqrt{s}}\right).$$
+
+\end{proof}
+
+18. 通过考察被积函数的单调性证明
+
+$$\int_{-1}^{-\delta}((1+x)e^{-x})^{s-1} \t d x + \int_{\delta}^{+\infty}((1+x)e^{-x})^{s-1}\t d x \ll \frac{1}{s\sqrt{s}}.$$
+
+\begin{proof}
+	一方面, 因为 $(1+x)e^{-x}$ 在 $[-1,-\delta]$ 上单调递增, 故而
+	\begin{equation}\label{欧拉积分2}
+		\begin{aligned}
+			\int_{-1}^{-\delta} ((1+x)e^{-x})^{s-1} \t d x &\leqslant ((1-\delta)e^\delta)^{s-1} = \exp\left((s-1)(\log(1-\delta)+\delta)\right) \\
+			&= \exp\left(-\frac{s\delta^2}{2}+O(s\delta^3)\right) \ll e^{-\frac{1}{2}s^{0.2}} \ll \frac{1}{s\sqrt{s}}.
+		\end{aligned}
+	\end{equation}
+
+	另一方面, 由 $(1+x)e^{-x}$ 在 $\seta{R}{\geqslant 0}$ 上单调递减, 以及 $(1+x)e^{-\frac{x}{2}}$ 在 $\seta{R}{\geqslant 1}$ 上单调递减且 $(1+x)e^{-\frac{x}{2}} \geqslant (1+x)e^{-x}$ 知
+
+	\begin{equation}\label{欧拉积分3}
+		\begin{aligned}
+			\int_{\delta}^{+\infty} ((1+x)e^{-x})^{s-1} \t d x &= \int_{\delta}^1 ((1+x)e^{-x})^{s-1} \t d x + \int_{1}^{+\infty} ((1+x)e^{-x})^{s-1} \t d x \\
+			&\ll ((1+\delta)e^{-\delta})^{s-1} + \int_{1}^{+\infty} e^{-\frac{s-1}{2}x} \t d x \\
+			&= \exp\left((s-1)(\log(1+\delta)-\delta)\right) + \frac{2}{s-1}e^{-\frac{s-1}{2}} \\
+			&= \exp\left(-\frac{s\delta^2}{2} + O(s\delta^3)\right) + \frac{2}{s-1}e^{-\frac{s-1}{2}} \\
+			&\ll e^{-\frac{1}{2}s^{0.2}} + e^{-\frac{s-1}{2}} \ll \frac{1}{s\sqrt{s}}.
+		\end{aligned}
+	\end{equation}
+
+	所以有 $$\int_{-1}^{-\delta}((1+x)e^{-x})^{s-1} \t d x + \int_{\delta}^{+\infty}((1+x)e^{-x})^{s-1}\t d x \ll \frac{1}{s\sqrt{s}}.$$
+\end{proof}
+
+19. 对 $s \geqslant 2$ 证明斯特林公式
+$$\log\Gamma(s) = (s-\frac{1}{2})\log s - s +\frac{1}{2}\log{2\pi}+O\left(\frac{1}{s}\right).$$
+
+\begin{proof}
+	有了前几题的铺垫, 我们可以得到
+
+	\begin{equation*}
+		\begin{aligned}
+			\log\Gamma(s) &= s \log(s-1) + 1 - s + \log \left(\sqrt{ \frac{2\pi}{s} }+O\left(\frac{1}{s\sqrt{s}}\right)\right) \\
+			&=s\log(s-1)+1-s+ \log\left(\sqrt{\frac{2\pi}{s}}\left(1+O\left(\frac{1}{s}\right)\right)\right) \\
+			&=s \log(s-1) + 1- s + \frac{1}{2} \log 2\pi - \frac{1}{2}\log s + O\left(\frac{1}{s}\right) \\
+			&=(s-\frac{1}{2})\log s - s +\frac{1}{2}\log 2\pi + O\left(\frac{1}{s}\right) + s \left(\log\left(1 - \frac{1}{s}\right) + \frac 1 s \right)\\
+			&=(s-\frac{1}{2})\log s - s +\frac{1}{2}\log 2\pi + O\left(\frac{1}{s}\right)
+		\end{aligned}
+	\end{equation*}
+\end{proof}
+
+至此, 我们已经重新证明了斯特林公式. 但在此之中我们取 $\delta=s^{-0.4}$ 这个值并不是唯一的, 下面我们在来观察一下 $\delta$ 的取值. 我们设 $\delta=s^{-\alpha}$.
+
+首先我们先关注所有用到 $\delta$ 取值的等式,(\ref{欧拉积分1}),(\ref{欧拉积分2})(\ref{欧拉积分3}).
+
+其中 (\ref{欧拉积分1}) 最后一步要成立就得满足 $\alpha<\frac 1 2$
+
+(\ref{欧拉积分2}) 最后一步要满足 $3\alpha>1 \wedge 2\alpha<1 \Rightarrow \frac 1 3\alpha<\frac1 2$
+
+(\ref{欧拉积分3}) 要求与 (\ref{欧拉积分2}) 相同
+
+综上 $\alpha$ 的取值范围为 $(\frac 1 3,\frac 1 2)$.
+
+\specialfalse

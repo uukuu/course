@@ -1,0 +1,76 @@
+\section{循环群}
+
+\begin{definition}
+	设 $G$ 是一个群, 如果 $G$ 的每一个元素都能写成 $G$ 的某个元素 $a$ 的整数次幂的形式, 那么称 $G$ 为\mydef{循环群}, 称 $a$ 是 $G$ 的一个\textbf{生成元}, 并记 $G=\langle a\rangle$.
+\end{definition}
+
+\begin{definition}\label{元素的阶}
+	对于群 $G$ 中元素 $a$, 如果存在最小的正整数 $n$, 使得 $a^n=e$. 则称 $a$ 的\textbf{阶}为 $n$, 记作 $|a|=n$. 如果不存在这样的 $n$, 则称 $a$ 是\textbf{无限阶元素}.
+\end{definition}
+
+\begin{proposition}
+	有限群 $G$ 是循环群, 当且仅当 $\exists\ a\in G,\ s.t.\  |a| = |G|$.
+\end{proposition}
+
+\begin{proposition}
+	设 $a\in G,\ |a|=n$ 则 $$a^m = e\Leftrightarrow n\mid m.$$
+\end{proposition}
+
+\begin{proposition}
+	设 $a\in G,\ |a|=n$ 则 $$|a^k|=\frac n {(n,k)}.$$
+\end{proposition}
+
+\begin{proposition}
+	若 $a,b\in G,\ ab=ba,\ |a|=n,|b|=m, (n,m)=1$ 则 $|ab|=nm$.
+\end{proposition}
+
+\begin{proposition}
+	设 $G$ 是\lAbel 群, 则 $\exists\ a\in G,\ s.t.\ \forall b \in G,|b|\big| |a|$.
+\end{proposition}
+
+\begin{theorem}
+	设 $m$ 是大于 $1$ 的整数, 则 $\Z_m^*$ 为循环群当且仅当 $m$ 为下列情形之一: $$2,\ 4,\ p^r,\ 2p^r,\quad \t{其中}\ p\ \t{是奇素数},\ r\in\N^*$$
+\end{theorem}
+
+\begin{theorem}\label{F*}
+	有限域 $F$ 的所有非零元组成的集合 $F^*$ 对于乘法构成群, 且是循环群.
+\end{theorem}
+
+\begin{definition}
+	群同构
+\end{definition}
+
+\begin{proposition}
+	设 $\sigma$ 是 $G$ 到 $\widetilde{G}$ 的一个\hr{群同构映射}, 则
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] $\sigma(e)=\widetilde{e}$.
+		\item[(2)]$\sigma(a^{-1})=\sigma(a)^{-1}$.
+		\item[(3)]$\sigma(a)$ 与 $a$ 的阶相同.
+	\end{itemize}
+\end{proposition}
+
+
+\begin{theorem}
+	\begin{itemize}
+		\item[(1)] 任意一个无限循环群都与 $(\Z,+)$ 同构;
+		\item[(2)] 对于 $m>1$, 任意一个 $m$ 阶循环群都与 $(\Z_m,+)$ 同构;
+		\item[(3)] $1$ 阶循环群都与加法群 $\{0\}$ 同构.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+	设 $m_1,m_2$ 是大于 $1$ 的整数, 则 $(\Z_{m_1}\oplus\Z_{m_2},+)$ 是循环群当且仅当 $(m_1,m_2)=1$.
+\end{theorem}
+
+\begin{practice}
+	\problem 证明: 若 $\Z_m^*$ 是循环群, 则 $\Z_m^*$ 的生成元个数等于 $\varphi(\varphi(m))$.
+	\begin{proof}
+		$|\Z_m^*|=\varphi(m)$, 设 $a$ 是 $\Z_m^*$ 的生成元, 那么 $|a|=\varphi(m)$.
+		\\则有 $b=a^k\in\Z_m^*$ 是生成元 $\Leftrightarrow |a^k|=\varphi(m)\Leftrightarrow \dfrac{\varphi(m)}{(\varphi(m),k)}\Leftrightarrow(\varphi(m),k)=1$.
+	\end{proof}
+
+	\problem 证明: 如果群 $G$ 的阶为偶数, 那么 $G$ 必有 $2$ 阶元.
+	\begin{proof}
+		反设 $G$ 中没有 $2$ 阶元, 则对于 $G$ 中每个个非单位元 $a$ 都有 $a\neq a^{-1}$. 从而可以将 $G$ 的元素和对应的逆元两两配对, 也即除去单位元后元素个数为偶数, 所以总个数为奇数矛盾. 故 $G$ 中有 $2$ 阶元.
+	\end{proof}
+\end{practice}

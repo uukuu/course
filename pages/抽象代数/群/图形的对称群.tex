@@ -1,0 +1,25 @@
+\section{图形的对称(性)群}
+
+\begin{definition}
+	平面上(或空间中)的一个变换 $\sigma$ 如果保持任意两点的距离不变, 那么称 $\sigma$ 是平面上(或空间中)的一个\mydef{正交点变换}(或\mydef{保距变换})(isometry).
+\end{definition}
+
+\begin{definition}
+	平面上(或空间中)的一个正交点变换 $\sigma$ 如果使得图形 $\Gamma$ 的像与自身重合, 那么称 $\sigma$ 是图形 $\Gamma$ 的\mydef[对称变换]{对称(性)变换}.
+
+	容易验证, $\Gamma$ 的所有对称变换构成一个群, 称为\mydef[对称群]{图形 $\Gamma$  的对称(性)群}.
+\end{definition}
+
+我们一般用 $\tau$ 来表示图形关于直线反射(轴对称)的对称变换, 用 $\sigma$ 来表示关于图形中心旋转得到的对称变换.
+
+用 $D_n$ 表示正 $n$ 边形的对称群.
+
+当 $n=4$ 时, 正方形一共有四条对称轴对应 $\tau_1,\tau_2,\tau_3,\tau_4$, 且每转动 $90^\circ$ 都重合对应着 $\sigma,\sigma^2,\sigma^3,\sigma_4=I$.
+
+经过研究, $D_4=\{I,\sigma,\sigma^2,\sigma^3,\tau_1,\tau_2,\tau_3,\tau_4\}$. 同时 $\tau_i$ 也可以由 $\sigma$ 和 $\tau_1$ 表示. 所以也可以把 $D_4$ 简单的记作 $$D_4=\langle \sigma,\tau|\sigma^4=\tau^2=I,(\tau\sigma)^2=I\rangle.$$
+
+类似的, 对于 $D_n$ 也可以记作 $\langle \sigma,\tau|\sigma^n=\tau^2=(\tau\sigma)^2=I\rangle$.
+
+由于 $\tau\sigma=\sigma^{-1}\tau=\sigma^{n-1}\tau\neq\sigma\tau$, 所以 $D_n$ 是非 \Abel 群.
+
+我们称 $D_n$ 为\mydef{二面体群}, 且有 $|D_n|=2n$.

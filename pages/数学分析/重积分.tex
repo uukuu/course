@@ -1,0 +1,117 @@
+\newpage
+\chapter{重积分}
+
+\section{若尔当测度}
+
+\subsection{简单集合的测度}
+
+\begin{definition}
+	设 $I_j\ (1 \leqslant j \leqslant n)$ 是 $\mathbb R$ 中的有界区间, 我们称 $I_1\times I_2\times\cdots \times I_n$ 为 $\set R n$ 中的矩形. 若 $\set R n$ 中的子集 $E$ 可表为有限多个矩形的并, 则称 $E$ 是 $\set R n$ 中的简单集合. 特别的, 空集也是简单集合.
+\end{definition}
+
+\begin{proposition}
+	设 $E,F$ 是 $\set R n$ 中的简单集合, 则 $E\cup F,\ E \cap F, \ E\backslash F,\ E\Delta F$ 也均是 $\set R n$ 中的简单集合. 此外, 对任意的 $\bm a \in \set R n$, $E+\bm a=\{\bm x +\bm a:\bm x \in E\}$ 是 $\set R n$ 中的简单集合.
+\end{proposition}
+
+\begin{definition}
+	我们用 $|I|$ 来表示 $\mathbb R$ 中有界区间 $I$ 的长度, 由此我们定义 $\set R n$ 中矩形 $Q=I_1\times I_2\times\cdots\times I_n$ 的体积 $|Q|$ 为 $$|Q|=\prod\limits_{j=1}^n |I_j|$$ 根据这个定义知, $|Q|=|\overline{Q}|$.
+\end{definition}
+
+\begin{proposition}
+	设 $E$ 是 $\set R n$ 中的一个简单集合, 那么
+	
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)]  $E$ 可表为有限多个两两不相交的矩形的并, 并称之为 $E$ 的划分.
+		\item[(2)]  若 $E$ 可用如下两种方式写成互不相交的矩形的并
+		$$E=\bigcup\limits_{i=1}^m Q_i=\bigcup\limits_{j=1}^k Q_j',$$
+		则
+		$$\sum\limits_{i=1}^m |Q_i|=\sum\limits_{j=1}^j |Q_j'|.$$ 
+	\end{itemize}
+\end{proposition}
+
+\begin{definition}
+	设 $E$ 是 $\set R n$ 中的一个简单集合, $E=Q_1\cup \cdots \cup Q_m$ 是 $E$ 的一个划分, 则记 $$\mu(E)=\sum\limits_{i=1}^m|Q_i|$$ 并称之为  的测度.
+\end{definition}
+
+\begin{proposition}
+	设 $E,F$ 均是 $\set R n$ 中的简单集合, 则
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)](有限可加性) 若 $E\cap F=\varnothing$, 则 $\mu(E\cup F)=\mu(E)+\mu(F)$;
+	\end{itemize}
+\end{proposition}
+
+\section{闭矩形上的积分}
+\section{有界集上的积分}
+\section{富比尼定理}
+\section{变量替换}
+
+\section{反常重积分}
+
+\begin{definition}
+	设 $E\subseteq \set R n$, 如果若尔当可测集列 $\{E_m\}$ 满足 $$E_m\subseteq E_{m+1}\ (\forall\ m \geqslant 1)\qquad \text{以及} \qquad \bigcup\limits_{m=1}^\infty E_m=E,$$ 则称 $\{E_m\}$ 是 $E$ 的一个\textbf{穷竭}.
+	注: 该名称并不是通用的, 仅在陆亚明《数学分析入门》中使用.
+\end{definition}
+
+\begin{definition}\label{反常重积分定义}
+	设 $E\subseteq \set R n, f:E\longrightarrow \mathbb R$. 如果对 $E$ 的使得 $f$ 在每个 $E_m$ 上均可积的任意穷竭 $\{E_m\}$, 极限 $$\lim\limits_{m\to\infty} \int_{E_m}f$$ 都存在且相等, 那么我们就称 $f$ 在 $E$ 上\textbf{可积}, 并将上述极限值记作 $$\int_E f,$$
+	此时也称积分 $\displaystyle\int_E f$ \textbf{收敛}. 否则就称 $\displaystyle\int_E f$ \textbf{发散}, 或称 $f$ 在 $E$ 上\textbf{不可积}.
+\end{definition}
+
+\begin{lemma}
+	设 $E\subseteq \set R n$, $f$ 是定义在 $E$ 上的函数. 若存在 $E$ 的一个穷竭 $\{E_m\}$, 使得 $f$ 在每个 $E_m$ 上均可积, 那么对于 $E$ 的任一穷竭 $\{F_k\}$, 只要 $f$ 在每个 $F_k$ 上有界, 它就在每个 $F_k$ 上可积.
+\end{lemma}
+
+\begin{proof}
+	考虑 $\{E_m\cap F_k:m\geqslant 1\}$ 是 $F_k$ 的穷竭. 考虑 $F_k$ 的不连续点由 $E_m\cap F_k$ 的内部的不连续点和 $\partial(E_m\cap F_k)$ 中的不连续点构成. 又 $E_m$ 可积, $E_m\cap F_k$ 若当可测. 那么就有上述两部分的点均为勒贝格零测集. 由此 $f$ 在 $F_k$ 上可积.
+\end{proof}
+
+\begin{proposition}
+	设 $E$ 若尔当可测且 $f$ 在 $E$ 上可积, $\{E_m\}$ 是 $E$ 的一个穷竭, 那么 $\lim\limits_{m\to\infty}\mu(E_m)=\mu(E)$ 并且 $$\lim\limits_{m\to\infty} \int_{E_m} f = \int_E f.$$
+\end{proposition}
+
+\begin{proposition}
+	设 $E\subseteq \set R n,f:E\longrightarrow \set R n$ 是一个非负函数, 那么 $\dps{\int_E f}$ 收敛的充要条件是: 存在 $E$ 的穷竭 $\{E_m\}$ 使得 $f$ 在每个 $E_m$ 上均可积, 并且极限 $$\lim\limits_{m\to\infty}\int_{E_m} f$$ 存在.
+\end{proposition}
+
+\begin{proposition}(比较判别法)
+	设 $E\subseteq \set R n,\ f$ 与 $g$ 均是定义在 $E$ 上的非负函数并且 $$f(x)\leqslant g(x),\quad \forall x\in E.$$ 又设存在 $E$ 的穷竭 $\{E_m\}$ 使得 $f$ 与 $g$ 均在每个 $E_m$ 上可积. 如果 $\dps{\int_E g}$ 收敛, 那么 $\dps{\int_E f}$ 也收敛.
+\end{proposition}
+
+\begin{proposition}
+	设 $E$ 是 $\set R n$ 的一个无界子集, $f$ 是定义在 $E$ 上的非负函数. 又设对任意的 $m\geqslant 1,\ B(\bm 0,m)\cap E$ 均是若尔当可测集且 $f$ 在其上可积. 此外, 还设存在常数 $p>n$, 使得 $\dps{\frac{1}{|\bm x|^p}}$ 在 $(E\cap B(\bm 0,m))\backslash B(\bm 0,1)\ (m\geqslant 1)$ 上可积, 并且当 $|\bm x|$ 充分大时有 $$f(\bm x)<<\frac{1}{|\bm x|^p},$$ 那么 $\dps{\int_E f}$ 收敛.
+\end{proposition}
+
+\begin{proposition}
+	设 $E$ 是 $\set R n$ 中的有界集, $f$ 是定义在 $E$ 上的非负函数, 且 $\bm x_0 \in \partial E$ 是 $f$ 的唯一奇点. 又设对任意的 $m\geqslant 1,\ E\backslash B(\bm x_0,\frac 1 m)$ 均是若尔当可测集且 $f$ 在其上可积, 此外, 还假设存在常数 $p<n$, 使得函数 $\dfrac{1}{|\bm x-\bm x_0|^p}$ 在 $E\backslash B(\bm x_0,\frac 1 m)\ (m\geqslant 1)$ 上可积, 并且当 $\bm x \to \bm x_0\ (\bm x \in E)$ 时有 $$f(\bm x)<<\frac{1}{|\bm x-\bm x_0|^p},$$ 那么 $\dps{\int_E f}$ 收敛. 
+\end{proposition}
+
+\begin{lemma}
+	设 $E\subseteq \R^n$, $f$ 与 $g$ 是定义在 $E$ 上的非负函数. 如果 $\dps \int_E f$ 与 $\dps\int_E g$ 均收敛, 那么 $\dps\int_E f+g$ 也收敛且 $$\int_E f+g = \int_E f+\int_E g.$$
+\end{lemma}
+
+\begin{proposition}
+	设 $E\subseteq \R^n,\ f:E\longrightarrow\R$. 如果 $\dps\int_E f$ 收敛, 那么 $\dps\int_E |f|$ 也收敛.
+\end{proposition}
+
+\begin{proposition}
+	设 $E,F\subseteq\R^n$, 函数 $f$ 在 $E\cup F$ 上有定义, $g$ 在 $E$ 上有定义.
+	
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] 若 $\mint[E]f$ 收敛, 则对任意的 $a\in\R$, $\mint[E] af$ 收敛, 且 $$\mint[E] af=a\mint[E] f.$$
+		\item[(2)] 若 $\mint[E] f$ 和 $\mint[g]$ 均收敛, 则 $\mint[E](f+g)$ 也收敛, 且 $$\mint[E](f+g)=\mint[E] f+\mint[E] g.$$
+		\item[(3)] 若 $E$ 和 $F$ 无公共内点, 且 $\mint[E] f$ 与 $\mint[F] f$ 均收敛, 则 $\mint[E\cup F] f$ 收敛, 且 $$\int_{E\cup F} f = \int_E f+\int_F f.$$
+	\end{itemize}
+\end{proposition}
+
+\begin{theorem}
+	设 $E\subseteq \R^n,\ f:E\longrightarrow\R$, 那么 $\mint[E] f$ 收敛当且仅当 $\mint[E] |f|$ 收敛. 
+\end{theorem}
+
+\begin{remark}
+	此处重积分与一元反常积分略有差异, 在本节定义 \ref{反常重积分定义} 中需针对任意穷竭, 对应到一元中其实就是在考虑黎曼重排, 而一元中仅仅是条件收敛, 即意味着可以黎曼重排使极限为任意值时, 在本节定义 \ref{反常重积分定义} 下是发散的. 而当一元情形是绝对收敛的, 在该定义下才是收敛的, 故在多元中收敛与绝对值收敛等价. 
+\end{remark}
+
+\begin{theorem}
+	设 $E$ 是 $\R^n$ 中的开集, $\varphi:E\longrightarrow\varphi(E)$ 是一个连续可微的双射, 并且对任意的 $\bm x \in E$ 而言 $\varphi'(\bm x)$ 均非奇异. 又设定义在 $\varphi(E)$ 的函数 $f$ 在 $\varphi(E)$ 的任一若尔当可测紧子集上可积. 那么当 $$\int_{\varphi(E)} f\quad\text{与}\quad\int_{E}(f\circ \varphi)|\det \varphi'|$$ 中有一个收敛时, 另一个必收敛, 且有 $$\int_{\varphi(E)} f=\int_{E}(f\circ \varphi)|\det \varphi'|$$
+\end{theorem}
+

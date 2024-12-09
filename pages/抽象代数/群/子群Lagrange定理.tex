@@ -1,0 +1,108 @@
+\section{子群,\ \t{Lagrange} 定理}
+
+\begin{definition}
+	如果群 $G$ 的一个非空子集 $H$ 对于 $G$ 的运算也成为一个群, 那么称 $H$ 为 $G$ 的一个\mydef{子群}, 记作 $H<G$.
+
+	$n$ 元对称群 $S_n$ 的任一子群称为 \textbf{$n$ 元置换群}.
+
+	非空集合 $\Omega$ 上的全变换群 $S_\Omega$ 的任一子群称为 $\Omega$ 上的\mydef{变换群}.
+
+	群 $G$ 中, 仅由单位元 $e$ 组成的子集 $\{e\}$ 是 $G$ 的一个子群. $G$ 本身也是 $G$ 的一个子群. $\{e\}$ 和 $G$ 称为 $G$ 的\mydef{平凡子群}.
+\end{definition}
+
+\begin{proposition}
+	群 $G$ 的非空子集 $H$ 是子群当且仅当从 $a,b\in H$ 可以推出 $$ab^{-1}\in H.$$
+\end{proposition}
+
+\begin{definition}
+	设 $H<G$, 我们规定 $G$ 上面的一个二元关系 $\sim$, 满足 $$a\sim b\Leftrightarrow ab^{-1}\in H.$$
+\end{definition}
+
+容易验证, $\sim$ 是一个等价关系.
+
+下面我们就来考虑这个关系中的等价类, 任给 $a\in G$.
+\begin{equation*}
+\setlength{\arraycolsep}{0.5pt}
+\begin{array}{rcl}
+	\overline{a}&=&\{x\in G|x\sim a\}=\{x\in G|xa^{-1}\in H\}=\{x\in G|xa^{-1}=h,h\in H\}\\
+	&=&\{x\in G|x=ha,h\in H\}=\{ha|h\in H\}\triangleq Ha.
+\end{array}
+\end{equation*}
+
+\begin{definition}
+	我们称 $Ha$ 是 $H$ 的一个\mydef{右陪集}, $a$ 称为\mydef{陪集代表}. $H$ 的所有右陪集组成的集合是 $G$ 的一个划分, 此集合也称为 $G$ 关于子群 $H$ 的\mydef{右商集}, 记作 $(G/H)_r$.
+\end{definition}
+
+类似的, 定义二元关系 $b^{-1}a\in H$, 可定义\mydef{左陪集} $aH$, 和左商集 $(G/H)_l$.
+
+取映射 $$\begin{array}{rcl}
+	\sigma:(G/H)_l &\to& (G/H)_r \\
+	aH & \mapsto & Ha^{-1}
+\end{array}$$
+
+则有 $aH=cH\Leftrightarrow c^{-1}a\in H\Leftrightarrow c^{-1}(a^{-1})^{-1}\in H\Leftrightarrow Hc^{-1}=Ha^{-1}$. 从而说明 $\sigma$ 是单射. 又 $\sigma(b^{-1}H)=Hb$, 因此 $\sigma$ 是满射, 从而 $\sigma$ 是双射.
+
+\begin{definition}
+	\noindent 设 $H<G$, 把 $(G/H)_l$ 的基数称为 $H$ 在 $G$ 中的\mydef{指数}, 记作 $[G:H]$. 
+\end{definition}
+
+若 $[G:H]=r$, 则有 
+\begin{equation}\label{左陪集分解式}
+	G=H\cup a_1 H\cup\cdots\cup a_{r-1}H,
+\end{equation}
+其中 $H,a_1H,\ldots,a_{r-1}H$ 两两不相交, 我们称 \eqref{左陪集分解式} 为 $G$ 关于 $H$ 的\textbf{左陪集分解式}, $\{e,a_1,\ldots,a_{r-1}\}$ 称为\mydef{左陪集代表系}.
+
+考虑映射 $$\begin{array}{rcl}
+	\tau:H &\to& aH \\
+	h & \mapsto & ah
+\end{array}$$ 显然 $\tau$ 是一个双射, 即 $H$ 与 $aH$ 有相同的基数.
+
+\begin{theorem}[\t{Lagrange} 定理]
+	设 $G$ 是\tr{有限群}, $H<G$, 则有 $$|G|=[G:H]|H|$$ 从而 $G$ 的任一子群 $H$ 的阶是 $G$ 的阶的因数.
+\end{theorem}
+
+\begin{definition}
+	设 $G$ 是\tr{有限群}, $a\in G$ 且 $|a|=s$. 令 $$H=\{e,a,a^2,\ldots,a^{s-1}\}$$ 显然 $H<G$, 我们称之为\textbf{由 $a$ 生成的子群}, 记作 $\langle a\rangle$.
+\end{definition}
+
+\begin{corollary}
+	\noindent 设 $G$ 是\tr{有限群}, 则 $G$ 的任一元素 $a$ 的阶是 $G$ 的阶的因数, 从而 $a^{|G|}=e$.
+\end{corollary}
+
+\begin{corollary}
+	\noindent 素数阶群一定是循环群.
+\end{corollary}
+\begin{proof}
+	\noindent 对于非单位元 $a$, $|a|\big| |G|$, 由于 $|G|$ 是素数, 故 $|a|=|G|$, 进而 $G$ 是循环群.
+\end{proof}
+
+\begin{theorem}[欧拉定理]
+	\noindent 设 $m\in \Z_{>1}$, 若整数 $a$ 满足 $(a,m)=1$ 则 $$a^{\varphi(m)}\equiv 1 (\bmod m).$$
+\end{theorem}
+
+\begin{theorem}[费马小定理]
+	\noindent 设 $p$ 是素数, 则对于任意整数 $a$, 有 $$a^p\equiv a(\bmod p).$$
+\end{theorem}
+
+\begin{theorem}
+	\noindent 设 $G=\langle a\rangle$ 是 $n$ 阶循环群, 则
+	\begin{itemize}
+		\item[(1)] $G$ 的每一个子群都是循环群.
+		\item[(2)] 对于 $G$ 的阶 $n$ 的每一个正因数 $s$, 都存在唯一一个 $s$ 阶子群 (\tr{$\langle a^{\frac n s}\rangle $}), 它们就是 $G$ 的全部子群.
+	\end{itemize}
+\end{theorem}
+
+$4$ 阶群恰有两个同构类, 一类是 $4$ 阶循环群, 它的代表是 $(\Z_4,+)$; 另一类是 $4$ 阶非循环的 \Abel 群, 它的代表是 $(\Z_2\oplus\Z_2,+)$, 称它为 \mydef[Klein群]{Klein 群}, 也称为\mydef{四群}, 记作 $V$.
+
+\begin{practice}
+	\problem  设 $H,K$ 都是群 $G$ 的子群. 证明: $HK$ 为 $G$ 的子群当且仅当 $$HK=KH.$$
+	\problem  设 $H,K$ 都是群 $G$ 的\tr{有限}子群, 证明: $$|HK|=\frac{|H|\cdot|K|}{|H\cap K|}.$$
+	\problem 设 $S$ 是群 $G$ 的一个非空子集. $G$ 的包含 $S$ 的所有子群的交集 $\bigcap\limits_{S\subseteq H<G} H$ 称为\textbf{由 S 生成的子集}, 记作 $\langle S\rangle$, 称 $S$ 是\textbf{生成元集}.
+	\problem 在 $(\C,+)$ 中, 由 $\{1,\ti\}$ 生成的子群称为\textbf{高斯整数群}.
+	\problem 群 $G$ 中元素 $a$, 如果存在 $b\in G$ 使得 $b^2=a$, 那么称 $a$ 是\textbf{平方元}, $b$ 是 $a$ 的一个\textbf{平方根}. 证明: 奇数阶群 $G$ 的每个元素 $a$ 都是平方元, 且 $a$ 的平方根唯一.
+	\begin{proof}
+		$(a^k)^2=a^{2k},\quad (a^{\frac{n+2k+1}{2}})^2=a^{2k+1}$.
+		
+		做映射 $\sigma: a^k\to a^{2k}$, 由每个元素都是平方元知是满射, 又集合元素个数相等, 从而是双射. 故每个元素的平方根唯一.
+	\end{proof} 
+\end{practice}

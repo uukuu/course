@@ -1,0 +1,61 @@
+\chapter{曲面积分}
+
+\section{曲面的面积}
+
+\begin{definition}\label{光滑曲面}
+	设 $\Omega$ 时 $\R^2$ 中的一个\hr{区域}, $D\subseteq\Omega$, 且 $D$ 是由分段光滑曲线所围成的有界闭区域. 若存在 $\Omega$ 上的映射
+	\begin{equation}\label{光滑曲面参数方程}
+		\bm r(u,v)=(x(u,v),y(u,v),z(u,v)),\quad (u,v)\in\Omega
+	\end{equation}
+	满足
+	\begin{itemize}
+		\item[(1)] $\bm r\in C^1(\Omega)$.
+		\item[(2)] $\bm r$ 在 $D^\circ$ 上是双射, 并且对任意的 $(u,v)\in D^\circ$ 有 $\bm r_u\times r_v\neq\bm 0$, 其中 $\times$ 为\hr{向量积}且称 $\bm r(D)$ 为 $\R^3$ 中的一个\textbf{光滑曲面}.
+	\end{itemize}
+
+	若 $S\subseteq\R^3$ 由有限多个光滑曲面拼接而成, 则称之为\textbf{分片光滑曲面}.
+\end{definition}
+
+\begin{definition}
+	设 $\Omega,D,\bm r$ 如定义 \ref{光滑曲面} 中所给出, $S=\bm r(D)$ 是由方程 \eqref{光滑曲面参数方程} 定义的光滑曲面, 那么 $S$ 的面积为
+	\begin{equation}\label{曲面面积公式}
+		\iint\limits_{D} |\bm r_u\times \bm r_v|\td u\td v.
+	\end{equation}
+\end{definition}
+
+如果 $S$ 是由若干\hr{光滑曲面}拼接而成, 且这些\hr{光滑曲面}至多在边界处有公共点, 那么 $S$ 的面积就定义为 $S_i$ 的面积和.
+
+\begin{proposition}
+	和曲线积分类似, 曲面的面积和参数方程的选取无关.
+\end{proposition}
+
+\begin{definition}[高斯 (Gauss) 系数]\label{高斯系数}
+	为了方便我们将, $\dfrac{\partial x}{\partial u}$ 记作 $x_u$. 同理有 $y_u,z_u,x_v,y_v,z_v$.
+
+	我们设 \begin{equation}
+		\left\{\begin{array}{l}
+			E = |\bm r_u|^2 = x_u^2+y_u^2+z_u^2 \\
+			F = \langle\bm r_u,\bm r_v\rangle=x_ux_v+y_uy_v+z_uz_v \\
+			G = |\bm r_v|^2 = x_v^2+y_v^2+z_v^2
+		\end{array}\right.
+	\end{equation}
+
+	我们称 $E,F,G$ 为\textbf{高斯 (Gauss) 系数}或\textbf{曲面的第一基本量}.
+
+	此时, 式 \eqref{曲面面积公式} 就变为
+	\begin{equation}
+		\iint\limits_{D}\sqrt{EG-F^2} \td u\td v.
+	\end{equation}
+\end{definition}
+
+\section{第一型曲面积分}
+
+
+
+\section{曲面的侧与定向}
+
+\section{第二型曲面积分}
+
+ \section{高斯公式}
+ 
+ \section{斯托克斯公式}

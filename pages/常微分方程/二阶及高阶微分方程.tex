@@ -1,0 +1,118 @@
+\newpage
+\chapter{二阶及高阶微分方程}
+
+$n$ 阶方程的一般形式
+\begin{equation}\label{高阶微分方程}
+	F(t,x,x',\ldots,x(n))=0.
+\end{equation}
+当 $n\geqslant 2$ 时, 统称为高阶微分方程. 一般的 $n$ 阶微分方程的通解含有 $n$ 个独立的任意常数.
+
+\section{可降阶的高阶方程}
+
+
+\subsection{不显含未知函数 $x$ 的方程}
+
+\begin{definition}
+	更一般的, 设未知函数 $x$ 及其直到 $k-1$ 阶导数均不显含, 即形如
+	\begin{equation}
+		F(t,x^{(k),x^{(k+1)},\ldots,x^{(n)}})=0.
+	\end{equation}
+\end{definition}
+
+考虑令 $x^{(k)}=y$, 就可把上述方程化为关于 $y$ 的 $n-k$ 阶方程
+\begin{equation}
+	F(t,y,y',\ldots,y^{(n-k)})=0.
+\end{equation}
+如果能求得 $y=\varphi(t,c_1,c_2,\ldots,c_{n-k})$.
+则对 $y$ 进行 $k$ 次积分即可得到 $x$.
+
+\subsection{不显含自变量 $t$ 的方程}
+
+\begin{definition}
+	一般形式为
+	\begin{equation}
+		F(x,x',\ldots,x^{(n)})=0.
+	\end{equation}
+\end{definition}
+
+考虑用 $y=x'$ 作为新的未知函数, 而把 $x$ 作为新的自变量, 因为
+$$
+\begin{array}{l}
+	\dfrac{\t d x}{\t d t} = y, \\
+	\\
+	\dfrac{\t d ^2 x}{\t d t^2}=\dfrac{\t d y}{\td t}=\dfrac{\td y}{\td x}\dfrac{\td x}{\td t}=y\dfrac{\td y}{\td x} \\
+	\\
+	\dfrac{\td^3 x}{\td t^3}=y\left(\dfrac{\td y}{\td x}\right)^2+y^2\dfrac{\td^2 y}{\td x^2}, \\
+	\cdots\cdots
+\end{array}
+$$
+
+通过此方法可以将方程降低一阶.
+
+\subsection{全微分方程和积分因子}
+
+\begin{definition}
+	若高阶微分方程可看作 $$F(t,x,x',\ldots,x^{(n)})=\dfrac{\td}{\td t}\phi(t,x,x',\ldots,x^{(n-1)}).$$
+	则称原方程是\textbf{全微分方程}. 并且 $\phi(t,x,x',\ldots,x^{(n-1)})=c_1$ 的通解也是原方程的通解.
+
+	类似的, 我们也可以选择适当的\textbf{积分因子}使原方程乘上积分因子后是全微分方程.
+\end{definition}
+
+\begin{example}
+	设 $y=a\t{ch}\dfrac x a=\dfrac a 2(e^{x/a}+e^{-x/a})$ 表示的曲线叫做\textbf{悬链线}.
+\end{example}
+
+\section{线性微分方程的基本理论}
+
+\subsection{线性微分方程的有关概念}
+
+\begin{definition}
+	将未知函数 $x$ 及其各阶导数均为一次的 $n$ 阶方程称为 \textbf{$n$ 阶线性微分方程}. 它的一般形式是
+	\begin{equation}\label{线性微分方程}
+		\dfrac{\td^n x}{\td t^n}+a_1(t)\dfrac{\td^{n-1}x}{\td t^{n-1}}+\cdots+a_{n-1}(t)\dfrac{\td x}{\td t}+a_n(t)x=f(t),
+	\end{equation}
+\end{definition}
+
+\begin{theorem}
+	如果方程 (\ref{线性微分方程}) 的系数 $a_i(t)$ 及右端函数 $f(t)$ 在区间 $a<t<b$ 上连续, 则对任一 $t_0\in(a,b)$ 及任意 $x_0,x_0^{(1)},\ldots,x_0^{(n-1)}$, 方程 (\ref{线性微分方程}) 存在唯一的解 $x=\varphi(t)$, 满足下列初始条件:
+	$$\varphi(t_0)=x_0,\quad \frac{\td\varphi(t)}{\td t}\Bigg|_{t=t_0}=x_0^{(1)}\cdots.$$
+\end{theorem}
+
+为了方便描述, 引入下述记号:
+\begin{equation}\label{线性微分算子}
+	L[x] = \frac{\td^n x}{\td t^n}+a_1(t)\frac{\td^{n-1}x}{\td t^{n-1}}+\cdots+a_{n-1}(t)\frac{\td x}{\td t}+a_n(t)x,
+\end{equation}
+并把 $L$ 称为\textbf{线性微分算子}.
+
+\begin{property}
+	$L[cx]=cL[x]$, 其中 $c$ 是常数.
+\end{property}
+
+\begin{property}
+	$L[x_1+x_2] = L[x_1]+L[x_2]$.
+\end{property}
+
+\subsection{齐次线性方程解的性质和结构}
+
+设齐次线性方程
+\begin{equation}\label{齐次线性方程}
+ 	L[x] = 0
+\end{equation}
+
+\begin{theorem}[叠加原理]
+	如果 $x_1(t),x_2(t),\ldots,x_k(t)$ 是方程 (\ref{齐次线性方程}) 的 $k$ 个解, 则它们的线性组合 $\sum\limits_{i=1}^k c_ix_i(t)$ 也是该方程的解.
+\end{theorem}
+
+
+\section{线性齐次常系数方程}
+
+对于常系数微分方程
+\begin{equation}\label{齐次常系数微分方程}
+	 \frac{\td^n x}{\td t^n}+a_1\frac{\td^{n-1}x}{\td t^{n-1}}+\cdots+a_{n-1}\frac{\td x}{\td t}+a_nx=0.
+\end{equation}
+
+称\begin{equation}
+	F(\lambda):=\lambda^n+a_1\lambda^{n-1}+\cdots+a_{n-1}\lambda+a_n = 0.
+\end{equation}
+
+为 \eqref{齐次常系数微分方程} 的特征方程.

@@ -1,0 +1,61 @@
+\newcounter{mytheorem}[subsection]
+\newcounter{mydef}[subsection]
+\renewcommand{\thechapter}{\hspace{-1em}}
+\renewcommand{\thesection}{第\zhnum{section}章}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\themydef}{\arabic{subsection}.\arabic{mydef}}
+\renewcommand{\themytheorem}{\arabic{subsection}.\arabic{mytheorem}}
+\numberwithin{figure}{section}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+
+\numberwithin{equation}{subsection}
+
+\renewcommand{\t}[1]{\text {#1}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}[mytheorem]{\indent 定理}
+\newtheorem{lemma}[mytheorem]{\indent 引理}
+\newtheorem{proposition}[mytheorem]{\indent 命题}
+\newtheorem{corollary}[mytheorem]{\indent 推论}
+\newtheorem{definition}[mydef]{\indent 定义}
+\newtheorem*{definition*}{\indent 定义}
+\newtheorem{example}[mytheorem]{\indent 例}
+\newtheorem{property}[mytheorem]{\indent 性质}	\newtheorem{remark}[mytheorem]{\indent 注}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}
+\renewcommand{\proofname}{\indent\bf 证明}
+
+%超链接
+\newcommand{\hr}[1]{\hyperref[#1]{\t{#1}}}
+
+\newcommand{\set}[2]{\mathbb {#1}^{#2}}
+\newcommand{\seta}[2]{\mathbb {#1}_{#2}}
+\newcommand{\setb}[3]{\mathbb {#1}^{#2}_{#3}}
+\renewcommand{\t}[1]{\text {#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+
+\newcommand{\dps}[1]{\displaystyle {#1}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+
+
+%抽象代数
+
+\newcommand{\Aut}{\t {Aut}}  %自同构群
+\newcommand{\Inn}{\t {Inn}}  %内自同构群
+\newcommand{\Ker}{\t {Ker}}  %核空间
+\newcommand{\tIm}{\t {Im}}  %像空间
+
+\newcommand{\Sy}{\t{Sylow} $p$-子群} %Sylow p-子群
+\newcommand{\lAbel}{有限 \t{Abel}}
+\newcommand{\Abel}{\t{Abel}}
+\newcommand{\rad}{\t{rad}\ }
+
+% 数学分析
+
+\newcommand\mint[1][]{\dps\int_{\hspace{-0.4em} #1}}
+\newcommand{\ti}{\t i}
+\newcommand{\td}{\ \t d}

@@ -1,0 +1,229 @@
+\chapter{多元函数极限}
+
+\section{$\mathbb{R}^n$ 中的点集}
+\subsection{邻域、开集}
+\begin{definition}[$\varepsilon$-邻域、去心邻域]
+	设 $a \in \mathbb{R}^n,\varepsilon$ 是一个正实数, 我们称集合 $$\{ x\in\mathbb R^n:|\bm x - \bm a|<\varepsilon\}$$
+	为 $\bm a$ 的 $\varepsilon$-邻域, 记作 $B(\bm a,\varepsilon)$.
+
+	称 $B(\bm a,\varepsilon)\backslash \{\bm a\} = \{\bm x \in \mathbb R^n : 0 < |\bm x- \bm a|< \varepsilon\}$ 为 $\bm a$ 的去心邻域.
+\end{definition}
+
+
+\begin{definition}[内点、内部]
+	设 $E\subseteq \mathbb R^n$ 且 $\bm a \in E$. 若存在 $\varepsilon>0$ 使得 $B(\bm a,\varepsilon) \subseteq E$, 则称 $\bm a$ 是 $E$ 的内点. $E$ 的全体内点所成之集被称作 $E$ 的内部，记作 $E^\circ$.
+\end{definition}
+
+\begin{definition}[外点、外部]
+	设 $E \subseteq \mathbb R^n$. 若 $\bm a$ 是 $E^c$ 的内点, 则称 $\bm a$ 为 $E$ 的外点. $E$ 的全体外点所成之集被称作 $E$ 的外部.
+\end{definition}
+
+\begin{definition}[边界点、边界]
+	设 $E \subseteq \mathbb R^n$. 若 $\bm a$ 既不是 $E$ 的内点, 也不是 $E$ 的外点, 则称 $\bm a$ 为 $E$ 的边界点. $E$ 的全体边界点所成之集被称作 $E$ 的边界, 记作 $\partial E$.
+\end{definition}
+
+\begin{definition}[开集]
+	设 $D \subseteq \set R n$, 若 $G$ 中每个点均为内点, 则称 $G$ 是 $\mathbb R^n$ 中的开集. 即 $G$ 是开集, 当且仅当 $G=G^\circ$.
+\end{definition}
+
+\begin{proposition}
+	设 $E \subseteq \set R n$, 则 $E^\circ$ 是开集.
+\end{proposition}
+
+\begin{proposition}
+	我们有
+	\begin{itemize}[leftmargin=1.5cm,itemindent=0cm]
+		\item[(1)] $\varnothing$ 和 $\set R n$ 都是开集.
+		\item[(2)] 设 $(G_\lambda)_{\lambda\in L}$ 是一族开集, 则 $\bigcup\limits_{\lambda\in L} G_\lambda$ 也是开集.
+		\item[(3)] 设 $G_1,\cdots,G_m$ 是开集, 则 $\bigcap\limits_{j=1}^m G_j$ 也是开集.
+	\end{itemize}
+\end{proposition}
+
+\begin{definition}[邻域]
+	设 $E\subseteq \set R n$, 若开集 $G$ 满足 $E \subseteq G$, 则称 $G$ 是 $E$ 的一个邻域. 特别的, 当 $E=\{\bm a\}$ 时我们称 $G$ 是 $\bm a$ 的一个邻域.
+\end{definition}
+
+\subsection{聚点、闭集}
+\begin{definition}[闭集]
+	设 $F \subseteq \set R n$, 若 $F^c$ 是 $\set R n$ 中的开集, 则称 $F$ 是 $\set R n$ 中的闭集.
+\end{definition}
+
+\begin{proposition}
+	我们有
+	\begin{itemize}[leftmargin=1.5cm,itemindent=0cm]
+		\item[(1)] $\varnothing$ 和 $\set R n$ 都是闭集.
+		\item[(2)] 设 $(G_\lambda)_{\lambda\in L}$ 是一族闭集, 则 $\bigcap\limits_{\lambda\in L} G_\lambda$ 也是闭集.
+		\item[(3)] 设 $G_1,\cdots,G_m$ 是开集, 则 $\bigcup\limits_{j=1}^m G_j$ 也是闭集.
+	\end{itemize}
+\end{proposition}
+
+\begin{definition}[聚点、导集]
+	设 $E\subseteq \set R n$, $\bm a \in \set R n$. 若对任意的 $\varepsilon>0$ 均有
+	$$(B(\bm a,\varepsilon)\backslash\{\bm a\}) \cap E \neq \varnothing,$$
+	则称 $\bm a$ 是 $E$ 的聚点. 称 $E$ 的全体聚点所成之集为 $E$ 的导集, 记作 $E'$
+\end{definition}
+
+\begin{definition}[孤立点]
+	设 $E \subseteq \set R n$, 如果 $\bm a \in E\backslash E'$, 则称 $\bm a$ 是 $E$ 的孤立点.
+\end{definition}
+
+\begin{definition}[闭包]
+	设 $E \subseteq \set R n$, 称 $E \cup E'$ 为 $E$ 的闭包, 记作 $\overline{E}$.
+\end{definition}
+
+\begin{proposition}
+	设 $E \subseteq \set R n$, 则 $\overline{E}$ 是闭集.
+\end{proposition}
+
+\begin{proposition}
+	设 $E \subseteq \set R n$, 则 $E$ 是闭集当且仅当 $E= \overline{E}$.
+\end{proposition}
+
+\begin{proposition}
+	设 $E \subseteq \set R n$, 则 $\overline{E}=E^\circ \cup \partial E$.
+\end{proposition}
+
+\begin{definition}[极限、收敛]
+	设 $\{\bm {x_m}\}$ 是 $\set R n$ 中的一个点列, 如果存在 $\bm a \in \set R n$, 使得对任意的 $\varepsilon>0$, 均存在正整数 $N$ 满足
+	$$|\bm{x_m} - \bm a|<\varepsilon,\qquad \forall m>N.$$
+	则称 $\bm a$ 为 $\{x_m\}$ 的极限, 并称 $\{x_m\}$ 收敛于 $\bm a$.
+\end{definition}
+
+\begin{definition}[柯西列]
+	若 $\set R n$ 中的点列 $\{x_m\}$ 满足: 对任意的 $\varepsilon>0$, 均存在正整数 $N$ 使得
+	$$|\bm{x_l}-\bm{x_m}|<\varepsilon, \qquad \forall l,m>N,$$
+	则称 $\{x_m\}$ 是柯西列.
+\end{definition}
+
+\begin{theorem}[柯西收敛准则]
+	$\set R n$ 中的点列 $\{x_m\}$ 收敛当且仅当它是柯西列.
+\end{theorem}
+
+\begin{theorem}[压缩映像原理]
+	设 $E$ 是 $\set R n$ 中的闭集, $f:E \to E$. 如果存在 $\theta \in (0,1)$ 使得
+	$$|f(\bm x)-f(\bm y)|\le \theta|\bm x- \bm y|,\qquad \forall \bm x,\bm y \in E,$$
+	那么存在唯一的 $\bm a \in E$ 使得 $f(\bm a)=\bm a$. 我们称 $\bm a$ 为 $f$ 的不动点.
+\end{theorem}
+
+\begin{definition}[闭矩形]
+	形如 $[a_1,b_1]\times[a_2,.b_2]\times \cdots \times [a_n,b_n]$ 的集合为 $\set R n$ 中的闭矩形.
+\end{definition}
+
+\begin{definition}[直径]
+	对 $\set R n$ 的任意非空子集 $E$ 记
+	$$\text{diam}(E)=\sup\limits_{\bm x,\bm y \in E}|\bm x-\bm y|,$$
+	并称之为 $E$ 的\textbf{直径}.
+\end{definition}
+\begin{theorem}[闭矩形套定理]\label{多元闭矩形套定理}
+	设闭矩形列 $\{I_m\}$ 满足 $I_{m+1}\subseteq I_m(\forall m \in \seta Z {>0})$ 以及 $\lim\limits_{m\to \infty} \text{diam}(I_m)=0$, 那么存在唯一的 $\bm a \in \set R n$ 使得
+	$$\bigcap\limits_{m=1}^\infty I_m=\{\bm a\}.$$
+\end{theorem}
+
+\begin{definition}[紧集]\label{紧集}
+	设 $K\subseteq \set R n$, 如果 $K$ 的每个开覆盖均有有限子覆盖, 那么我们称 $K$ 是一个\textbf{紧集},
+\end{definition}
+
+\begin{proposition}
+	$\set R n$ 中的闭矩形是\hr{紧集}.
+\end{proposition}
+
+\begin{definition}[有界]\label{有界}
+	设 $E\subseteq \set R n$. 若存在 $M>0$, 使得对任意的 $\bm x\in E$ 均有 $|\bm x|\le M$, 则称 $E$ 是\textbf{有界}的.
+\end{definition}
+
+\begin{theorem}
+	设 $K\subseteq \set R n$, 则 $K$ 是紧集当且仅当它是有界闭集.
+\end{theorem}
+
+\begin{theorem}[波尔查诺-魏尔斯特拉斯定理]
+	$\set R n$ 的任意一个有界无限子集必有聚点.
+\end{theorem}
+
+\subsection{连通集}
+\begin{definition}[开(闭)子集]
+	设 $A\subseteq E \subseteq \set R n$. 若存在 $\set R n$ 中的开集(相应的, 闭集) $S$ 使得 $A=E\cap S$, 则称 $A$ 是 $E$ 上的开子集(相应的, 闭子集).
+\end{definition}
+
+\begin{proposition}
+	设 $E\subseteq \set R n$, $A,B \subseteq E$, 那么
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] $A$ 是 $E$ 的开子集当且仅当对任意的 $\bm a \in A$, 存在 $\bm a$ 的邻域 $U$ 使得 $E \cap U \subseteq A$.
+		\item[(2)] $B$ 是 $E$ 的闭子集当且仅当 $E \backslash B$ 是 $E$ 的开子集.
+	\end{itemize}
+\end{proposition}
+
+\begin{definition}[连通集]\label{连通集}
+	设 $E \subseteq \set R n$. 若不存在 $E$ 的两个非空开子集 $A$ 和 $B$ 使得 $A \cup B=E$ 且 $A\cap B=\varnothing$, 则称 $E$ 是 $\set R n$ 中的\textbf{连通集}.
+\end{definition}
+
+\begin{definition}[区域、闭区域]\label{区域}\label{闭区域}\label{有界闭区域}
+	$\set R n$ 中的连通开集被称作\textbf{区域}.
+	如果 $E$ 是区域，那么也将 $\overline{E}$ 称作\textbf{闭区域}. 要注意的是, \textbf{闭区域}不是\textbf{区域}.
+\end{definition}
+
+\begin{proposition}
+	设 $E$ 是 $\mathbb R$ 的非空子集, 那么 $E$ 是 $\mathbb R$ 中的连通集当且仅当 $E$ 是区间.
+\end{proposition}
+
+\begin{proposition}
+	设 $E$ 是 $\set R n$ 中的连通集, 且 $E \subseteq S \subseteq \overline{E}$, 那么 $S$ 也是 $\set R n$ 中的连通集. 特别的 $\overline{E}$ 是 $\set R n$ 中的连通集.
+\end{proposition}
+
+\section{多元函数的极限}
+
+\begin{definition}[极限]\label{多元极限}
+	设 $E \subseteq \set R n$, $f:E \to \set R m$, $\bm a $ 是 $E$ 的\hr{聚点}. 若存在 $\bm b\in \set R m$, 使得对任意的 $\varepsilon>0$, 均存在 $\delta>0$ 满足
+	$$|f(\bm x)-\bm b|<\varepsilon, \qquad \forall \bm x \in (B(\bm a,\delta)\backslash \{\bm a\})\cap E,$$
+	则称 $\bm b$ 为 $f$ 沿 $E$ 中元素趋于 $\bm a$ 的\textbf{极限}.
+\end{definition}
+
+\begin{proposition}[极限的唯一性]
+	设 $E \subseteq \set R n$, $f:E\to \set R m$, $\bm a$ 是 $E$ 的聚点. 如果 $\bm b$ 与 $\bm c$ 是 $f$ 沿 $E$ 中元素趋于 $\bm a$ 的极限, 则 $\bm b=\bm c$.
+\end{proposition}
+
+\begin{theorem}[海涅归结原理]\label{多元海涅归结原理}
+	$\lim\limits_{\substack{\bm x \to \bm a \\ \bm x \in E}}f(\bm x)=\bm b$ 的充要条件是: 对于 $E$ 中满足 $\lim\limits_{k \to \infty} \bm x_k=\bm a$ 且 $\bm x_k \neq \bm a\ (\forall k)$ 的任一序列 $\{x_k\}$ 均有 $\lim\limits_{k\to \infty}f(\bm x_k)=\bm b$.
+\end{theorem}
+
+\begin{theorem}[柯西收敛准则]
+	$\lim\limits_{\substack{\bm x \to \bm a \\ E}}f(\bm x)$ 存在的重要条件是: 对任意的 $\varepsilon>0$, 存在 $\delta>0$, 使得对于任意的 $\bm x,\bm y\in (B(\bm a,\delta)\backslash\{\bm a\})\cap E$ 有
+	$$|f(\bm x)-f(\bm y)|<\varepsilon.$$
+\end{theorem}
+
+\begin{theorem}[夹逼定理]
+	设 $E \subseteq \set R n$, $\bm a$ 是 $E$ 的聚点, $f$, $g$, $h$ 均是定义在 $E$ 上的函数, 并且存在 $\delta>0$, 使得存在 $(B(\bm a,\delta)\backslash\{\bm a\})\cap E$ 内有 $f(\bm x)\le g(\bm x) \le h(\bm x)$. 如果
+	$$\lim\limits_{\substack{\bm x\to\bm a \\ \bm x \in E}}f(\bm x)=\lim\limits_{\substack{\bm x\to\bm a \\ \bm x \in E}}h(\bm x)=A,$$
+	那么 $\lim\limits_{\substack{\bm x\to \bm a \\ \bm x \in E}}g(\bm x)=A$.
+\end{theorem}
+
+\section{连续映射}
+\begin{definition}[连续]
+	设 $E \subseteq \set R n$, $f:E\to \set R m$. 又设 $\bm a \in E$. 若对任意的 $\varepsilon>0$, 存在 $\delta>0$, 使得对任意的 $\bm x \in E \cap B(\bm a, \delta)$ 均有
+	$$|f(\bm x)-f(\bm a)|<\varepsilon,$$
+	则称 $f$ 在 $\bm a$ 处连续. 若 $f$ 在 $E$ 的每一点处均连续, 则称 $f$ 在 $E$ 上连续.
+\end{definition}
+
+\begin{remark}
+	按照上述定义, $E$ 上的任一映射 $f$ 在 $E$
+\end{remark}
+
+\begin{theorem}
+	设 $E\subseteq \set R n$ 且 $f:E\to \set R m$, 则下列命题等价:
+	\begin{itemize}[leftmargin=1.5cm,itemindent=0cm]
+		\item[(1)] $f$ 在 $E$ 上连续.
+		\item[(2)] 对 $\set R m$ 中任意的开集 $G$, $f^{-1}(G)$ 均是 $E$ 的开子集.
+		\item[(3)] 对 $\set R m$ 中任意的闭集 $F$, $f^{-1}(F)$ 均是 $E$ 的闭子集.
+	\end{itemize}
+\end{theorem}
+
+\begin{proposition}
+	设 $E\subseteq \set R n$ 且 $f=(f_1,\cdots,f_m)^T:E\to \set R m$, 那么 $f$ 是 $E$ 上的连续函数当且仅当每个 $f_j\ (1 \le j \le m)$ 均是 $E$ 上的连续函数.
+\end{proposition}
+
+\begin{theorem}
+	设 $f:\set R n \to \set R m$ 是连续映射. 若 $K$ 是 $\set R n$ 中的紧集, 则 $f(K)$ 是 $\set R m$ 中的紧集.
+\end{theorem}
+
+\begin{definition}[凸集]
+	$\set R n$ 的子集 $S$ 被称为凸集当且仅当对任意的 $\bm x,\bm y \in S$ 均有 $$\{(1-\lambda)\bm x+\lambda\bm y:\lambda\in [0,1]\} \subseteq S.$$
+\end{definition}

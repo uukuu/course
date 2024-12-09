@@ -1,0 +1,62 @@
+\newpage
+
+%\renewcommand{\thechapter}{}
+\chapter*{绪论}
+\chaptermark{绪论}
+%\renewcommand{\thechapter}{第\zhnum{chapter}章}
+
+\addcontentsline{toc}{chapter}{绪论}
+
+
+
+\begin{definition}\label{环}
+	设 $R$ 是一个非空集合, 在其上定义加法和乘法, 若满足下列性质
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)](加法交换律) $a+b=b+a,\forall\ a,b\in R$.
+		\item[(2)](加法结合律) $(a+b)+c = a+(b+c),\forall\ a,b,c\in R$.
+		\item[(3)] 存在\textbf{零元}, 记作 $0$.
+		\item[(4)] 存在\textbf{负元}, 记作 $-a$.
+		\item[(5)](乘法结合律) $(ab)c=a(bc),\forall\ a,b,c\in R$.
+		\item[(6)](乘法分配律) $a(b+c)=ab+ac,(b+c)a=ba+ca$.
+	\end{itemize}
+	则称 $R$ 是一个\textbf{环}.
+\end{definition}
+
+\begin{definition}\label{环的单位元}
+	如果环 $R$ 中有一个元素 $e$ 具有下述性质: $$ea=ae=a,\quad\forall a\in R,$$ 那么称 $e$ 是 $R$ 的\textbf{单位元}, 并称 $R$ 是幺环.
+\end{definition}
+
+\begin{definition}
+	设 $R$ 是幺环. 对于 $a\in R$,  如果存在 $b\in R$ 使得 $$ab=ba=e$$, 那么称 $a$ 是一个\mydef{可逆元}(或\mydef{单位}), $b$ 称作 $a$ 的\mydef{逆元}, 记作 $a^{-1}$.
+\end{definition}
+
+\begin{definition}
+	幺环 $R$ 的所有\hr{单位}关于 $R$ 上的乘法构成一个群, 称之为 $R$ 的\mydef{单位群}.
+\end{definition}
+
+\begin{definition}\label{零因子}
+	设 $R$ 是一个环. 对于 $a\in R$, 如果存在 $c\in R$ 且 $c\neq 0$, 使得 $ac=0$(或 $ca=0$), 那么称 $a$ 是一个\textbf{左零因子}(或\textbf{右零因子}). 二者统称\textbf{零因子}.
+\end{definition}
+
+
+\begin{definition}\label{域}
+	设 $F$ 是交换幺环, 如果 $F$ 中每个非零元素都是可逆元, 那么称 $F$ 是一个\textbf{域}.
+\end{definition}
+
+\begin{definition}\label{群}
+	设 $G$ 是一个非空集合. 如果在 $G$ 上定义了一个代数运算, 通常称作乘法, 并且满足:
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] $(ab)c=a(bc),\ \forall\ a,b,c\in G$ (结合律);
+		\item[(2)] $G$ 中存在单位元 $e$.
+		\item[(3)] $G$ 中每个元素都可逆.
+	\end{itemize}
+	那么称 $G$ 是一个\textbf{群}.
+\end{definition}
+
+\begin{definition}
+	当群 $G$ 中只有有限个元素时, 称 $G$ 为\textbf{有限群}, 且元素个数称为 $G$ 的阶, 记作 $|G|$. 否则称 $G$ 是\textbf{无限群}.
+\end{definition}
+
+\begin{remark*}
+	只有有限阶群才有群的阶, 做题时要注意题设条件.
+\end{remark*}

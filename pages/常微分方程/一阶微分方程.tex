@@ -1,0 +1,126 @@
+
+\newpage
+\chapter{一阶微分方程}
+
+\begin{theorem}[解的存在唯一性]\label{解的存在唯一性定理}
+\end{theorem}
+
+\section{线性方程}
+
+\begin{itemize}[leftmargin=1.5cm]
+	\item[(1)]线性齐次方程: 形如 $y'+p(x)y=0$. 考虑积分因子 $e^{\int p(x)\t d x}$. 
+	
+	其解为 $y=Ce^{-\int p(x)\t d x}$.
+	
+	\item[(2)] 线性非齐次方程: 形如 $y'+p(x)y=g(x)$. 考虑如上积分因子.
+	
+	其解为 $y=e^{-\int p(x)\t d x}(C+\int g(x)e^{\int p(x)\t d x} \t d x)$.
+	
+	\item[(3)]\label{Bernoulli} $\t{Bernoulli}$ 方程: 形如 $y'+p(x)y=g(x)y^{\alpha}$.
+	
+	当 $a\neq 0,1$ 时, 两边同乘 $y^{-a}$ 得
+	$$y^{-a}y'+p(x)y^{1-a}=g(x)$$
+	
+	引入新变量 $z=y^{1-a}$ 可得 $z'+(1-a)p(x)z=(1-a)g(x)$.
+	
+	之后用线性方程求解即可.
+\end{itemize}
+
+\section{变量可分离方程}
+\begin{itemize}[leftmargin=1.5cm]
+	\item[(1)]变量可分离:
+	形如 $y'=f(x)g(y)$.
+	
+	当 $g(y)\neq0$ 时, 可化为 $$\dfrac{\t d y}{g(y)}=f(x) \t d x$$ 那么就可以对两边同时积分 $$\int\dfrac{\t d y}{g(y)}=\int f(x)\t d x + C.$$
+	
+	注: 该方法当 $g(y)=0$ 时一般会存在特解.
+	
+	\item[(2)]齐次方程: 形如 $\dfrac{\t d y}{\t d x}=F(\dfrac{y}{x})$.
+	
+	引入新变量 $y=xz$, 则 $\frac{\t d y}{\t d x}=z+x\frac{\t d z}{\t d x}$.
+	
+	可将方程变为 $$z+x\frac{\t d z}{\t d x}=F(z)$$ 整理后即 $$\frac{\t d z}{\t d x}=\frac{F(z)-z}{x}.$$
+	这样就转化为了变量可分离方程.
+	
+	\item[(3)] 线性分式方程: 形如 $$\frac{\t d y}{\t d x}=\frac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2}.$$
+	
+	当 $$\det\left|
+	\begin{array}{cc}
+		a_1 & a_2 \\
+		b_1 & b_2
+	\end{array}
+	\right|\neq 0$$ 即 $\exists\ x_0,y_0,\ s.t. a_1x_0+b_1y_0+c_1=0 \wedge a_2x_0+b_2y_0+c_2=0$.
+	
+	那么就可以做变量替换 $x=u+x_0,y=v+y_0$.
+	
+	整理后可得 $$\frac{\t d v}{\t d u}=\frac{\t d y}{\t d x}=\frac{a_1u+b_1v}{a_2u+b_2v}$$ 再上下同时除以 $u$, 就可以得到转化为齐次方程.
+\end{itemize}
+
+\section{全微分方程}
+
+\begin{definition}
+	设 $u=F(x,y)$ 是一个连续可微得二元函数, 则它的全微分为 $$\t d u=\t d F(x,y)=\frac{\partial F(x,y)}{\partial x}\t d x+\frac{\partial F(x,y)}{\partial y}\t d y.$$
+\end{definition}
+
+\begin{definition}
+	若有函数 $F(x,y)$, 使得 $$\t d F(x,y)=M(x,y)\t d x+N(x,y)\t d y,$$ 则称 $$M(x,y)\t d x+N(x,y)\t d y=0$$ 为\textbf{全微分方程}, 此时解就为 $F(x,y)=C$.
+\end{definition}
+
+\begin{theorem}
+	设函数 $M(x,y)$ 和 $N(x,y)$ 在一个矩形区域 $R$ 中连续且有连续得一阶偏导数, 则 $$M(x,y)\t d x+N(x,y)\t d y=0$$ 为全微分方程得充要条件是 $$\frac{\partial M(x,y)}{\partial x}=\frac{\partial N(x,y)}{\partial x}.$$
+\end{theorem}
+
+当我们在 $R$ 中任取一点 $P(x_0,y_0)$ 就可以得到一个解 $$F(x,y)=\int_{x_0}^x M(s,y)\t d s + \int_{y_0}^y N(x_0,s)\t d s.$$
+
+\subsection{积分因子}
+
+\begin{definition}
+	如果有函数 $\mu(x,y)$ 使得方程 $$\mu(x,y)M(x,y)\t d x+\mu(x,y)N(x,y)\t d y=0$$ 是全微分方程, 则称 $\mu(x,y)$ 是\textbf{积分因子}.
+\end{definition}
+
+\begin{theorem}
+	微分方程有一个仅依赖于 $x$ 的积分因子的充要条件是
+	$$\dfrac{\dfrac{\partial M(x,y)}{\partial y}-\dfrac{\partial N(x,y)}{\partial x}}{N(x,y)}$$ 仅与 $x$ 有关.
+	且积分因子 $\mu(x,y)=\exp\left(\mint \dfrac{\dfrac{\partial M(x,y)}{\partial y}-\dfrac{\partial N(x,y)}{\partial x}}{N(x,y)} \t d x\right)$.
+	
+	同理, 有一个仅依赖于 $y$ 的积分因子的充要条件是
+	$$\dfrac{\dfrac{\partial N(x,y)}{\partial x}-\dfrac{\partial M(x,y)}{\partial y}}{M(x,y)}$$ 仅与 $y$ 有关.
+\end{theorem}
+
+常见积分因子:
+$$
+\begin{array}{lc}
+	x\t d y - y\t d x+xy\t d x=0, & \dfrac{1}{xy} \\
+	&\\
+	x\t d y - y\t d x+x^2\t d y=0, & \dfrac{1}{x^2} \\
+	&\\
+	x\t d y - y\t d x+y^2\t d y=0, & \dfrac{1}{y^2} \\
+	&\\
+	x\t d y - y\t d x+(x^2+y^2)\t d y=0, & \dfrac{1}{x^2+y^2} 
+\end{array}
+$$
+
+\section{变量替换法}
+
+\begin{itemize}[leftmargin=1.5cm]
+	\item[(1)] 形如 $\dfrac{\t d y}{\t d x}=f(ax+by+c)$
+	
+	引入变量 $z=ax+by+c$ 得到 $\dfrac{\t d z}{\t d x}=a+b\dfrac{\t d y}{\t d x}$.
+	
+	可将方程化为 $$\frac{\t d z}{\t d x}=a+bf(z).$$
+	就变为了变量可分离方程, 其通解为 $$\int\frac{\t d z}{a+bf(z)}=x+C.$$
+	
+	\item[(2)] 形如 $yf(xy)\t d x+xg(xy)\t d y=0$
+	
+	引入变量 $z=xy$, 则 $\t d y=\dfrac{x\t d z-z\t d x}{x^2}$
+	
+	原方程可化为 $$\frac z x (f(z)-g(z))\t d x+g(z)\t d z=0.$$ 这是个变量可分离方程.
+	
+	\item[(3)]\label{Riccati} $\t{Riccati}$ 方程. 形如 $$\frac{\t d y}{\t d x}=p(x)y^2+q(x)y+f(x).$$
+\end{itemize}
+
+\section{一阶隐式微分方程}
+
+\begin{itemize}[leftmargin=1.5cm]
+	\item[(1)]\t{Clairaut} 方程.
+\end{itemize}

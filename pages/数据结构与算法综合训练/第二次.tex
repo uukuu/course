@@ -1,0 +1,1144 @@
+\chapter{实验 2: 线性表实现及应用}
+%\addcontentsline{toc}{chapter}{实验 1: 渐进分析和排序算法}
+\section{Task 1: 为指定的 List ADT 实现各种数据结构}
+
+\subsection{代码实现}
+
+\subsubsection{顺序数组}
+
+\begin{lstlisting}
+template<typename T>
+class List_ADT{
+	int cursor, len;
+	vector<T> val;
+	public:
+	void init(int length)
+	{
+		val.resize(length);
+		cursor = -1;
+		len = 0;
+		return;
+	}
+	
+	void insert(T newElement)
+	{
+		if(isFull())
+		{
+			printf("Error! Out of the list capacity!\n");
+			return;
+		}
+		for(int i = len;i > cursor + 1; i--)
+		val[i] = val[i - 1];
+		len ++;
+		val[++ cursor] = newElement;
+	}
+	void remove()
+	{
+		if(isEmpty()) return;
+		len --;
+		for(int i = cursor; i < len; i ++)
+		val[i] = val[i + 1];
+		cursor = cursor == len ? 0 : cursor;
+		if(len == 0)
+		cursor = -1;
+		return;
+	}
+	void replace(T newElement)
+	{
+		if(isEmpty()) return;
+		val[cursor] =  newElement;
+		return;
+	}
+	void clear()
+	{
+		len = 0;
+		cursor = -1;
+		return;
+	}
+	bool isEmpty()
+	{
+		return len == 0;
+	}
+	bool isFull()
+	{
+		return len == (int)val.size();
+	}
+	bool gotoBeginning()
+	{
+		if(isEmpty()) return false;
+		else
+		{
+			cursor = 0;
+			return true;
+		}
+	}
+	bool gotoEnd()
+	{
+		if(isEmpty()) return false;
+		else
+		{
+			cursor = len - 1;
+			return true;
+		}
+	}
+	bool gotoNext()
+	{
+		if(cursor + 1 != len)
+		{
+			cursor ++;
+			return true;
+		}
+		else return false;
+	}
+	bool gotoPrev()
+	{
+		if(isEmpty()) return false;
+		else if(cursor == 0) return false;
+		else
+		{
+			cursor --;
+			return true;
+		}
+	}
+	T getCursor()
+	{
+		if(isEmpty()) return 0;
+		return val[cursor];
+	}
+	void showStructure()
+	{
+		if(isEmpty()) printf("Empty list ");
+		else
+		{
+			for(int i=0;i<len;i++) 
+			putchar(val[i]),putchar(' ');
+		}
+		printf("{capacity = %d, length = %d, cursor = %d}\n",(int)val.size(),len,cursor);
+	}
+	void moveToNth(int n)
+	{
+		T tmp = getCursor();
+		remove();
+		cursor = n - 1;
+		insert(tmp);
+	}
+	bool find(T searchElement)
+	{
+		while(getCursor() != searchElement&&gotoNext());
+		return getCursor() == searchElement;
+	}
+};
+char s[100010];
+int main()
+{
+	freopen("list_testcase.txt","r",stdin);
+	freopen("数组.txt","w",stdout);
+	List_ADT<char> a;
+	a.init(512);
+	while(gets(s) != NULL)
+	{
+		int n = strlen(s);
+		for(int i = 0; i < n; i ++)
+		{
+			if(s[i] == ' ')	continue;
+			if(s[i] == '+')
+				a.insert(s[++i]);
+			else if(s[i] == '-')
+				a.remove();
+			else if(s[i] == '=')
+				a.replace(s[++ i]);
+			else if(s[i] == '#')
+				a.gotoBeginning();
+			else if(s[i] == '*')
+				a.gotoEnd();
+			else if(s[i] == '>')
+				a.gotoNext();
+			else if(s[i] == '<')
+				a.gotoPrev();
+			else if(s[i] == '~')
+				a.clear();
+		}
+		a.showStructure();
+	}
+	return 0;
+}
+
+\end{lstlisting}
+
+\subsubsection{单向链表}
+
+主函数同上, 此处不多赘述.
+
+\begin{lstlisting}
+template<typename T>
+class List_ADT{
+	int cursor, len, lenLimit;
+	struct Point{
+		T val;
+		Point *next;
+	};
+	Point *head = nullptr, *p = nullptr, *tmp = nullptr;
+	public:
+	void init(int length)
+	{
+		head = nullptr;
+		cursor = -1;
+		len = 0;
+		lenLimit = length;
+		return;
+	}
+	
+	void insert(T newElement)
+	{
+		if(isFull())
+		{
+			printf("Error! Out of the list capacity!\n");
+			return;
+		}
+		if(len == 0)
+		{
+			head = p = new Point;
+			p -> next = nullptr;
+			p -> val = newElement;
+		}
+		else
+		{
+			tmp = p -> next;
+			p -> next = new Point;
+			p = p -> next;
+			p -> val = newElement;
+			p -> next = tmp;
+		}
+		len ++;
+		cursor ++;
+		return;
+	}
+	
+	void remove()
+	{
+		if(isEmpty()) return;
+		if(p == head)
+		{
+			p = head -> next;
+			free(head);
+			head = p;
+		}
+		else
+		{
+			tmp = p;
+			gotoPrev();
+			p -> next = tmp -> next;
+			free(tmp);
+			p = p -> next;
+			cursor ++;
+			if(p == nullptr) p = head, cursor = 0;
+		}
+		len --;
+		if(len == 0)
+		{
+			cursor = -1;
+			head = p = nullptr;
+		}
+		return;
+	}
+	void replace(T newElement)
+	{
+		if(isEmpty()) return;
+		p->val = newElement;
+		return;
+	}
+	void clear()
+	{
+		len = 0;
+		cursor = -1;
+		p = head;
+		while(p!= nullptr)
+		{
+			tmp = p;
+			p = p -> next;
+			free(tmp);
+		}
+		head = p = nullptr;
+		return;
+	}
+	
+	bool isEmpty()
+	{
+		return len == 0;
+	}
+	
+	bool isFull()
+	{
+		return len == lenLimit;
+	}
+	
+	bool gotoBeginning()
+	{
+		if(isEmpty()) return false;
+		else
+		{
+			cursor = 0;
+			p = head;
+			return true;
+		}
+	}
+	
+	bool gotoEnd()
+	{
+		if(isEmpty()) return false;
+		else
+		{
+			gotoBeginning();
+			while(gotoNext());
+			return true;
+		}
+	}
+	
+	bool gotoNext()
+	{
+		if(isEmpty()) return false;
+		if(p -> next != nullptr)
+		{
+			cursor ++;
+			p = p -> next;
+			return true;
+		}
+		else return false;
+	}
+	bool gotoPrev()
+	{
+		if(isEmpty()) return false;
+		if(p == head) return false;
+		tmp = p;
+		gotoBeginning();
+		while(p -> next != tmp) gotoNext();
+		return true; 
+	}
+	T getCursor()
+	{
+		if(isEmpty()) return nullptr;
+		return p -> val;
+	}
+	void showStructure()
+	{
+		if(isEmpty()) printf("Empty list ");
+		else
+		{
+			tmp = head;
+			while(tmp != nullptr)
+			{
+				putchar(tmp -> val);
+				putchar(' ');
+				tmp = tmp -> next;
+			}
+		}
+		printf("{capacity = %d, length = %d, cursor = %d}\n",lenLimit,len,cursor);
+	}
+	void moveToNth(int n)
+	{
+		T tmp = getCursor();
+		remove();
+		gotoBeginning();
+		for(int i = 1; i < n; i ++) 
+		gotoNext();
+		insert(tmp);
+	}
+	bool find(T searchElement)
+	{
+		while(getCursor() != searchElement && gotoNext());
+		return getCursor() == searchElement;
+	}
+};
+\end{lstlisting}
+
+\subsubsection{双向链表}
+
+\begin{lstlisting}
+template<typename T>
+class List_ADT{
+	int cursor, len, lenLimit;
+	struct Point{
+		T val;
+		Point *next,*pre;
+	};
+	Point *head = nullptr, *p = nullptr, *tmp = nullptr;
+	public:
+	void init(int length)
+	{
+		head = p = nullptr;
+		cursor = -1;
+		len = 0;
+		lenLimit = length;
+		return;
+	}
+	
+	void insert(T newElement)
+	{
+		if(isFull())
+		{
+			printf("Error! Out of the list capacity!\n");
+			return;
+		}
+		if(len == 0)
+		{
+			head = p = new Point;
+			p -> next = p -> pre = nullptr;
+			p -> val = newElement;
+		}
+		else
+		{
+			tmp = p -> next;
+			p -> next = new Point;
+			p -> next -> pre = p;
+			p = p -> next;
+			p -> val = newElement;
+			p -> next = tmp;
+			if(tmp != nullptr) 
+			tmp -> pre = p;
+		}
+		len ++;
+		cursor ++;
+		return;
+	}
+	
+	void remove()
+	{
+		if(isEmpty()) return;
+		if(p == head)
+		{
+			p = head -> next;
+			free(head);
+			head = p;
+			if(p != nullptr)
+			p -> pre = nullptr;
+		}
+		else
+		{
+			tmp = p;
+			p -> pre -> next = p -> next;
+			if(p -> next != nullptr)
+			p -> next -> pre = p -> pre;
+			p = p -> next;
+			free(tmp);
+			if(p == nullptr) p = head, cursor = 0;
+		}
+		len --;
+		if(len == 0)
+		{
+			cursor = -1;
+			head = p = nullptr;
+		}
+		return;
+	}
+	void replace(T newElement)
+	{
+		if(isEmpty()) return;
+		p->val = newElement;
+		return;
+	}
+	void clear()
+	{
+		len = 0;
+		cursor = -1;
+		p = head;
+		while(p!= nullptr)
+		{
+			tmp = p;
+			p = p -> next;
+			free(tmp);
+		}
+		head = p = nullptr;
+		return;
+	}
+	
+	bool isEmpty()
+	{
+		return len == 0;
+	}
+	
+	bool isFull()
+	{
+		return len == lenLimit;
+	}
+	
+	bool gotoBeginning()
+	{
+		if(isEmpty()) return false;
+		else
+		{
+			cursor = 0;
+			p = head;
+			return true;
+		}
+	}
+	
+	bool gotoEnd()
+	{
+		if(isEmpty()) return false;
+		else
+		{
+			while(gotoNext());
+			return true;
+		}
+	}
+	
+	bool gotoNext()
+	{
+		if(isEmpty()) return false;
+		if(p -> next != nullptr)
+		{
+			cursor ++;
+			p = p -> next;
+			return true;
+		}
+		else return false;
+	}
+	bool gotoPrev()
+	{
+		if(isEmpty()) return false;
+		if(p == head) return false;
+		p = p -> pre;
+		cursor --;
+		return true; 
+	}
+	T getCursor()
+	{
+		if(isEmpty()) return nullptr;
+		return p -> val;
+	}
+	void showStructure()
+	{
+		if(isEmpty()) printf("Empty list ");
+		else
+		{
+			tmp = head;
+			while(tmp != nullptr)
+			{
+				putchar(tmp -> val);
+				putchar(' ');
+				tmp = tmp -> next;
+			}
+		}
+		printf("{capacity = %d, length = %d, cursor = %d}\n",lenLimit,len,cursor);
+	}
+	void moveToNth(int n)
+	{
+		T tmp = getCursor();
+		remove();
+		gotoBeginning();
+		for(int i = 1; i < n; i ++) 
+		gotoNext();
+		insert(tmp);
+	}
+	bool find(T searchElement)
+	{
+		while(getCursor() != searchElement && gotoNext());
+		return getCursor() == searchElement;
+	}
+};
+\end{lstlisting}
+
+以上代码均通过实验中提供的测试用例, 利用系统自带的 $\t{fc}$ 比较上述代码输出文件于实验下发文件, 均返回无差异.
+
+对于实验题目注 $\t{List}$ 实现的存储方式为链式结构, 其 $\t{capacity}$ 应为真实结点个数, 其实就应该等于输出中的 $\t{len}$ 的值, 所以在测试链表时, 只需在 $\t{capacity}$ 处输出 $512$ 并直接与结果比较即可.
+
+\subsection{代码差异分析}
+
+仔细研究各函数的写法, 我们可以找到一些“本质”的函数, 此处认为与存储方式有关的函数是“本质”的. 比如 $\t{moveToNth,find,gotoEnd}$ 这些函数就是非“本质”的. 
+
+也就是说这些函数的实现和存储方式无关, 可以由其它函数多次调用实现, 对于上述三种存储表示其实现的代码是相同的. 
+
+而为了简化代码的实现, 我们希望“本质”的函数尽量少, 这样在换用不同的存储逻辑实现相同的操作时, 我们需要对代码的改动就少.
+
+更进一步的, 单向链表和双向链表的差异很小, 对于这两种存储逻辑, 需要修改的部分其实只有 $\t{gotoPrev}$.
+
+\subsection{不同存储方式复杂度分析}
+$$
+\begin{array}{|c|c|c|c|}\hline
+	\t{函数名称} & \t{顺序数组} & \t{单向链表} & \t{双向链表} \\\hline
+	\t{insert}  & \t O(n) & \t O(1) & \t O(1) \\\hline
+	\t{remove}  & \t O(n) & \t O(n) & \t O(1) \\\hline
+	\t{replace} & \t O(1) & \t O(1) & \t O(1) \\\hline
+	\t{clear}   & \t O(1) & \t O(n) & \t O(n) \\\hline
+	\t{isEmpty} & \t O(1) & \t O(1) & \t O(1) \\\hline
+	\t{isFull}  & \t O(1) & \t O(1) & \t O(1) \\\hline
+	\t{gotoBeginning}  & \t O(1) & \t O(1) & \t O(1) \\\hline
+	\t{gotoEnd} & \t O(1) & \t O(n) & \t O(n) \\\hline
+	\t{gotoNext}& \t O(1) & \t O(1) & \t O(1) \\\hline
+	\t{gotoPrev}& \t O(1) & \t O(n) & \t O(1) \\\hline
+	\t{getCursor}  & \t O(1) & \t O(1) & \t O(1) \\\hline
+	\t{showStructure}  & \t O(n) & \t O(n) & \t O(n) \\\hline
+	\t{moveToNth}  & \t O(n) & \t O(n) & \t O(n) \\\hline
+	\t{find}    & \t O(n) & \t O(n) & \t O(n) \\\hline
+\end{array}
+$$
+
+一些小细节及分析:
+
+\begin{itemize}
+	\item[(1)] 对于 $\t{clear}$ 的复杂度, 此处考虑到要将单向/双向链表新建的结点空间释放, 需要遍历整个链表所以其复杂度为 $\t O(n)$. 相应的, 对于数组的清空, 我们只需清楚光标和长度即可, 因为数组的空间是在最初始申请的, 不会随着程序运行而变化, 而且每次操作都是赋值, 不清空也不会对后续操作产生影响.
+	\item[(2)] 对于 $\t{moveTonNth}$ 操作, 虽然三种存储用时均为 $\t O(n)$, 但其具体的原因却不相同, 数组是因为插入删除操作需要 $\O(n)$ 的时间, 寻找第 $n$ 是 $\t O(1)$, 所以该操作用时为 $\t O(n)$. 而对于双向链表, 其主要复杂度用于寻找第 $n$ 个位置, 而相应的插入删除操作则仅仅为 $\t O(1)$.
+	\item[(3)] 对于单向链表和双向链表, 其本质差距只有 $\t{gotoPrev}$ 这个函数的时间消耗, 双向链表可以 $\t O(1)$ 查询前驱, 进而在 $\t O(1)$ 的复杂度完成删除操作.
+	\item[(4)] 如果我们在链表处理时在动态维护一个尾指针, 那么我们可以将 $\t{gotoEnd}$ 的复杂度优化至 $\t O(1)$, 但不会使其他操作用时间增加.
+	\item[(5)] 如果进行 (4) 的优化, 仅通过上述表格, 我们认为数组远不如链表, 因为链表的每一项操作都优于数组. 但实际上正如 (2) 所述, 数组的优势其实是可以在 $\t O(1)$ 的时间内随机访问, 而相应的链表则需要 $\t O(n)$ 的时间, 而这种访问操作并没有体现在上述测试过程中. 并且该操作在很多实际应用中占了大部分, 所以数组在这方面优势很大. 这两类存储应该说各有优劣, 要根据不同的应用场景进行选择.
+\end{itemize}
+
+\section{Task 2: 为指定的 DQueue ADT 实现两种数据结构}
+
+\subsection{代码实现}
+
+\subsubsection{顺序数组}
+
+利用循环数组实现.
+
+\begin{lstlisting}
+template<typename T>
+class DQueue{
+	vector<T>q;
+	int siz, head, tail, sizeLimit;
+	T tmp;
+	public:
+	void init(int length)
+	{
+		q.resize(length);
+		sizeLimit = length;
+		siz = 0; 
+		head = 0;
+		tail = -1;
+	}
+	bool isEmpty()
+	{
+		return siz == 0;
+	}
+	bool isFull()
+	{
+		return siz == sizeLimit;
+	}
+	void clear()
+	{
+		siz = 0;
+		head = 0;
+		tail = -1;
+	}
+	
+	int size()
+	{
+		return siz;
+	}
+	void enqueueToRear(T element)
+	{
+		if(isFull()) return;
+		tail = (tail + 1) % sizeLimit;
+		q[tail] = element;
+		++ siz;
+		return;
+	}
+	void enqueueToFront(T element)
+	{
+		if(isFull()) return;
+		head = (head + sizeLimit - 1) % sizeLimit;
+		q[head] = element;
+		++ siz;
+		return;
+	}
+	T dequeueFromFront()
+	{
+		if(isEmpty()) return {};
+		tmp = q[head];
+		head = (head + 1) % sizeLimit;
+		-- siz;
+		return tmp;
+	}
+	T dequeueFromRear()
+	{
+		if(isEmpty()) return {};
+		tmp = q[tail];
+		tail = (tail + sizeLimit - 1) % sizeLimit;
+		-- siz;
+		return tmp;
+	}
+	T getFront()
+	{
+		if(isEmpty()) return {}; 
+		return q[head];
+	}
+	T getRear()
+	{
+		if(isEmpty()) return {}; 
+		return q[tail];
+	}
+};
+\end{lstlisting}
+
+\subsubsection{双向链表}
+
+\begin{lstlisting}
+template<typename T>
+class DQueue{
+	struct Point{
+		T val;
+		Point *next, *pre;
+	};
+	int siz, sizeLimit;
+	T tmpval;
+	Point *head, *tail, *tmp;
+	public:
+	void init(int length)
+	{
+		sizeLimit = length;
+		siz = 0;
+		head = tail = nullptr;
+	}
+	void clear()
+	{
+		while(head != nullptr)
+		{
+			tmp = head;
+			head = head -> next;
+			free(tmp);
+		}
+		siz = 0;
+		head = tail = nullptr;
+	}
+	bool isEmpty()
+	{
+		return siz == 0;
+	}
+	bool isFull()
+	{
+		return siz == sizeLimit;
+	}
+	int size()
+	{
+		return siz;
+	}
+	void enqueueToRear(T element)
+	{
+		if(isFull()) return;
+		if(isEmpty())
+		{
+			tail = head = new Point;
+			head -> val = element;
+			head -> pre = head -> next = nullptr;
+		}
+		else
+		{
+			tail -> next = new Point;
+			tail -> next -> pre = tail;
+			tail = tail -> next;
+			tail -> val = element;
+			tail -> next = nullptr;
+		}
+		++ siz;
+		return;
+	}
+	void enqueueToFront(T element)
+	{
+		if(isFull()) return;
+		if(isEmpty())
+		{
+			tail = head = new Point;
+			head -> val = element;
+			head -> pre = head -> next = nullptr;
+		}
+		else
+		{
+			head -> pre = new Point;
+			head -> pre -> next = head;
+			head = head -> pre;
+			head -> val = element;
+			head -> pre = nullptr;
+		}
+		++ siz;
+		return;
+	}
+	T dequeueFromFront()
+	{
+		if(isEmpty()) return {};
+		tmp = head;
+		tmpval = tmp -> val;
+		head = head -> next;
+		free(tmp);
+		-- siz;
+		return tmpval;
+	}
+	T dequeueFromRear()
+	{
+		if(isEmpty()) return {};
+		tmp = tail;
+		tmpval = tmp -> val;
+		tail = tail -> pre;
+		free(tmp);
+		-- siz;
+		return tmpval;
+	}
+	T getFront()
+	{
+		if(isEmpty()) return {}; 
+		return head -> val;
+	}
+	T getRear()
+	{
+		if(isEmpty()) return {}; 
+		return tail -> val;
+	}
+};
+\end{lstlisting}
+
+\subsection{滑动窗口问题}
+
+\subsubsection{问题分析}
+
+此问题可以采用单调队列这一算法完成. 考虑到靠后的较大值, 肯定比前面的较小值更优, 因为再取最大值的时候, 当靠后的值更大时, 我们可以直接忽略前面比它小的值.
+
+基于此思想, 我们区别于直接入队, 而是先把之前队列中比即将要插入的值小的值从队尾弹出. 然后再将当前值从队尾插入. 利用归纳的思想, 不难证明在上述操作过程中, 我们的这个队列始终保持一个单调性. 即从队首到队尾的值是单调递减的.
+
+而对于滑动窗口这个问题, 我们还需要记录队列中每个值的位置, 而当队首元素的位置超出当前计算的区间时, 就需要将其从队首弹出.
+
+由此, 我们就需要之前实现过的双端队列 $\t{DQueue}$ 数据结构来完成这些操作.
+
+而对于存储位置, 我们有两种操作, 一种是直接在 $\t{DQueue}$ 中放入自定义结构体类型, 而每个结构体变量都包含值及其位置, 另一种是, 在 $\t{DQueue}$ 中放入位置, 然后每次根据位置去调取该位置上的值再进行比较.
+
+\subsubsection{代码实现}
+以下代码中的 $\t{DQueue}$ 类, 就是上述列举的两个代码, 并且下述代码均通过了洛谷 $\t{P1886}$  滑动窗口 /【模板】单调队列 题目. 第一行输出为每个区间的最小值, 第二行输出为最大值.
+
+\begin{lstlisting}
+struct node{
+	int pos, val;
+};
+int n, k;
+vector<int>a;
+int main()
+{
+	read(n), read(k);
+	DQueue<node> q;
+	a.resize(n + 2);
+	q.init(n + 2); 
+	for(int i = 1; i <= n; i ++)
+	{
+		read(a[i]);
+		while(!q.isEmpty() && i - q.getFront().pos >= k) q.dequeueFromFront();
+		while(!q.isEmpty() && q.getRear().val >= a[i]) q.dequeueFromRear();
+		q.enqueueToRear({i,a[i]});
+		if(i >= k) write(q.getFront().val, i != n ? ' ' : '\n'); 
+	}
+	q.clear();
+	for(int i = 1; i <= n; i ++)
+	{
+		while(!q.isEmpty() && i - q.getFront().pos >= k) q.dequeueFromFront();
+		while(!q.isEmpty() && q.getRear().val <= a[i]) q.dequeueFromRear();
+		q.enqueueToRear({i,a[i]});
+		if(i >= k) write(q.getFront().val, i != n ? ' ' : '\n');
+	}
+	flushout();
+	return 0;
+}
+\end{lstlisting}
+
+\section{Task 3: 栈}
+
+\subsection{快排非递归转化}
+
+\subsubsection{问题分析}
+
+要进行非递归转化, 我们需要关注快速排序在递归过程中哪些值被传递到了下一层.
+
+发现, 快速排序实际上只用传输区间端点 $l,r$ 这两个值, 所以我们可以利用栈, 每一层就存放这两个值, 然后在处理完当层之后, 将下一层递归的区间加入栈即可.
+
+\subsubsection{代码实现}
+
+\begin{lstlisting}
+int part(vector<int>&num,int l,int r)
+{
+	if(l == r) return -1;
+	int pos = random(l,r);
+	int p = num[pos];
+	swap(num[pos],num[r]);
+	int i = l, j = r - 1;
+	while(i < j)
+	{
+		while(i < j&& num[i] < p) i ++;
+		while(i < j&& num[j] >= p) j --;
+		swap(num[i], num[j]);
+	}
+	if(num[i] >= num[r]) swap(num[i], num[r]);
+	else i ++;
+	return i;
+}
+void Quicksort(vector<int>&num)
+{
+	stack<pii> stk;
+	stk.push({0, num.size() - 1});
+	while(stk.size())
+	{
+		pii p = stk.top();
+		stk.pop();
+		int i = part(num,p.first,p.second);
+		if(i == -1)continue;
+		if(p.first < i - 1) stk.push({p.first, i - 1});
+		if(i + 1 < p.second) stk.push({i + 1, p.second});
+	}
+	return;
+}
+\end{lstlisting} 
+
+\subsection{算术混合运算表达式计算}
+
+\subsubsection{问题分析及算法设计}
+
+利用栈, 将中缀表达式转换为后缀表达式(逆波兰表达式), 并进行计算.
+
+由于本题只要求最终结果, 所以并未求出完整的后缀表达式, 而是在计算过程中同步计算.
+
+先不考虑括号.
+
+具体思路, 考虑给每种运算符赋予一个优先级, 我们用两个栈分别维护运算符和数值, 而当之前压入栈的运算符优先级小于等于当前运算符时, 就将之前的运算符出栈并进行计算. 计算后再将当前的运算符压入栈.
+
+而当多了括号也很简单, 在遇到左括号的时候, 我们只需将其入栈, 不需要任何额外操作. 当遇到右括号时, 我们一直做出栈操作, 直至栈顶为左括号.
+
+至于出栈操作, 具体点就是取出运算符的栈顶和数值栈顶两个元素, 将这两个元素做相应的运算. 然后再将结果压入数值栈.
+
+如此操作之后, 当最终运算符栈为空, 数值栈只剩一个元素时, 这个元素就是表达式的结果.
+
+注: 一些细节, 当 '-' 号前为空或者是左括号时, 此时 '-' 号应理解为负号, 而不是减号. 需要特殊处理, 为了统一, 实际上此时只需在数值栈压入一个 $0$, 从而将 '-' 号视作减号即可.
+
+\subsubsection{代码实现}
+
+\begin{lstlisting}
+const int N = 2e5 + 10;
+char s[N];
+int n, stk_p[N],top_p,top_val;
+double stk_val[N];
+int pr(char opt)
+{
+	switch(opt)
+	{
+		case '+':
+		return 1;
+		case '-':
+		return 1;
+		case '*':
+		return 2;
+		case '/':
+		return 2;
+		case '^':
+		return 3;		
+	}
+	return 0;
+}
+double work(int opt, double v1, double v2)
+{
+	switch(opt)
+	{
+		case '+':
+		return v1 + v2;
+		case '-':
+		return v1 - v2;
+		case '*':
+		return v1 * v2;
+		case '/':
+		return v1 / v2;
+		case '^':
+		return pow(v1,v2);
+	}
+	return 0;
+}
+void pop()
+{
+	double tmp = work(stk_p[top_p], stk_val[top_val - 1], stk_val[top_val]);
+	top_val -= 2;
+	stk_val[++top_val] = tmp;
+	top_p --;
+	return;
+}
+int main()
+{
+	scanf("%s", s);
+	n = strlen(s);
+	if(s[0] == '-') stk_val[++ top_val] = 0;
+	for(int i = 0; i < n; i ++)
+	{
+		if(s[i] == '.') continue;
+		if(s[i] >= '0' && s[i] <= '9')
+		{ 
+			double res = 0;
+			while(s[i + 1] >= '0' && s[i + 1] <= '9')
+			res = res * 10 + s[i] - '0', i++;
+			res = res * 10 + s[i] - '0';
+			if(s[i + 1] == '.' && s[i + 2] >= '0' && s[i + 2] <= '9')
+			{
+				double r = 0, p = 10;
+				i += 2;
+				while(s[i + 1] >= '0' && s[i + 1] <= '9')
+				r += (s[i] - '0') / p, p *= 10;
+				r += (s[i] - '0') / p;
+				res += r;
+			}
+			stk_val[++top_val] = res;
+		}
+		else if(s[i] == '(') 
+		{
+			stk_p[++ top_p] = '(';
+			if(s[i + 1] == '-') stk_val[++ top_val] = 0;
+		}
+		else if(s[i] == ')')
+		{
+			while(top_p && stk_p[top_p] != '(') pop();
+			if(top_p == 0)
+			{
+				puts("括号不匹配,缺少左括号");
+				return 0;
+			}
+			top_p --;
+			
+		}
+		else if(pr(s[i]) > 0)
+		{
+			while(top_p && pr(s[i]) <= pr(stk_p[top_p])) pop();
+			stk_p[++ top_p] = s[i];
+		}
+	}
+	while(top_p && pr(stk_p[top_p])) pop();
+	if(top_p) puts("括号不匹配, 缺少右括号");
+	else printf("%.6lf\n", stk_val[1]);
+	
+	return 0;
+}
+\end{lstlisting}
+
+此代码已通过洛谷 \t{P10473 表达式计算4} 并利用下述数据进行测试.
+
+$$
+\begin{array}{|c|c|}\hline
+	\t{输入} & \t{输出} \\\hline
+	2^{\wedge}10-1000-(5^{\wedge} 3)+(3^{\wedge}2)  & -92 \\\hline
+	1-2+3-4+5-6 & -3 \\\hline
+	-(1-2^\wedge 3)^\wedge(-2)+1 & 0.979592 \\\hline
+	2^\wedge 3*2/4^\wedge 2 & 1 \\\hline
+	 2*(1+2^\wedge 2)/(3*2-3)*(1^\wedge 10+2)-3*2 & 4 \\\hline
+	 ((1+2) & \t{缺少左括号} \\\hline
+	 1+2) & \t{缺少右括号} \\\hline
+\end{array}
+$$
+
+\subsection{股票走势}
+
+\subsubsection{朴实的设计思想}
+
+我们直接枚举一个右端点 $i$, 然后从 $i$ 开始往左枚举 $j$, 直到遇到第一个比当前值大的位置. 时间复杂度 $\t O(n^2)$.
+
+\subsubsection{利用栈}
+
+考虑维护一个单调栈, 此处我们需要找到左边第一个比自己大的位置, 那么就从左向右维护一个单调递减的单调栈.
+
+具体过程就是, 从左至右遍历数组, 如果当前值比栈顶大, 就将栈顶弹出, 重复此过程. 那么栈顶元素就是左边最近的比当前值大的元素. 如果栈是空的, 就说明当前值左边没有比它大的, 即 $s_i = i$(当下标从 $1$ 开始). 在弹出之后, 将当前值入栈.
+
+利用数学归纳法的思想不难证明, 按照上述操作维护的栈是单调的.
+
+时间复杂度 $\t O(n)$.
+
+具体代码如下.
+
+\begin{lstlisting}
+const int N=2e5+10;
+int stk[N], top;
+int n, a[N], s[N];
+int main()
+{
+	read(n);
+	for(int i = 1; i <= n; i ++)
+	{
+		read(a[i]);
+		while(top && a[i] >= a[stk[top]]) top--;
+		s[i] = i - stk[top];
+		stk[++top] = i;
+	}
+	for(int i = 1; i <= n; i ++)
+	write(s[i],i < n ? ' ' : '\n');
+	flushout();
+	return 0;
+}
+\end{lstlisting}
+
+\section{Task 4: 基数排序}
+
+\subsection{设计分析}
+
+基数排序, 就是按数位进行排序, 而越高的数位, 其对排序的影响更大. 我们考虑从低位到高位依次排序.
+
+对于每一位, 将所有数按照这一位一次加入到编号为 $0\sim 9$ 的十个队列中. 并按编号依次将这十个队列拼接, 每一位就基于上一位拼接的队列顺序进行分组.
+
+而对于字符串同理, 只需将 $0\sim 9$ 改为 $a\sim z$ 用 26 个队列分组即可.
+
+\subsection{复杂度分析}
+
+在基数排序中, 我们可以认为整数就是由 $0\sim 9$ 构成的字符串. 所以在将前导 $0$ 补全后, 其复杂度与字符串一致.
+
+记 $m$ 为数据的位数, $n$ 为待排序的数据个数. 则时间复杂度为 $\t O(mn)$.
+
+\subsection{代码实现}
+
+\subsubsection{整数}
+
+\begin{lstlisting}
+int main()
+{
+	freopen("radixSort1.txt","r",stdin);
+	for(int v;scanf("%d",&v)!=EOF;)
+	a.push(v);
+	n = a.size();
+	for(int p = 1, fg = 1; fg;p *= 10)
+	{
+		while(!a.empty())
+		{
+			int now = a.front();
+			a.pop();
+			q[now/p%10].push(now);
+		}
+		
+		if(q[0].size() == n) fg = 0;
+		
+		for(int i = 0; i < 10; i ++)
+		while(!q[i].empty())
+		a.push(q[i].front()), q[i].pop();
+	}
+	while(!a.empty()) 
+	res.push_back(a.front()),
+	a.pop();
+	return 0;
+}
+
+\end{lstlisting}
+
+\subsubsection{字符串}
+
+为了操作简单, 直接使用 \t{ASCII} 码进行字符映射,  所以 $q$  的编号范围在 $0\sim 127$ 但实际使用部分只有 52 个.
+
+\begin{lstlisting}
+int main()
+{
+	for(;scanf("%s",s[++ n])!=EOF;)
+	a.push(n);
+	n --;
+	for(int p = 7;p >= 0; p--)
+	{
+		while(!a.empty())
+		{
+			int now = a.front();
+			a.pop();
+			q[s[now][p]].push(now);
+		}
+		
+		for(int i = 0; i < 128; i ++)
+		while(!q[i].empty())
+		a.push(q[i].front()), q[i].pop();
+	}
+	while(!a.empty()) 
+	res.push_back(a.front()),
+	a.pop();
+	return 0;
+}
+\end{lstlisting}
+
+
+

@@ -1,0 +1,73 @@
+\chapter{第四次作业}
+
+\section{习题五 3}
+
+\begin{itemize}[leftmargin=1.5cm]
+	\item[(1)] 单射
+	\item[(3)] 都不是
+	\item[(5)] 双射
+	\item[(7)] 都不是
+\end{itemize}
+
+
+\section{习题五 6}
+
+\begin{proof}
+	$f\subseteq g\Rightarrow \mathscr{D}(f)\subseteq\mathscr{D}(g)\Rightarrow\mathscr{D}(f)=\mathscr{D}(g)$.
+	
+	从而 $\forall x\in \mathscr{D}(g),f(x)=g(x),\Rightarrow g\subseteq f,\Rightarrow g=f.$
+\end{proof}
+
+\section{习题五 9}
+
+\begin{solution}
+	\begin{itemize}
+		\item[(1)]
+		$$
+		\begin{array}{l}
+			f\circ g=f(g(x))=f(x+2)=(x+2)^2-1=x^2+4x+3,\\
+			g\circ f=g(f(x))=g(x^2-1)=x^2+1.
+		\end{array}$$
+		\item[(2)] $g$ 是双射, $f,f\circ g,g\circ f$ 均不是.
+	\end{itemize}
+\end{solution}
+
+\section{习题五 10}
+
+\begin{solution}
+	\begin{itemize}
+		\item[(1)] 取 $f=(1234)$ 即 $f(1)=2,f(2)=3,f(3)=4,f(4)=1$.
+		$$
+		\begin{array}{c}
+			f^2=(13)(24) \\
+			f^3=(4321) \\
+			f^{-1}=f^3 \\
+			f\circ f^{-1}=I_A
+		\end{array}
+		$$
+		\item[(2)] 取 $g=(12)(34)$, 即 $g(1)=2,g(2)=1,g(3)=4,g(4)=3$.
+	\end{itemize}
+\end{solution}
+
+\section{习题五 11}
+\begin{solution}
+	$
+	P^{-1}=\left(\begin{array}{c}
+		123 \\
+		231
+	\end{array}\right)
+	,\quad
+	P\circ P^{-1}=\left(\begin{array}{c}
+		123 \\
+		123
+	\end{array}\right)
+	$
+\end{solution}
+\section{习题五 12}
+\begin{solution}
+	\begin{itemize}
+		\item[(1)] 不是, 因为 $A\cap B \subseteq B$.
+		\item[(2)] 是, 因为 $A \subseteq B\cup A$.
+		\item[(3)] 是, 因为 $A$ 无穷那么存在可数集 $C\subseteq A$, 又 $C\backslash B$ 仍为可数集且 $C\backslash B \subseteq A\backslash B$.
+	\end{itemize}
+\end{solution}

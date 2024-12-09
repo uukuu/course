@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ����.aux
+The style file: gbt7714-2005-xjtu.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: bibliography.bib
+Warning--Require address: 陆亚明2023数学分析入门
+Warning--Require address: 丘维声2015近世代数
+You've used 2 entries,
+            3050 wiz_defined-function locations,
+            709 strings with 6028 characters,
+and the built_in function-call counts, 1064 in all, are:
+= -- 72
+> -- 4
+< -- 10
++ -- 62
+- -- 8
+* -- 64
+:= -- 117
+add.period$ -- 0
+call.type$ -- 2
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 88
+empty$ -- 63
+format.name$ -- 8
+if$ -- 276
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 0
+newline$ -- 33
+num.names$ -- 2
+pop$ -- 10
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 30
+stack$ -- 0
+substring$ -- 70
+swap$ -- 64
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 14
+width$ -- 3
+write$ -- 51
+(There were 2 warnings)

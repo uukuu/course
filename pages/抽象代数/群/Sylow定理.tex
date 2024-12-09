@@ -1,0 +1,57 @@
+\section{Sylow 定理}
+
+
+\begin{lemma}
+	设 $n=p^lm$, 其中 $(m,p)=1$, $p$ 是素数, 则对 $1\leqslant k\leqslant l$, 有 $$p^{l-k}|C_n^{p^k},\quad p^{l-k+1}\nmid C_n^{p^k}.$$
+\end{lemma}
+
+\begin{theorem}[\t{Sylow} 第一定理]\label{Sylow1}
+	设群 $G$ 的阶 $n=p^lm$, 其中 $p$ 为素数, $(m,p)=1,\ l>0$, 则对 $1\leqslant k\leqslant l$, $G$ 中必有 $p^k$ 阶子群, 其中 $p^l$ 阶子群(即 $p$ 的最高方幂阶子群)称为 $G$ 的 \t{Sylow} $p$-子群.
+\end{theorem}
+
+
+\begin{proof}
+	设集合 $\Omega$ 中的元素形如: $$A=\{a_1,a_2,\ldots,a_{p^k}\},\quad \text{其中}\ a_i\in G.$$
+	对于 $g\in G$, 令 $$g\circ A:=\{ga_1,ga_2,\ldots,ga_{p^k}\}.$$
+	容易验证这是 $G$ 在 $\Omega$ 上的作用.
+
+	我们取 $\Omega$ 的 $G$-轨道完全代表系 $\{A_i\}$, 从而 $|\Omega| = \sum\limits_{i=1}^r |G(A_i)|$.
+
+	由引理可知, $p^{l-k+1} \nmid |\Omega|$. 于是至少存在一个 $i$ 满足 $p^{l-k+1}\nmid |G(A_i)|$.
+
+	根据轨道稳定子定理 $|G| = |G(A_i)||G_{A_i}|$. 由 $p^l$ 恰好整除 $|G|$, 所以 $|G_{A_i}|$ 含有的 $p$ 因子至少为 $k$ 阶. 即 $$|G_{A_i}|=p^kq\geqslant p^k.$$
+
+	另一方面, 对于任意 $g\in G_{A_i}$, 有 $g\circ A_i = A_i$. 于是对于 $a\in A_i$, 有 $ga \in A_i$.
+
+	从而 $$G_{A_i}a=\{ga|g\in G_{A_i}\}\subseteq A_i.$$
+	因此 $$|G_{A_i}| = |G_{A_i}a|\leqslant|A_i| = p^k.$$
+	综上, $|G_{A_i}| = p^k$. 从而 $G_{A_j}$ 就是 $G$ 的一个 $p^k$ 阶子群.
+\end{proof}
+
+\begin{theorem}[\t{Sylow} 第二定理]\label{Sylow2}
+	设群 $G$ 的阶 $n=p^lm$, 其中 $p$ 为素数, $(m,p)=1,l>0$, 则
+	\begin{itemize}
+		\item[(1)] 对于 $1\leqslant k \leqslant l$, $G$ 的任一 $p^k$ 阶子群一定包含于 $G$ 的某个 $\t{Sylow}$ $p$-子群中;
+		\item[(2)] $G$ 的任意两个 \Sy 在 $G$ 中共轭.
+	\end{itemize}
+\end{theorem}
+
+\begin{corollary}
+	有限群 $G$ 的 \Sy 是正规子群, 当且仅当 $G$ 的 \Sy 的个数为 $1$.
+\end{corollary}
+
+\begin{theorem}[\t{Sylow} 第三定理]\label{Sylow3}
+	设群 $G$ 的阶 $n=p^lm$, 其中 $p$ 为素数, $(m,p)=1,l>0$, 则 $G$ 的\Sy 的个数 $r$ 满足 $$r\equiv 1(\bmod\ p),\quad \t{且}\  r\mid m.$$
+\end{theorem}
+
+\begin{corollary}
+	$2p$ 阶群或者是循环群, 或者同构于二面体群 $D_p$.
+\end{corollary}
+
+\begin{definition}\label{四元数}
+	形如 $a+b\t i+c\t j+d\t k$, 且满足 $a,b,c,d \in \R,$ $$\t i^2=\t j^2=\t k^2=-1,\quad \t i\t j=-\t j\t i=\t k,\quad \t j\t k=- \t k\t j=i,\quad \t k\t i=-\t i\t k=\t j,$$ 称为\textbf{四元数}.
+\end{definition}
+
+\begin{definition}
+	称 $Q=\{\pm\ 1,\pm\ \t i,\pm\ \t j,\pm\ \t k\}$ 为四元数群, 容易验证 $Q$ 对于上述乘法构成一个群.
+\end{definition}

@@ -1,0 +1,74 @@
+
+%\tcbset{parbox=false,before upper=\par,before lower=\par}
+\tcbset{breakable,before upper={\parindent2em},left=0pt,lefttitle=5pt, right = 0pt, boxrule = 0.5mm, fonttitle = \bfseries}
+\newenvironment{theorem}[1][]{
+	\refstepcounter{mytheorem}
+	\tcbset{title = {定理\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=SeaGreen!10!CornflowerBlue!10,colframe=RoyalPurple!55!Aquamarine!100!}
+	\begin{tcolorbox}
+}{\end{tcolorbox}}
+
+\newenvironment{lemma}[1][]{
+	\refstepcounter{mytheorem}
+	\tcbset{title = {引理\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=Salmon!20,colframe=Salmon!90!Black}
+	\noindent\begin{tcolorbox}
+}{\end{tcolorbox}}
+
+
+\newenvironment{corollary}[1][]{
+	\refstepcounter{mytheorem}
+	\tcbset{title = {推论\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=Emerald!10,colframe=cyan!40!black}
+	\noindent\begin{tcolorbox}
+}{\end{tcolorbox}}
+
+\newenvironment{proposition}[1][]{
+	\refstepcounter{mytheorem}
+	\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
+	\begin{tcolorbox}\noindent\textbf{命题\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+}{\end{tcolorbox}}
+
+\newenvironment{example}[1][]{
+\refstepcounter{mytheorem}
+\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
+\begin{tcolorbox}\noindent\textbf{例\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+}{\end{tcolorbox}}
+
+\newenvironment{property}[1][]{
+\refstepcounter{mytheorem}
+\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
+\begin{tcolorbox}\noindent\textbf{性质\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+}{\end{tcolorbox}}
+
+\newenvironment{remark}[1][]{
+	\refstepcounter{mytheorem}
+	\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
+	\begin{tcolorbox}\noindent\textbf{注\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+	}{\end{tcolorbox}}
+
+\newenvironment{remark*}[1][]{
+	\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
+	\begin{tcolorbox}\noindent\textbf{注.} \ifempty{#1}\relax\else(#1)\fi
+	}{\end{tcolorbox}}
+
+\newenvironment{definition}[1][]{
+	\setlength{\parindent}{2em}
+	\refstepcounter{mydef}
+	\tcbset{title = {定义\themydef\ifempty{#1}\relax\else.(#1)\fi },colback=OliveGreen!10,colframe=Green!70}
+	\begin{tcolorbox}
+}{\end{tcolorbox}}
+
+\newenvironment{definition*}[1][]{
+	\tcbset{title = {定义 \ifempty{#1}\relax\else(#1)\fi },colback=OliveGreen!10,colframe=Green!70}
+	\begin{tcolorbox}
+	}{\end{tcolorbox}}
+\theoremstyle{definition}
+%\newtheorem{theorem}[mytheorem]{\indent 定理}
+%\newtheorem{lemma}[mytheorem]{\indent 引理}
+%\newtheorem{proposition}[mytheorem]{\indent 命题}
+%\newtheorem{corollary}[mytheorem]{\indent 推论}
+%\newtheorem{definition}[mydef]{\indent 定义}
+%\newtheorem*{definition*}{\indent 定义}
+%\newtheorem{example}[mytheorem]{\indent 例}
+%\newtheorem{property}[mytheorem]{\indent 性质}
+%\newtheorem{remark}[mytheorem]{\indent 注}
+\newenvironment{solution}{\begin{proof}[\indent\bf 解]}{\end{proof}}
+\renewcommand{\proofname}{\indent\bf 证明}

@@ -1,0 +1,151 @@
+\chapter{非线性微分方程组}
+
+\section{自治微分方程与非自治微分方程、动力系统}
+
+对于一般的 $n$ 阶非线性微分方程\begin{equation}
+	y^{(n)} = G(t,y,y',y'',\ldots,y^{(n-1)})
+\end{equation} 可通过变换 $x_y,x_y',\ldots,x_n=y^{(n-1)}$ 化为如下一阶微分方程组 $$\wfen{x_1}{t}=x_2,\cdots,\wfen{x_{n-1}}{t}=x_n,\wfen{x_n} t=G(t,x_1,x_2,\ldots,x_n).$$
+
+所以我们接下来研究更一般的一阶微分方程组
+\begin{equation}\label{一阶微分方程组}
+	\left\{
+	\begin{array}{l}
+		\wfen{x_1}t =f_1(t,x_1,x_2,\ldots,x_n),\\[10pt]
+		\wfen{x_2}t =f_2(t,x_1,x_2,\ldots,x_n),\\[10pt]
+		\vdots \\
+		\wfen{x_n}t =f_n(t,x_1,x_2,\ldots,x_n),
+	\end{array}
+	\right.
+\end{equation}
+
+我们将上述方程组简记为向量形式 \begin{equation}\label{一阶微分方程组向量}
+	\wfen{\bm x} t=\bm F(t,\bm x)
+\end{equation}
+其中,
+$$\bm x=\left[\begin{array}{c}
+	x_1\\x_2\\\vdots\\x_n
+\end{array}\right],\quad \bm F(t,\bm x)=\left[\begin{array}{c}
+f_1(t,x_1,x_2,\ldots,x_n)\\f_2(t,x_1,x_2,\ldots,x_n)\\\vdots\\f_n(t,x_1,x_2,\ldots,x_n)
+\end{array}\right].$$
+
+如果上述方程组有初值 \begin{equation}\label{微分方程组初始值问题}
+	\bm x(t_0)=\bm x_0=(x_{01},x_{02},\ldots,x_{0n})^T.
+\end{equation}
+则该初始值问题也存在类似定理 \ref{解的存在唯一性定理} 的解的存在唯一性定理.
+
+\begin{definition}
+	微分方程组 \eqref{一阶微分方程组} 在 $n+1$ 维空间 $\R^{n+1}=\{t,x_1,x_2,\ldots,x_n\}$ 中确定了一个\hr{向量场}, 而初始值问题 \eqref{一阶微分方程组向量},\eqref{微分方程组初始值问题} 的解 $\bm x(t,t_0,\bm x_0)$ 就是向量场中的一条\textbf{积分曲线}. 当 \eqref{一阶微分方程组向量} 中函数 $\bm F$ 满足解的唯一存在性条件时, 向量场中任一点有且仅有一条积分曲线经过.
+\end{definition}
+
+\begin{definition}
+	如果把 $t$ 理解为时间参数, 只考虑 $x_1,x_2,\ldots,x_n$ 构成的空间 $\R^n$, 我们将这个空间称为方程组 \eqref{一阶微分方程组向量} 的\mydef{相空间}, 积分曲线在相空间的投影曲线称为方程组的\mydef{轨线}.
+\end{definition}
+
+\begin{definition}
+	当方程组 \eqref{一阶微分方程组向量} 中的函数 $\bm F$ 显含 $t$ 时, 称该方程组为\mydef{非自治微分方程组}.
+
+	如果函数 $\bm F$ 中不显含 $t$, 即 \begin{equation}
+		\wfen{\bm x} t=\bm F(\bm x),
+	\end{equation}
+	则称为\mydef{自治微分方程组}.
+\end{definition}
+
+\begin{definition}
+	系统 \eqref{一阶微分方程组向量} 的常数解 $\bm x=\bm x^*$ 称为系统的\mydef{平衡点}(\mydef[微分方程奇点]{奇点}或\mydef[微分方程驻点]{驻点})
+\end{definition}
+
+\begin{definition}
+	系统 \eqref{一阶微分方程组向量} 的解 $\bm x=\bm x(t)$, 若存在常数 $T>0$ 满足 $\forall t\in\R,s.t.\ \bm x(t+T)=\bm x(t)$. 则称 $\bm x(t)$ 是一个\mydef[微分方程周期解]{周期解}.
+\end{definition}
+
+\begin{definition}
+	设 \eqref{一阶微分方程组向量} 的右端函数 $\bm F(t,\bm x)$ 对于 $x\in G\subset\R^n,t\in \R$ 连续, 关于 $\bm x$ 满足 \hyperref[lpxc条件]{\lpxc}且有一个解 $\bm x=\bm\Phi(t)$.
+
+	现给定 $t_0\in\R$ 并设 $\bm\Phi_0=\bm\Phi(t_0)$. 如果对于任意的 $\varepsilon>0$, 存在至多依赖 $\varepsilon,t_0$ 的 $\delta>0$, 使得对于 \eqref{一阶微分方程组向量} 的任意满足 $x(t_0)=x_0$ 的解 $x(t,t_0,\bm x_0)$, 只要 \begin{equation}
+		\Vert \bm x_0-\bm \Phi_0\Vert<\delta
+	\end{equation}
+	就有\begin{equation}
+		\Vert \bm x(t,t_0,\bm x_0)-\bm\Phi(t)\Vert<\varepsilon,\quad \forall t\geqslant t_0
+	\end{equation}
+	就称解 $x=\bm\Phi(t)$ 是 \t{Lyapunov} 意义下稳定的, 简称\textbf{稳定的}, 否则称\textbf{不稳定的}.
+
+	特别的, 如果 $\delta$ 至多依赖 $\varepsilon$ 而与 $t_0$ 的取值无关, 那么称该解是 \t{Lyapunov} 一致稳定的.
+\end{definition}
+
+\begin{definition}
+	如果 \eqref{一阶微分方程组向量} 的解 $\bm x=\bm\Phi(t)$ 是稳定的, 且存在一个常数 $\delta_0>0$, 使得对一切满足 \begin{equation}
+		\Vert \bm x_0 -\bm\Phi_0\Vert<\delta_0
+	\end{equation} 的解 $\bm x(t,t_0,\bm x_0)$ 都有 \begin{equation}
+	\lim\limits_{t\to+\infty}\Vert \bm x(t,t_0,\bm x_0)-\bm\Phi(t)\Vert=0.
+	\end{equation}
+	则称该解是\textbf{渐进稳定的}.
+\end{definition}
+
+\begin{definition}
+	如果 \eqref{一阶微分方程组向量} 的解 $\bm x=\bm\Phi(t)$ 是渐进稳定的且存在区域 $D_0$, 只要 $\bm x_0\in D_0$ 就有 $$
+	\lim\limits_{t\to+\infty}\Vert \bm x(t,t_0,\bm x_0)-\bm\Phi(t)\Vert=0.$$ 则称 $D_0$ 为该解的\textbf{吸引域}.
+
+	特别的, 如果某个解的吸引域是全空间, 则称此解是\textbf{全局渐进稳定的}.
+\end{definition}
+
+\begin{remark}
+	在研究某个解的稳定性时, 总可以用变换 \begin{equation}
+		\bm y(t)=\bm x(t)-\bm\Phi(t)
+	\end{equation} 从而将 \eqref{一阶微分方程组向量} 化为 \begin{equation}
+	\wfen{\bm y}{t}=\bm G(t,\bm y),
+	\end{equation}
+	其中 $\bm G(t,\bm y)=\bm F(t,\bm y+\bm\Phi)-\bm F(t,\bm\Phi)$.
+	且显然有 $\bm G(t,\bm 0)=0$. 即该特解对应着新方程的零解, 所以我们接下来主要研究零解.
+\end{remark}
+
+\begin{practice}
+\problem 试给出一阶微分方程 $$\wfen x t=a(t)x$$ 的零解稳定或渐进稳定的充要条件.
+\begin{solution}
+	该方程的解为 $x(t)=x(0)e^{\int_0^t a(s)\td s}$.
+
+	根据稳定性定义, 取 $t_0=0$, 则要求 $|x_0|<\delta$ 时 $|x(t)|<\varepsilon$
+
+	那么则需要 $e^{\int_0^t a(s)\td s}$ 有界.
+
+	渐近稳定, 又需满足 $\lim\limits_{t\to+\infty}\Vert \bm x(t)\Vert=0$.
+
+	那么还需要条件 $\lim\limits_{t\to+\infty}e^{\int_0^t a(s)\td s}=0$.
+\end{solution}
+\problem 给定极坐标系下的微分方程 $$\wfen{\theta} t=1,\quad \wfen{r}{t}=\left\{\begin{array}{ll}
+	r^2\sin\dfrac 1 r, & r>0,\\
+	0, & r=0.
+\end{array}\right.$$
+\begin{itemize}
+	\item[(1)] 证明平衡点 $(0,0)$ 是稳定的, 但不是渐近稳定的.
+	\item[(2)] 试作出 $(0,0)$ 邻域的相图.
+\end{itemize}
+
+\begin{itemize}
+	\item[(1)]
+	\begin{proof}
+		当 $r\in(\dfrac{1}{2k\pi+\pi},\dfrac{1}{2k\pi})$ 时, $\wfen{r}{t}>0$, 那么当 $r_0$ 在这个区间内时, 根据 $r$ 的连续性且 $r=\dfrac 1{2k\pi}$ 时 $\wfen r t=0$, 可推出 $r(t)\leqslant \dfrac{1}{2k\pi}$.
+
+		类似的可以证明 $r(t)\geqslant\dfrac{1}{2k\pi+\pi}$.
+
+		那么只需取最大的 $k$ 满足 $\dfrac 1{2k\pi}<\sqrt{\varepsilon}$, 那么当 $r_0^2<\delta=\dfrac 1{2k\pi}$ 时就有 $r(t)^2<\varepsilon$. 进而说明 $(0,0)$ 是稳定的.
+
+		同时在上述过程中我们也说明了 $r(t)$ 在 $t\to+\infty$ 时不是 $0$.
+	\end{proof}
+\end{itemize}
+\end{practice}
+
+\section{自治微分方程组解的性质}
+
+
+\begin{practice}
+\problem
+\begin{solution}
+	解空间: $x(t)=x_0\cos t,y(t)=x_0\sin t$.
+
+	轨线: $x^2+y^2=x_0^2$.
+\end{solution}
+\problem
+\begin{solution}
+
+\end{solution}
+\end{practice}

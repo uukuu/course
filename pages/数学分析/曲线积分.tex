@@ -1,0 +1,281 @@
+\newpage
+\chapter{曲线积分}
+
+\section{曲线的弧长}
+
+\begin{definition}\label{简单曲线}
+	对于空间中的参数方程
+	\begin{equation}\label{空间曲线参数方程}
+		\left\{
+		\begin{array}{lr}
+			x=x(t), & \\
+			y=y(t), &\quad t\in[a,b] \\
+			z=z(t), &
+		\end{array}
+		\right.
+	\end{equation}
+
+	所定义的曲线段 $C$, 如果对任意的 $a\leqslant t_1<t_2\leqslant b$, 当 $t_1=a$ 与 $t_2=b$ 不同时成立时有 $$(x(t_1),y(t_1),z(t_1))\neq(x(t_2),y(t_2),z(t_2)),$$ 则称 $C$ 是\textbf{简单曲线}. 更进一步的, 如果有 $(x(a),y(a),z(a))=(x(b),y(b),z(b))$ 则称 $C$ 为\textbf{简单闭曲线}.
+\end{definition}
+
+\begin{definition}\label{弧长定义}
+	 设曲线段 $C$ 由 (\ref{空间曲线参数方程}) 所定义. 若存在 $s\in\R$, 使得对任意的 $\varepsilon>0$ 而言, 存在 $\delta>0$, 对由区间 $[a,b]$ 的任意一组满足 $\max\limits_{i}\Delta t_i<\delta$ 的分点 $$a=t_0<t_1<\cdots<t_n=b$$ 所定义的曲线上的点 $M_i(x(t_i),y(t_i),z(t_i))$ 均有 $$\left|\sum\limits_{1\leqslant i\leqslant n}\overline{M_{i-1}M_i}-s\right|<\varepsilon,$$
+	 那么就称曲线段 $C$ 是\textbf{可求长的}, 并称 $s$ 是 $C$ 的\textbf{弧长}.
+\end{definition}
+
+类似也可以给出由参数方程
+\begin{equation}\label{平面曲线参数方程}
+	\left\{
+	\begin{array}{c}
+		x=x(t),  \\
+		y=y(t),
+	\end{array}
+	\right. \quad t\in[a,b]
+\end{equation}
+所定义的平面上的曲线段及其弧长定义.
+
+\begin{proposition}
+	设 $C$ 是由 (\ref{空间曲线参数方程}) 给出的可求长的曲线段, $\varphi:[c,d]\longrightarrow[a,b]$ 是严格单调的满射, 并记 $$C_1:\left\{
+	\begin{array}{lr}
+		x=x(\varphi(u)), & \\
+		y=y(\varphi(u)), &\quad u\in[c,d] \\
+		z=z(\varphi(u)), &
+	\end{array}
+	\right.$$
+	那么 $C_1$ 也是可求长的曲线, 且其弧长等于 $C$ 的弧长. 简而言之, 曲线的弧长与参数方程的选取无关.
+\end{proposition}
+
+\begin{proposition}
+	如果 $x(t),y(t),z(t)$ 均在区间 $[a,b]$ 上连续可导, 则由 (\ref{空间曲线参数方程}) 所定义的曲线段 $C$ 是可求长的, 且弧长为 $$s=\int_a^b \sqrt{[x'(t)]^2+[y'(t)]^2+[z'(t)]^2}\t d t.$$
+\end{proposition}
+
+\begin{proposition}
+	如果 $x(t),y(t)$ 均在区间 $[a,b]$ 上连续可导, 那么平面上由 (\ref{平面曲线参数方程}) 所定义的曲线段 $C$ 是可求长的, 且弧长为 $$s=\int_a^b \sqrt{[x'(t)]^2+[y'(t)]^2}\t d t.$$
+\end{proposition}
+
+\begin{corollary}
+	对于定义在平面上的极坐标方程 $r=r(\theta)\ (\theta\in[\alpha,\beta])$ 可以将其视作由参数方程
+	\begin{equation}
+		\left\{
+		\begin{array}{l}
+			x=r(\theta)\cos\theta, \\
+			y=r(\theta)\sin\theta, \\
+		\end{array}
+		\right.
+		\quad \theta\in[\alpha,\beta]
+	\end{equation}
+	那么此时就有 $$s=\int_\alpha^\beta\sqrt{[r'(\theta)]^2+[r(\theta)]^2}\t d\theta.$$
+\end{corollary}
+
+\begin{example}\label{星形线}
+	设 $a>0$. 对于\textbf{星形线 (astroid)} $\left\{\begin{array}{c}
+		x=a\cos^3 t, \\
+		y=a\sin^3 t,
+	\end{array}\right. (t\in[0,2\pi])$ 而言, 其弧长为 $$
+	\begin{array}{rl}
+		 & \mint[0]^{2\pi} \sqrt{[x'(t)]^2+[y'(t)]^2}\t d t \\
+		 &\\
+		 = & 3a\mint[0]^{2\pi} \sqrt{\cos^4 t\sin^2 t+\sin^4 t+\cos^2 t}\t d t \\
+		  & \\
+		 = & 3a\mint[0]^{2\pi}|\sin t\cos t|\t d t = 6a.
+	\end{array}
+	$$
+\end{example}
+
+\begin{example}
+
+\end{example}
+
+\begin{proposition}
+	简单曲线 $C$ 的弧长在正交变换下保持不变.
+\end{proposition}
+
+
+
+\section{第一型曲线积分}
+
+\begin{definition}\label{第一型曲线积分}
+	设 $C$ 是一条可求长的曲线, 其两端点是 $A$ 和 $B$ (若是闭曲线则 $A$ 和 $B$ 是一个点), $f$ 是定义在 $C$ 上的一个函数. 如果存在实数 $I$, 使得对任意的 $\varepsilon>0$, 均存在 $\delta>0$, 当我们依次取分点 $$A=M_0,M_1,\ldots,M_n=B$$ 时, 只要 $\max\limits_{1\leqslant i\leqslant n}\Delta s_i<\delta$ (其中 $\Delta s_i$ 表示曲线段 $\widehat{M_{i-1}M_i}$ 的弧长), 就对任意的 $\bm\xi_i\in\widehat{M_{i-1}M_i}$ 有 $$\left|\sum\limits_{i=1}^n f(\bm\xi_i)\Delta s_i-I\right|<\varepsilon,$$ 那么就称 $I$ 为 $f$ 在 $C$ 上的\textbf{第一型曲线积分(line integral of the first kind)}, 记作 $$I=\int_C f\ \td s.$$ 特别地, 当 $C$ 是闭曲线时, 我们也采用记号 $$I=\oint_C f\ \td s.$$
+\end{definition}
+
+\begin{remark}
+	 当第一型曲线积分存在时, 积分值与曲线的定向无关.
+\end{remark}
+
+\begin{proposition}
+	设 $C$ 时一条可求长曲线, $f$ 与 $g$ 是定义在 $C$ 上的两个函数,
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] 如果 $f$ 与 $g$ 在 $C$ 上的第一型曲线积分都存在, 那么对任意的 $\alpha,\beta\in\R$, $\alpha f+\beta g$ 在 $C$ 上的第一型曲线积分存在并且, $$\int_C (\alpha f + \beta g)\td s=\alpha\int_C f\td s + \beta\int_C g\td s.$$
+		\item[(2)] 如果 $C=C_1\cup C_2$, $C_1,C_2$ 均是可求长曲线, 且公共点为端点, 那么当 $C_1,C_2$ 的第一型曲线积分都存在时, $f$ 在 $C$ 上的第一型曲线积分也存在, 且 $$\int_C f\td s=\int_{C_1} f\td s+\int_{C_2} f\td s.$$
+	\end{itemize}
+\end{proposition}
+
+\begin{definition}\label{R3光滑曲线段}
+	设 $C$ 是 $\R^3$ 中的\textbf{光滑曲线段}, 即存在参数方程 $$\left\{\begin{array}{c}
+		x=x(t),\\
+		y=y(t),\\
+		z=z(t),
+	\end{array}\right. t\in [a,b]$$ 表示 $C$, 且 $x(t),y(t),z(t)$ 均在 $[a,b]$ 上连续可微.
+\end{definition}
+
+取分点 ,求黎曼和, 用积分第一中值定理及闵可夫斯基不等式进行等价, 可得上述光滑曲线段的第一型曲线积分为
+\begin{equation}\label{R3光滑曲线段上的第一型曲线积分}
+	\int_C f(x,y,z)\td s=\int_a^b f(x(t),y(t),z(t)) \sqrt{[x'(t)]^2+[y'(t)]^2+[z'(t)]^2} \td t.
+\end{equation}
+
+类似地, 如果是平面上的曲线, 则有 \label{光滑曲线}
+\begin{equation}\label{R2光滑曲线段上的第一型曲线积分}
+	\int_C f(x,y)\td s=\int_a^b f(x(t),y(t)) \sqrt{[x'(t)]^2+[y'(t)]^2} \td t.
+\end{equation}
+
+
+\section{第二型曲线积分}
+
+\begin{definition}\label{第二型曲线积分}
+	设 $C$ 是 $\R^3$ 中的一条\textbf{定向}的可求长的曲线, \textbf{起点}为 $A$,  \textbf{终点}为 $B$, 在 $C$ 上定义映射 $f=(P,Q,R)^T:C\longrightarrow \R^3$. 若存在实数 $I$, 使得对任意的 $\varepsilon>0$, 均存在 $\delta>0$, 当我们在 $C$ 上从 $A$ 到 $B$ 依次取分点 $$A=M_0,M_1,\ldots,M_n=B$$ 时, 只要 $\max\limits_{1\leqslant i\leqslant n}\overline{M_{i-1}M_i}<\delta$, 就对任意的 $\bm\xi_i\in\widehat{M_{i-1}M_i}$ 有 $$\left|\sum\limits_{i=1}^n\left<f(\bm\xi_i),\overrightarrow{M_{i-1}M_i}\right>-I\right|<\varepsilon,$$ 则称 $I$ 为 $f=(P,Q,R)^T$ 沿定向曲线 $C$ 的\textbf{第二型曲线积分 (line integral of the second kind)}. 也称作 $f$ 沿道路 $\widehat{AB}$ 的\textbf{第二型曲线积分}, 记作 $$I=\int_C P\td x+Q\td y+R\td z=\int_{\widehat{AB}}P\td x+Q\td y+R\td z.$$ 特别地, 当 $C$ 是闭曲线时, 我们也采用记号 $$I=\oint_C P\td x+Q\td y+R\td z.$$
+
+	类似可定义 $\R^2$ 中定向曲线 $C$ 的第二型曲线积分 $$\int_C P\td x+Q\td y.$$
+\end{definition}
+
+\begin{remark}
+	在计算第二型曲线积分时, 需注意曲线的定向, 因为对于以 $A,B$ 为端点的曲线 $$\int_{\widehat{AB}}P\td x+Q\td y+R\td z=-\int_{\widehat{BA}}P\td x+Q\td y+R\td z$$
+\end{remark}
+
+
+
+\begin{proposition}
+	设 $\widehat{AB}$ 是 $\R^3$ 中的一条可求长的定向曲线, $f=(P_1,Q_1,R_1)^T$ 和 $g=(P_2,Q_2,R_2)^T$ 均是从 $\widehat{AB}$ 到 $\R^3$ 的映射.
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)]若 $f$,$g$ 沿 $\widehat{AB}$ 的第二型曲线积分均存在, 则对任意的 $\alpha,\beta\in \R,\ \alpha f+\beta g$ 沿 $\widehat{AB}$ 的第二型曲线积分也存在, 并且等于 $$\alpha\left(\int_{\widehat{AB}} P_1\td x+Q_1\td y+R_1\td z\right)+\beta\left(\int_{\widehat{AB}}P_2\td xQ_2\td yR_2\td z\right).$$
+		\item[(2)] 设 $D$ 是 $\widehat{AB}$ 上一点, 如果 $f$ 沿 $\widehat{AD}$ 和 $\widehat{DB}$ 的第二型曲线积分均存在, 则 $f$ 沿 $\widehat{AB}$ 的第二型曲线积分也存在, 并且等于 $$\int_{\widehat{AD}} P_1\td x+Q_1\td y+R_1\td z+\int_{\widehat{DB}} P_1\td x+Q_1\td y+R_1\td z.$$
+	\end{itemize}
+\end{proposition}
+
+
+设 $\widehat{AB}$ 是 $\R^3$ 中的定向光滑曲线段, 再设 $$f(P,Q,R)^T:\widehat{AB}\longrightarrow \R^3.$$
+
+则有 $$\begin{array}{rl}
+	\mint[\widehat{AB}] P\td x+Q\td y+R\td z=&\mint[a]^b[P(x(t),y(t),z(t))x'(t)+Q(x(t),y(t),z(t))y'(t)\\
+	&+R(x(t),y(t),z(t))z'(t)]\td t
+\end{array}$$
+
+\section{格林公式}
+
+\begin{definition}\label{正向}
+	对于 $\R^2$ 平面上的\hr{有界闭区域} $D$, 其边界 $\partial D$, 是由有限条光滑曲线组成. 当在边界上行走时, 如果与之相邻的区域的内部总是在左侧, 则称这个方向是\textbf{正向}
+\end{definition}
+
+\begin{theorem}[格林公式]\label{格林公式}
+	设 $S$ 是 $\R^2$ 中的有界闭区域, $\partial S$ 由有限多条分段光滑曲线组成, 若 $P,Q\in C^1(S)$, 则
+	\begin{equation}\label{格林公式1}
+		\int_{\partial S}P\td x+Q\td y = \iint\limits_S\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\td x\td y
+	\end{equation}
+	其中 $\partial S$ 的定向为正向.
+\end{theorem}
+
+在定理 \ref{格林公式} 条件下, 再设 $u(x,y)$ 在 $S$ 上连续可微, 那么将 (\ref{格林公式1}) 中的 $P$ 换为 $uP$, 并取 $Q=0$ 可得
+
+\begin{equation*}
+	\int_{\partial S} uP\td x = -\iint\limits_{S}\frac{\partial(uP)}{\partial y}\td x\td y = -\iint\limits_{S}\left(P\frac{\partial u}{\partial y}+u\frac{\partial P}{\partial y}\right) \td x\td y,
+\end{equation*}
+也即
+\begin{equation}\label{格林公式2}
+	-\iint\limits_{S}u\frac{\partial P}{\partial y}\td x\td y=\int_{\partial S}uP\td x+\iint\limits_{S} P\frac{\partial u}{\partial y}\td x\td y.
+\end{equation}
+同理, 将 $Q$ 换为 $uQ$ 可得,
+\begin{equation}\label{格林公式3}
+	\iint\limits_{S}u\frac{\partial Q}{\partial x}\td x\td y=\int_{\partial S}uQ\td y-\iint\limits_{S} Q\frac{\partial u}{\partial x}\td x\td y.
+\end{equation}
+相加后可得,
+\begin{equation}
+	\iint\limits_{S}u\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\td x\td y=\left(\int_{\partial S}uP\td x + uQ\td y\right)-\iint\limits_{S}\left( Q\frac{\partial u}{\partial x}-P\frac{\partial u}{\partial y}\right)\td x\td y.
+\end{equation}
+以上三式均被称作\textbf{平面上的分部积分公式}.
+
+
+\begin{definition}\label{单连通}\label{复连通}\label{多连通}
+	对于 $\R^2$ 中的一个区域 $D$, 若 $D$ 中任意一条简单闭曲线所围成的区域均包含于 $D$, 则称 $D$ 是\textbf{单连通的 (simply connected)}, 否则称 $D$ 为\textbf{多连通的 (multiply connected)} 或者称作\textbf{复连通的}.
+\end{definition}
+
+\begin{proposition}
+	利用\hr{格林公式}计算闭曲线围成的面积. 设 $S$ 是 $\R^2$ 中的一个\hr{有界闭区域}, 且 $\partial S$ 由有限多条\hr{光滑曲线}组成, 那么由\hr{格林公式}知
+	\begin{equation}\label{格林公式面积1}
+		\mu(S)=\iint\limits_{S}\td x\td y = \int_{\partial S}x\td y=-\int_{\partial S}y \td x.
+	\end{equation}
+	更进一步的, 有
+	\begin{equation}\label{格林公式面积2}
+		\mu(S)=\frac 1 2\int_{\partial S}x\td y-y\td x.
+	\end{equation}
+
+	虽然看上去 (\ref{格林公式面积2}) 和 (\ref{格林公式面积1}) 没有实质上的差异. 但在实际计算中, 如果曲线有一定的对称性 (\ref{格林公式面积2}) 能带来很大的便利.
+\end{proposition}
+
+\begin{theorem}
+	设 $D$ 是 $\R^2$ 中的一个\hr{单连通}区域, $P,Q\in C^1(D)$, 则下列命题等价:
+	\begin{itemize}[leftmargin=1.5cm]
+		\item[(1)] 对 $D$ 中任意两点 $A,B$ 以及 $D$ 中从 $A$ 到 $B$ 的任意两条分段\hr{光滑曲线} $C_1,C_2$ 有 $$\int_{C_1} P\td x+Q\td y = \int_{C_2}P\td x+\td y.$$
+		即\hr{第二型曲线积分}与路径无关.
+		\item[(2)] 对于 $D$ 中由有限多条\hr{光滑曲线}组成的任一\hr{闭曲线} $C$ 有 $$\int_C P\td x+Q\td y = 0.$$
+		\item[(3)] 在 $D$ 上有 $\dfrac{\partial P}{\partial y} = \dfrac{\partial Q}{\partial x}$.
+	\end{itemize}
+\end{theorem}
+
+\section{应用: 调和函数}
+
+\begin{definition}\label{调和函数}\label{拉普拉斯算子}
+	设 $D$ 是一个平面 (闭) 区域, $f$ 是定义在 $D$ 上的具有二阶偏导数的函数, 若在 $D$ 上有 $$\frac{\partial^2 f}{\partial x^2}+\frac{\partial^2 f}{\partial y^2} = 0,$$
+	则称 $f$ 是 $D$ 上的\textbf{调和函数 (harmonic function)}.
+
+	通常记 $$\Delta f = \frac{\partial^2 f}{\partial x^2}+\frac{\partial^2 f}{\partial y^2},$$ 并称 $\Delta = \dfrac{\partial^2}{\partial x^2}+\dfrac{\partial^2}{\partial y^2}$ 为\textbf{拉普拉斯算子 (Laplace operator)}.
+\end{definition}
+
+\begin{property}[拉普拉斯算子在正交变换下的不变性]\label{拉普拉斯算子在正交变换下的不变性}
+	设 $f$ 是 $C^2$ 类的\hr{调和函数}, $\\ \\A=\left[\begin{array}{cc}
+		a & b \\
+		c & d
+	\end{array}\right]$ 是一个\hr{正交矩阵}, $g(x,y)=f(ax+by,cx+dy)$. 则有 $\Delta f = \Delta g$.
+\end{property}
+%\setlength{\arraycolsep}{3pt}
+\begin{proof}
+	记 $x'=ax+by,y'=cx+dy$, 利用\hr{偏导数的链式法则}可得
+	\begin{equation*}
+		\setlength{\arraycolsep}{0.5pt}
+		\begin{array}{rcl}
+			\Delta g &=& \dfrac{\partial^2 g}{\partial x^2} + \dfrac{\partial^2 g}{\partial y^2} \\[10pt]
+			&=& \dfrac{\partial }{\partial x}\left(\dfrac{\partial g}{\partial x'}\cdot\dfrac{\partial x'}{\partial x}+\dfrac{\partial g}{\partial y'}\cdot\dfrac{\partial y'}{\partial x}\right)+\dfrac{\partial }{\partial y}\left(\dfrac{\partial g}{\partial x'}\cdot\dfrac{\partial x'}{\partial y}+\dfrac{\partial g}{\partial y'}\cdot\dfrac{\partial y'}{\partial y}\right) \\[10pt]
+			&=&\dfrac{\partial }{\partial x}\left(\dfrac{\partial f}{\partial x'}\cdot a+\dfrac{\partial f}{\partial y'}\cdot c\right)+\dfrac{\partial }{\partial y}\left(\dfrac{\partial f}{\partial x'}\cdot b+\dfrac{\partial f}{\partial y'}\cdot d\right) \\[10pt]
+			&=&\dfrac{\partial }{\partial x'}\left(\dfrac{\partial f}{\partial x'}\cdot a+\dfrac{\partial f}{\partial y'}\cdot c\right)\dfrac{\partial x'}{\partial x}+\dfrac{\partial }{\partial y'}\left(\dfrac{\partial f}{\partial x'}\cdot a+\dfrac{\partial f}{\partial y'}\cdot c\right)\dfrac{\partial y'}{\partial x} \\[10pt]
+			&&+\dfrac{\partial }{\partial x'}\left(\dfrac{\partial f}{\partial x'}\cdot b+\dfrac{\partial f}{\partial y'}\cdot d\right)\dfrac{\partial x'}{\partial y}+\dfrac{\partial }{\partial y'}\left(\dfrac{\partial f}{\partial x'}\cdot b+\dfrac{\partial f}{\partial y'}\cdot d\right)\dfrac{\partial y'}{\partial y} \\[10pt]
+			&=& (a^2+b^2)\dfrac{\partial^2 f}{\partial {x'}^2}+(c^2+d^2)\dfrac{\partial^2 f}{\partial {y'}^2}+(ac+ac+bd+bd)\dfrac{\partial^2 f}{\partial x'\partial y'}\\[10pt]
+			&=& \dfrac{\partial^2 f}{\partial {x'}^2}+\dfrac{\partial^2 f}{\partial {y'}^2} = \Delta f.
+		\end{array}
+	\end{equation*}
+
+	上述最后一行利用了正交矩阵的性质, 任意两行向量点积是 $0$, 即 $ac+bd=0$.
+
+	更进一步的, 如果是 $n$ 元调和函数 $g(x_1,x_2,\ldots,x_n)=f(x_1',x_2',\ldots,x_n')$ 其中, $(x_1',\ldots,x_n')^T=A(x_1,\ldots,x_n)^T$, 且 $A$ 是 $n$ 阶正交矩阵.
+
+	那么有 $\dfrac{\partial x_i'}{\partial x_j}=a_{i,j}$.
+
+	则
+	\begin{equation*}
+		\setlength{\arraycolsep}{0.5pt}
+		\begin{array}{rcl}
+			\Delta g &=&\sum\limits_{i=1}^n \dfrac{\partial^2 g}{\partial x_i^2}\\ [10pt]
+			&=& \sum\limits_{i=1}^n \dfrac{\partial}{\partial x_i}(\sum\limits_{j=1}^n\dfrac{\partial g}{\partial x_j'}\cdot\dfrac{\partial x_j'}{\partial x_i}) \\ [10pt]
+			&=& \sum\limits_{i=1}^n \sum\limits_{k=1}^n \dfrac{\partial}{\partial x_k'}(\sum\limits_{j=1}^n\dfrac{\partial f}{\partial x_j'}\cdot a_{j,i})\dfrac{\partial x_k'}{\partial x_i} \\ [10pt]
+			&=& \sum\limits_{i=1}^n \sum\limits_{k=1}^n \dfrac{\partial}{\partial x_k'}(\sum\limits_{j=1}^n\dfrac{\partial f}{\partial x_j'}\cdot a_{j,i}) a_{k,i} \\ [10pt]
+			&=&\sum\limits_{k=1}^n\sum\limits_{j=1}^n\sum\limits_{i=1}^n a_{k,i}a_{j,i}\dfrac{\partial^2 f}{\partial x_k'\partial x_j'} \\ [10pt]
+			&=&\sum\limits_{k=1}^n \dfrac{\partial^f}{\partial x_k'^2}=\Delta f.
+		\end{array}
+	\end{equation*}
+
+	利用到了 $\sum\limits_{i=1}^n a_{j,i}a_{k,i}=\left\{\begin{array}{c}
+		1,\quad j=k \\
+		0,\quad j\neq k
+	\end{array}\right.$
+\end{proof}
+
+\begin{lemma}
+	设 $D$ 是平面上由有限多条\hr{光滑曲线}所围城的\hr{有界闭区域}, $u$ 和 $v$ 是定义在 $D$ 上的两个函数, 且 $u\in C^2(D),\ v \in C^1(D)$, 则 $$\iint\limits_{D}v\Delta u\td x\td y = -\int\limits_{D}\left(\frac{\partial u}{\partial x}\ \frac{\partial v}{\partial x}+\frac{\partial u}{\partial y}\ \frac{\partial v}{\partial y}\right)$$
+\end{lemma}

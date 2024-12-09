@@ -1,0 +1,216 @@
+\chapter{第五次作业}
+
+\section{习题六 1}
+
+\begin{solution}
+\begin{itemize}
+	\item[(1)] 是
+	\item[(3)] 是
+	\item[(5)] 不是
+	\item[(7)] 是
+	\item[(9)] 是
+\end{itemize}
+\end{solution}
+\section{习题六 3}
+
+\begin{solution}
+\begin{itemize}
+	\item[(1)] 设 $X=\{a,b\},a*b=a,a*a=a,b*b=a,b*a=b$.
+	\item[(2)] 设 $X=\{a,b\},a*b=b,a*a=a,b*b=a,b*a=a$.
+	\item[(3)] 对于左幺元, $e_l*e_r=e_r$, 对于右幺元 $e_l*e_r=e_l$, 故 $e_l=e_l*e_r=e_r$.
+\end{itemize}
+\end{solution}
+
+\section{习题六 7}
+
+\begin{solution}
+	满足结合律: $x*y*k=x*k=x,x*(y*k)=x*y=x$.
+	
+	不满足交换律: $x*y=x,y*x=y$.
+	
+	没有幺元, 但有右幺元, 且每个元素都是右幺元.
+	
+	没有零元, 但有左零元, 且每个元素都是左零元.
+	
+	没有逆元.	
+\end{solution}
+
+\section{习题六 9}
+
+\begin{proof}
+	$\forall\ x\in S,\ x*x^2=x^2*x\Rightarrow x^=x$
+\end{proof}
+
+\section{习题六 12}
+
+\begin{solution}
+	$S_1,S_2$ 是, $S_3$ 不是.
+\end{solution}
+
+\section{习题六 17}
+
+\begin{solution}
+	取映射 $\varphi(x)=\left\{
+	\begin{array}{l}
+		0,\quad x=0\\
+		1,\quad x\neq 0
+	\end{array}
+	\right.$
+	
+	则有 $\varphi(x)\varphi(y)=\varphi(xy)$.
+	
+	即 $\varphi$ 是同态.
+\end{solution}
+
+\section{习题六 19}
+
+\begin{proof}
+	$\forall\ a,b\in X,\ h(x)h(y)=f_1(x)\oplus f_2(x)\oplus f_1(y)\oplus f_2(y)=f_1(x)\oplus f_1(y)\oplus (f_2(x)\oplus f_2(y))=f_1(xy)\oplus f_2(xy)=h(xy)$.
+\end{proof}
+
+\section{习题六 22}
+
+\begin{itemize}
+	\item[(1)]
+	
+	$
+	\begin{array}{c|cccccc}
+		* & 0 & 1 & 2 & 3 & 4 & 5 \\\hline
+		0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		1 & 0 & 1 & 2 & 3 & 4 & 5 \\
+		2 & 0 & 2 & 4 & 0 & 2 & 4 \\
+		3 & 0 & 3 & 0 & 3 & 0 & 3 \\
+		4 & 0 & 4 & 2 & 0 & 4 & 2 \\
+		5 & 0 & 5 & 4 & 3 & 2 & 1 
+	\end{array}
+	$
+	\item[(2)] $\forall\ x,y,z\in N_k$, 设 $x*y=p_1k+r_1,y*z=p_2k+r_2,x*y*k=p_3k+r_3$
+	则有 $r_1z\equiv r_3(\bmod\ k),xr_2\equiv r_3(\bmod\ k),\Rightarrow x*_ky*_kz = r_1*_kz=r_3,x*_k(y*_kz)=x*_kr_2=r_3$.
+	
+	故满足结合律, 即 $<N_k,*_k>$ 是半群. 
+	
+\end{itemize}
+
+\section{习题六 25}
+
+\begin{proof}
+	$\forall x,y,z\in \mathbb R,x*y*z=(x+y+xy)*z=x+y+xy+z+(x+y+xy)z=x+y+z+xy+xz+yz,\ x*(y*z)=x*(y+z+yz)=x+y+z+xy+xz+yz$.
+	
+	幺元是 $0$. $\forall x\in \mathbb R,0*x=0+x+0x=x,x*0=x+0+x0=x$.
+	
+	故 $<\mathbb R,*>$ 是半群.
+\end{proof}
+
+\section{习题六 30}
+$<S,*>$ 是半群. 若有 $a\in S,\ \forall\ x\in S,\ \exists\ u,v\in S$ 使得 $$a*u=v*a=x$$ 证明: $<S,*>$ 是含幺半群.
+
+\begin{proof}
+先取 $x=a$, 设 $ab_1=b_2a=a$.
+
+再取 $x=b_1$, 设 $b_1=au$ 同左乘 $b_2$ 得
+$b_2b_1=b_2au=au=b_1$.
+
+再取 $x=b_2$, 设 $b_2=va$ 同右乘 $b_1$ 得
+$b_2b_1=vab_1=va=b_2$.
+
+故得到 $b_1=b_2$ 记作 $b$, 即 $ab=ba=a$.
+
+下面验证 $b$ 是幺元.
+
+$\forall\ x\in S,$ 设 $x=au=va$ 则有 $bx=bau=au=x,xb=vab=va=x$.
+
+故 $b$ 是幺元.
+\end{proof}
+
+\section{习题六 32}
+
+\begin{itemize}
+	\item[(1)]
+	\begin{proof}
+		$f_1,f_2\in S^S, \forall x\in S,f_1\circ f_2 (x)=f_1(f_2(x))$ 由 $f_2(x)\in S\Rightarrow f_1(f_2(x))\in S\Rightarrow f_1\circ f_2\in S^S$.
+		
+		又函数的复合具有结合律, $<S^S,\circ>$ 是半群. 
+	\end{proof}
+	\item[(2)]
+	\begin{solution}
+		对于给定 $a$ 设 $\sigma_a: S\to S,\sigma_a(x)=ax$.
+		
+		则有 $\sigma_a\in S^S$.
+		
+		取 $\varphi:S\to S^S,\varphi(a)=\sigma_a$.
+		
+		$\forall\ a,b\in S,\forall x\in S,\varphi(a)\circ\varphi(b)(x)=\sigma_a(\sigma_b(x))=abx=\sigma_{ab}x=\varphi(ab)(x)$ 即 $\varphi$ 是同态.
+	\end{solution}
+\end{itemize}
+
+\section{习题六 33}
+
+\begin{proof}
+	设 $y=f(x)\in Y$ 则 $y*y=f(x)*f(x)=f(x^2)=f(x)=y$ 故 $y$ 是 $Y$ 的幂等元.
+\end{proof}
+
+\section{习题六 34}
+
+\begin{itemize}
+	\item[(1)] 真
+	\item[(2)] 真
+	\item[(2)] 真
+\end{itemize}
+
+\section{习题六 43}
+
+$x*x=e$ 即 $S$ 中的元素均存在逆元. 故 $<S,*>$ 是群.
+
+$yx=yx*e=yx*y^2=yx*y*e*y=yx*y*x^2*y=(yx)^2xy=e*xy=xy$.
+
+故 $<S,*>$ 是交换群.
+
+\section{习题六 47}
+
+\begin{proof}
+	先证必要性, $H_1H_2$ 是 $G$ 的子群, $\forall h_1h_2\in H_1H_2,(h_1h_2)^{-1}\in H_1H_2,\Rightarrow\exists h_1'h_2'=(h_1h_2)^{-1},\Rightarrow h_1h_2=(h_1'h_2')^{-1}=h_2'^{-1}h_1'^{-1}\in H_2H_1\Rightarrow H_1H_2\subseteq H_2H_1$.
+	
+	又 $\forall\ h_2h_1\in H_2H_1,h_1^{-1}h_2^{-1}\in H_1H_2\Rightarrow (h_1^{-1}h_2^{-1})^{-1}\in H_1H_2\Rightarrow h_2h_1\in H_1H_2\Rightarrow H_2H_1\subseteq H_1H_2$.
+	
+	综上 $H_1H_2=H_2H_1$. 
+	
+	下证充分性, $\forall h_1h_2,h_3h_4\in H_1H_2$ 对于 $(h_3h_4)^{-1}=h_4^{-1}h_3^{-1}$ 存在 $h_3'h_4'=(h_3h_4)^{-1},h_3'\in H_1,h_4'\in H_2$.
+	
+	则 $h_1h_2(h_3h_4)^{-1}=h_1h_2h_3'h_4'$, 对于 $h_2h_3$ 存在 $h_3''\in H_1,h_2''\in H_2,h_2h_3=h_3''h_2''$.
+	
+	即 $h_1h_2h_3'h_4'=(h_1h_3'')(h_2''h_4'),h_1h_3''\in H_1,h_2''h_4\in H_2\Rightarrow h_1h_2(h_3h_4)^{-1}\in H_1H_2$ 故 $H_1H_2$ 是 $G$ 的子群.
+\end{proof}
+
+\section{习题六 49}
+
+\begin{proof}
+	$\forall\ x,y\in X,\ yH=Hy\Rightarrow H=y^{-1}Hy\Rightarrow Hy^{-1}=y^{-1}H\Rightarrow y^{-1}\in X$, 
+	又 $xy^{-1}H=x(y^{-1}H)=x(Hy^{-1})=(xH)y^{-1}=H(xy^{-1})\Rightarrow xy^{-1}\in X$
+	
+	故 $X$ 是 $G$ 的子群.
+\end{proof}
+
+\section{习题六 50}
+
+\begin{itemize}
+	\item[(1)]
+	\begin{proof}
+		封闭性: $f_1=a_1x+b_1,f_2=a_2x+b_2\Rightarrow f_1\circ f_2=f_1(a_2x+b_2)=a_1a_2x+a_1b_2+b_1\in G$.
+		
+		函数的复合满足结合律.
+		
+		逆元: $f=ax+b,f^{-1}=\dfrac{x}{a}-\dfrac b a$.
+		
+		幺元: $f_e=x$.
+		
+		所以 $<G,\circ>$ 是群.
+	\end{proof}
+	\item[(2)]
+	\begin{proof}
+		$f_1,f_2\in S_1$ 设 $f_1=x+b_1,f_2=x+b_2,f_2^{-1}=x-b_2$, 则 $f_1\circ f_2^{-1}=x+b_1-b_2\in S_1$.
+		
+		$f_1,f_2\in S_2$ 设 $f_1=a_1x,f_2=a_2x,f_2^{-1}=\dfrac{x}{a_2}$, 则 $f_1\circ f_2^{-1}=\dfrac{a_1x}{a_2}\in S_2$.
+		
+		故 $<S_1,\circ>,<S_2,\circ>$ 是 $G$ 的子群.
+	\end{proof}
+\end{itemize}

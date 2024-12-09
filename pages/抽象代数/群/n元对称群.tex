@@ -1,0 +1,77 @@
+\section{$n$ 元对称群}
+
+\begin{definition}
+	对于非空集合 $\Omega$, 设 $S_\Omega$ 是全部 $\Omega$ 到自身的双射构成的集合, 容易验证 $S_\Omega$ 是一个群, 我们称之为\mydef{全变换群}(full transformationm group).
+
+	特别的, 当 $\Omega$ 是有限集合时, 称 $\Omega$ 到自身的双射为 $\Omega$ 上的一个\mydef{置换} (permutation). 当 $|\Omega|=n$ 时, 称 $\Omega$ 上的置换为 \textbf{$n$ 元置换}, 并称 $S_\Omega$ 为 \textbf{$n$ 元对称群}, 记作 $S_n$.
+\end{definition}
+
+\begin{definition}
+	如果一个 $n$ 元置换 $\sigma$ 把 $i_1$ 映成 $i_2$, 把 $i_2$ 映成 $i_3$,$\cdots$, 把 $i_{r}$ 映成 $i_1$, 并且保持其余元素不变, 那么称 $\sigma$ 为 $r-$\textbf{轮换}, 简称为\mydef{轮换}, 记作 $(i_1i_2i_3\cdots i_{r-1}i_r)$.
+
+	特别地, 当 $r=2$ 时, 也称为\mydef{对换}. 恒等映射 $I$ 记作 $(1)$.
+
+	如果两个轮换之间没有公共元素, 则称它们\mydef[轮换不相交]{不相交}.
+\end{definition}
+
+\begin{property}
+	\begin{equation}
+		(i_1i_2\cdots i_{r-1} i_r)^{-1}=(i_ri_{r-1}\cdots i_2i_1).
+	\end{equation}
+	\begin{equation}
+		(i_1i_2\cdots i_{r-1}i_r)=(i_1i_r)(i_1i_{r-1})\cdots(i_1i_3)(i_1i_2).
+	\end{equation}
+	\begin{equation}\label{eq:对称群:3}
+		(ij)=(1i)(1j)(1i).
+	\end{equation}
+\end{property}
+
+\begin{theorem}
+	 $S_n$ 中任一非单位元的置换都能表示成一些两两不相交的轮换的乘积, 并且除了轮换的排列次序外, 表示法是唯一的.
+\end{theorem}
+
+\begin{remark*}
+	在计算多个轮换复合时, 注意运算顺序是从右至左,  因为轮换本质上是函数映射的复合.
+\end{remark*}
+
+
+
+\begin{corollary}\label{coro:对称群:1}
+	 $S_n$ 中每个置换都可以表示成一些对换的乘积.
+\end{corollary}
+
+\begin{proposition}
+	$S_n$ 中一个置换表示成对换的乘积, 其中对换的个数的奇偶性只和这个置换本身有关, 与表示方式无关.
+\end{proposition}
+
+\begin{example}(\href{https://qoj.ac/contest/1865/problem/9801}{$49^{th}\ \t{ICPC Asia Shenyang Regional Contest D.Dot Product Game}$})
+
+	当我们将 $b_i$ 映射到 $1\sim n$ 时, 每次操作都会改变 $a_i$ 对换数目的奇偶性, 而最终状态是 $a_i$ 也变为 $1\sim n$, 所以只需计算初始的奇偶性就可以判断.
+\end{example}
+
+\begin{definition}
+	基于上述命题, 我们将可以由偶数个对换表示的置换称为\mydef{偶置换}, 由奇数个对换表示的置换称为\mydef{奇置换}.
+
+	同时, 按照定义偶置换和偶置换的乘积还是偶置换, 所以所有偶置换对乘法封闭是 $S_n$ 的子群, 称为 \mydef[n元交错群]{$n$ 元交错群}, 记作 $A_n$. 且有 $|A_n|=\dfrac 1 2 |S_n|=\dfrac{n!} 2$.
+\end{definition}
+
+\begin{definition}
+	设 $S$ 的群 $G$ 的一个非空子集, 如果 $G$ 中每一个元素都能表示成 $S$ 中有限多个元素的整数次幂的乘积, 那么称 \mydef[群的生成元集]{$S$ 是群 $G$ 的生成元集}, 或者说\textbf{$S$ 的所有元素生成 $G$}.
+
+	特别的, 如果 $G$ 的一个生成元集是有限集, 那么称 $G$ 是\mydef{有限生成的群}, 记作 $G=\langle a_1,a_2,\ldots,a_t\rangle$.
+\end{definition}
+
+\begin{corollary}
+	由 \eqref{eq:对称群:3} 及推论 \ref{coro:对称群:1} 可知, 每个置换都可以表示成 $(1i)(1j)(1k)\cdots$, 从而 $S_n=\langle\ (12),(13),\ldots,(1n)\ \rangle$.
+\end{corollary}
+
+\begin{practice}
+	\problem 在 $S_n$ 中, 设 $\sigma(i_1i_2\cdots i_r)$, 证明: 对于任意 $\tau\in S_n$, 有
+	\begin{equation*}
+		\tau\sigma\tau^{-1}=(\ \tau(i_1)\ \tau(i_2)\ \cdots\ \tau(i_r)).
+	\end{equation*}
+
+	\problem 证明: $S_n=\langle\ (12),(23),\ldots,(n-1,n)\ \rangle=\langle\ (12),(12\cdots n)\ \rangle$.
+
+	\problem 证明: 当 $n\geqslant 3$ 时, $A_n=\langle\ (123),(124),\ldots,(12n)\ \rangle$.
+\end{practice}

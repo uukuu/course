@@ -1,0 +1,87 @@
+
+\makeatletter
+\newcommand{\ifempty}[1]{\ifnum\pdf@strcmp{#1}{}=\z@}
+\makeatother
+
+\newcounter{mytheorem}[section]
+\newcounter{mydef}[section]
+\newcounter{myproblem}[section]
+%\newcounter{special}[part]
+%\counterwithin{chapter}{part}
+%\numberwithin{figure}{chapter}
+%\renewcommand{\thechapter}{第\zhnum{chapter}章}
+%\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+%\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
+%\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\themydef}{\arabic{section}.\arabic{mydef}}
+\renewcommand{\themytheorem}{\arabic{section}.\arabic{mytheorem}}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+
+\numberwithin{equation}{chapter}
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+\renewcommand{\t}[1]{\text {#1}}
+\setitemize[1]{leftmargin=1.5cm}
+%\input{pages/定理环境黑白}
+\input{pages/定理环境彩}
+
+\newenvironment{practice}{
+	\practicetrue
+	\section*{}
+}{\practicefalse}
+
+\newcommand{\problem}[1][]{
+	\refstepcounter{myproblem}
+	\ifempty{#1}
+	\par\arabic{myproblem}.
+	\else
+	\par#1
+	\fi
+}
+
+%字体颜色
+
+\newcommand{\tr}[1]{\textcolor{red}{#1}}
+
+%超链接
+\newcommand{\hr}[1]{\hyperref[#1]{\t{#1}}}
+\newcommand{\hrr}[2][]{\ifempty{#1}\hyperref[#2]{#2}\dotfill\pageref{#2}\else\hyperref[#1]{#2}\dotfill\pageref{#1}\fi}
+
+\newcommand{\set}[2]{\mathbb {#1}^{#2}}
+\newcommand{\seta}[2]{\mathbb {#1}_{#2}}
+\newcommand{\setb}[3]{\mathbb {#1}^{#2}_{#3}}
+\renewcommand{\t}[1]{\text {#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+
+\newcommand{\dps}[1]{\displaystyle {#1}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+
+\newcommand{\mydef}[2][]{\label{\ifempty{#1}#2\else #1\fi}\textbf{#2}}
+%\newcommand{\mydef}[1]{\label{#1}\textbf{#1}}
+
+%抽象代数
+
+\newcommand{\Aut}{\t {Aut}}  %自同构群
+\newcommand{\Inn}{\t {Inn}}  %内自同构群
+\newcommand{\Ker}{\t {Ker}}  %核空间
+\newcommand{\tIm}{\t {Im}}  %像空间
+
+\newcommand{\Sy}{\t{Sylow} $p$-子群} %Sylow p-子群
+\newcommand{\lAbel}{有限 \t{Abel}\ }
+\newcommand{\Abel}{\t{Abel}\ }
+\newcommand{\rad}{\t{rad}\ }
+
+% 数学分析
+
+\newcommand\mint[1][]{\dps\int_{\hspace{-0.4em} #1}}
+\newcommand{\ti}{\t i}
+\newcommand{\td}{\ \t d}
+\newcommand{\fly}{\t{Fourier}\ }
+\newcommand{\lpxc}{\t{Lipschitz}\ 条件}
+
+%常微分方程
+\newcommand{\wfen}[3][]{\dfrac{\td #2^{#1}}{\td^{#1} #3}}
+\newcommand{\pfen}[3][]{\dfrac{\partial #2^{#1}}{\partial^{#1} #3}}

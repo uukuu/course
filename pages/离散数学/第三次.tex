@@ -1,0 +1,209 @@
+\chapter{第三次作业}
+
+\section{习题四 13}
+
+\begin{solution}
+	\begin{itemize}
+		\item $R_1 \circ R_2=\{(1,4),(1,3)\}$
+		\item $R_2 \circ R_1=\{(3,4)\}$
+		\item $R_1\circ R_2\circ R_1=\varnothing$
+		\item $R_1^3=\{(1,1),(1,4)\}$
+	\end{itemize}
+\end{solution}
+
+\section{习题四 15}
+
+\begin{solution}
+	$A$ 非空, 则 $\exists\  a \in A$ 取 $R_1=\varnothing,R_2=\{(a,a)\}$. 
+\end{solution}
+
+\section{习题四 16}
+
+\begin{solution}
+	$
+	\forall (a,b) \in R\cap \widetilde{R} \Rightarrow (a,b) \in R \wedge (a,b) \in \widetilde{R} \\
+	\Rightarrow (a,b) \in R \wedge (b,a) \in R \Rightarrow a=b.
+	$
+	由此说明 $R \cap \widetilde{R}$ 中只有对角线可能非零, 即非零元素个数不超过 $n$.
+\end{solution}
+
+\section{习题四 17}
+
+\begin{solution}
+	\begin{itemize}
+		\item[(1)] 真, $\forall a \in A, (a,a) \in R_1 \cap (a,a) \in R_2 \Rightarrow (a,a) \in R_1 \circ R_2$.
+		\item[(2)] 假, 取 $R_1=\{(1,2)\},R_2=\{(2,1)\}\Rightarrow R_1 \circ R_2=\{(1,1)\}$ 不是反自反的.
+		\item[(3)] 假, 取 $R_1=\{(1,2),(2,1)\},R_2=\{(2,3),(3,2)\}\Rightarrow R_1\circ R_2=\{(1,3)\}$.
+		\item[(4)] 假, 取 $R_1=\{(1,3),(2,3)\},R_2=\{(3,1),(3,2)\}\Rightarrow R_1\circ R_2=\{(1,1),(2,2),(1,2),(2,1)\}$.
+		\item[(5)] 假, 取 $R_1=\{(1,4),(2,5)\},R_2=\{(4,2),(5,3)\}\Rightarrow R_1\circ R_2=\{(1,2),(2,3)\}$.
+	\end{itemize}
+\end{solution}
+
+\section{习题四 18}
+
+\begin{proof}
+	由 $R^+\circ R^+=R^+ \Rightarrow (R^+)^+=\bigcup (R^+)^k=R^+$.
+	
+	同理 $R^*\circ R^*=R^*\Rightarrow (R^*)^*=R^*$.
+\end{proof}
+
+\section{习题四 19}
+\begin{itemize}
+	\item[(1)]
+	\begin{proof}
+		由 $(1,2),(2,4) \in R,(1,4) \notin R\Rightarrow R$ 不是传递关系 .
+\end{proof}
+	\item[(2)] 
+	\begin{solution}
+		$R_1=\{(1,2),(1,3),(1,4),(2,4),(2,3),(3,4),(4,3),(3,3)\}$.
+	\end{solution}
+	\item[(3)] 存在, 全关系.
+\end{itemize}
+
+\section{习题四 20}
+
+\begin{itemize}
+	
+	\item[(1)] 
+	\begin{proof}
+		自反: $\forall (a,b) \in A\times A,a+b=b+a\Rightarrow ((a,b),(a,b)) \in R$.
+		对称: $\forall ((a,b),(c,d))\in R,a+d=b+c \Rightarrow c+b=d+a\Rightarrow ((c,d),(a,b)) \in R$.
+		传递: $\forall ((a,b),(c,d)),((c,d),(e,f))\in R,a+d=b+c,c+f=d+e\Rightarrow a-b=c-d=e-f\Rightarrow a+f=e+b\Rightarrow((a,b),(e,f))\in R$.
+	\end{proof}
+	
+	\item[(2)] $[(2,5)]_R=\{(1,4),(2,5),(3,6),(4,7),(5,8)\}$.
+	
+	\item[(3)] 不对, $R$ 中的元素形式为 $((a,b),(c,d))$ 而 $A\times A$ 中的元素形式为 $(a,b)$, 应该说 $R\subseteq (A\times A)\times(A\times A)$.
+\end{itemize}
+
+\section{习题四 23}
+
+\begin{itemize}
+	\item[(1)]
+	\begin{proof}
+		自反: $\forall a \in A, (a,a)\in R_1\wedge(a,a) \in R_2\Rightarrow (a,a)\in R_1 \cap R_2$.
+		
+		对称: $\forall (a,b) \in R_1 \cap R_2,(a,b) \in R_1\wedge (a,b)\in R_2\Rightarrow (b,a) \in R_1\wedge (b,a)\in R_2\\
+		\Rightarrow (b,a) \in R_1 \cap R_2$.
+		
+		传递: $\forall (a,b),(b,c) \in R_1\cap R_2,(a,b),(b,c) \in R_1\Rightarrow (a,c) \in R_1$, 同理 $(a,c) \in R_2$, 故 $(a,c) \in R_1\cap R_2$.
+	\end{proof}
+	\item[(2)] 取 $R_1=\{(1,1),(2,2),(3,3),(1,2),(2,1)\},R_2=\{(1,1),(2,2),(3,3),(2,3),(3,2)\}$.
+\end{itemize}
+
+\section{习题四 28}
+\begin{tikzpicture}
+	\graph  {
+		1 <-> 2;
+		1 <-> 3;
+		1 ->[loop above] 1;
+		2 ->[loop above] 2;
+		3 ->[loop left] 3;
+		2 <-> 3;
+		4 ->[loop above] 4;
+		5 <-> 6;
+		5 ->[loop above] 5;
+		6 ->[loop above] 6;
+		
+	};
+	
+	
+\end{tikzpicture}
+
+
+\section{习题四 31}
+\begin{solution}
+
+\begin{itemize}
+	\item[(1)]
+	\begin{tikzpicture}[node distance=10pt]
+		\node[draw, circle]                        (4)   {4};
+		\node[draw, circle, below=of 4]                         (2)  {2};
+		\node[draw, circle, right=20pt of 2]                        (3)  {3};
+		\node[draw, circle, below=of 2]     (1)  {1};
+		
+		\graph{
+			(4) -- (2) -- (1);
+			(3) -- (1)
+		};
+	\end{tikzpicture}
+	
+	\item[(2)]
+	\begin{tikzpicture}[node distance=10pt]
+		\node[draw, circle]                         (36)   {36};
+		\node[draw, circle, below=of 36]             (12)  {12};
+		\node[draw, circle, below=of 12]        (6)  {6};
+		\node[draw, circle, below=of 6]     		(3)  {3};
+		\node[draw, circle, right=20pt of 3]     		(2)  {2};
+		\node[draw, circle, right=20pt of 6]     		(26)  {26};
+		
+		\graph{
+			(36) -- (12) -- (6) -- (3);
+			(6) -- (2);
+			(26) -- (2);
+		};
+	\end{tikzpicture}
+	
+	\item[(3)]
+	\begin{tikzpicture}[node distance=15pt]
+		\node[draw, circle]                         (8)   {8};
+		\node[draw, circle, right=20pt of 8]             (12)  {12};
+		\node[draw, circle, below=of 12]        (6)  {6};
+		\node[draw, circle, below=of 8]     		(4)  {4};
+		\node[draw, circle, below=of 6]     		(3)  {3};
+		\node[draw, circle, below=of 4]     		(2)  {2};
+		\node[draw, circle, right=20pt of 3]             (5)  {5};
+		\node[draw, circle, right=20pt of 5]             (7)  {7};
+		\node[draw, circle, right=20pt of 7]             (11)  {11};
+		\node[draw, circle, right=20pt of 6]             (9)  {9};
+		\node[draw, circle, below=of 3]     		(1)  {1};
+		
+		\graph{
+			(8) -- (4) -- (2) -- (1);
+			(12) -- (6) -- (3) -- (1);
+			(12) -- (4);
+			(6) -- (2);
+			(9) -- (3);
+			(1) -- {
+				(5),(7),(11)
+			}
+		};
+	\end{tikzpicture}
+	
+	$\{2,3,6\}:6,\text{无},6,\{2,3\},6,1$.
+	
+	$\{2,4,6\}:\text{无},2,\{4,6\},2,\text{无},2$.
+	
+	$\{4,8,12\}:\text{无},4,\{8,12\},4,4,\text{无}$.
+\end{itemize}
+\end{solution}
+
+\section{习题四 32}
+
+\begin{solution}
+	$A=\{0,1,2,3,4,5,6\}$.
+	
+	$\preceq=\{(0,0),(0,1),(0,2),(0,3),(0,4),(0,5),(0,6),(1,1),\\(2,2),(2,5),(3,3),(3,5),(5,5),(4,4),(4,6),(6,6)\}$.
+\end{solution}
+
+\section{习题四 34}
+
+\begin{proof}
+	自反: $\forall (a,b) \in A\times B$ 由 $(a,a) \in \preceq_1 \wedge (b,b) \in \preceq_2 \Rightarrow ((a,b),(a,b)) \in \preceq_3$.
+	
+	反对称: $\forall ((a_1,b_1),(a_2,b_2)) \in \preceq_3 \wedge ((a_2,b_2),(a_1,b_1)) \in \preceq_3, \\ (a_1,a_2),(a_2,a_1) \in \preceq_1 \wedge (b_1,b_2),(b_2,b_1) \in \preceq_2 \Rightarrow a_1=a_2\wedge b_1=b_2 \Rightarrow (a_1,b_1)=(a_2,b_2)$.
+	
+	传递: $\forall ((a_1,b_1),(a_2,b_2)),((a_2,b_2),(a_3,b_3)) \in \preceq_3, (a_1,a_2),(a_2,a_3) \in \preceq_1, \\ \Rightarrow (a_1,a_3)\in \preceq_1$ 同理 $(b_1,b_3) \in \preceq_2 \Rightarrow ((a_1,b_1),(a_3,b_3)) \in \preceq_3$.
+	
+	综上 $\preceq_3$ 是 $A\times B$ 上的半序关系.
+\end{proof}
+
+\section{习题四 37}
+
+\begin{solution}
+	\begin{itemize}
+		\item[(1)] 半序
+		\item[(2)] 良序
+		\item[(3)] 良序
+	\end{itemize}
+\end{solution}

@@ -1,0 +1,32 @@
+%C++ 代码显示风格
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
+\lstset{ 
+	language=C++,
+	backgroundcolor=\color[rgb]{0.96,0.96,0.96},% 背景颜色
+	%morekeywords=[2]{nullptr}, % 设置更多的关键字，用逗号分隔
+	keywordstyle=[2]\color{blue},
+	keywordstyle=\bfseries\color{blue},         % 关键字颜色
+	identifierstyle=\color{black},              % 普通标识符颜色
+	commentstyle=\color[rgb]{0,0.6,0},          % 注释颜色
+	stringstyle=\color[rgb]{0.58,0,0.82},
+	basicstyle=\small\ttfamily,        % size of fonts used for the code
+	columns=fullflexible,
+	breaklines=true,                 % 自动换行
+	captionpos=t,                    % sets the caption-position to bottom
+	tabsize=4,
+	%escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+	emph={self,nullptr,'='}, % 指定强调词，如果有多个，用逗号隔开
+	emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+	frame=lines, % 边框
+	framesep=1em, % 设置代码与边框的距离
+	rulesepcolor=\color{red!20!green!20!blue!20},
+	numbers=left, % 显示行号在左边
+	showstringspaces=false,                     % 不显示字符串内的空格
+	%	numbersep=2em, % 设置行号的具体位置
+	numberstyle=\footnotesize, % 缩小行号
+	extendedchars=false,
+	xleftmargin=3em
+}

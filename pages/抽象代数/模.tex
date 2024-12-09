@@ -1,0 +1,54 @@
+\chapter{模}
+
+\section{环上的模, 子模, 商模, 模同态}
+
+\begin{definition}\label{左模}
+	设 $M$ 是一个 \Abel 加法群, $R$ 是幺环. 如果 $R\times M$ 到 $M$ 有一个映射: $(r,a)\mapsto ra$, 并且满足下列 $4$ 条法则： $\forall a_1,a_2,a\in M,r,r_1,r_2\in R$, 有
+	\begin{itemize}
+		\item[(1)] $r(a_1+a_2)=ra_1+ra_2$.
+		\item[(2)] $(r_1+r_2)a=r_1a+r_2a$.
+		\item[(3)] $(r_1r_2)a=r_1(r_2a)$.
+		\item[(4)] $1a=a$.
+	\end{itemize}
+	那么称 $M$ 是\textbf{环 $R$ 上的一个左模}或\textbf{一个左 $R$-模}.
+
+	特别的, 幺环 $R$ 中的加法群 $(R,+)$ 是 $R$ 的一个左模, 称它为 $R$ 的\mydef{左正则模}或\textbf{左正则 $R$-模}.
+\end{definition}
+
+同样, 我们可以类似地定义右模.
+
+\begin{definition}\label{右模}
+	设 $M$ 是一个 \Abel 加法群, $R$ 是幺环. 如果 $R\times M$ 到 $M$ 有一个映射: $(r,a)\mapsto ra$, 并且满足下列 $4$ 条法则： $\forall a_1,a_2,a\in M,r,r_1,r_2\in R$, 有
+	\begin{itemize}
+		\item[(1)] $(a_1+a_2)r=a_1r+a_2r$.
+		\item[(2)] $a(r_1+r_2)=ar_1+ar_2$.
+		\item[(3)] $a(r_1r_2)=(ar_1)r_2$.
+		\item[(4)] $a1=a$.
+	\end{itemize}
+	那么称 $M$ 是\textbf{环 $R$ 上的一个右模}或\textbf{一个右 $R$-模}.
+
+	特别的, 幺环 $R$ 中的加法群 $(R,+)$ 是 $R$ 的一个右模, 称它为 $R$ 的\mydef{右正则模}或\textbf{右正则 $R$-模}.
+\end{definition}
+
+\begin{definition}
+	设 $R$ 是交换幺环, $M$ 是 $R$ 的左模, 令 $$ar:=ra,\quad\forall a\in M,r\in R.$$
+	则 $M$ 也是右模, 此时称 $M$ 是 $R$-模.
+\end{definition}
+
+\begin{proposition}
+	设 $M$ 是幺环 $R$ 的左模, 则 $\forall r,r_1,\ldots,r_m\in R,a_1,a_2,\ldots,a_n\in M$, 有
+	\begin{itemize}
+		\item[(1)] $r0=0$.
+		\item[(2)] $r(-a)=-ra$.
+		\item[(3)] $0a=0$.
+		\item[(4)] $(-r)a=-ra$.
+		\item[(5)] $r\sum\limits_{i=1}^na_i=\sum\limits_{i=1}^n ra_i$.
+		\item[(6)] $(\sum\limits_{i=1}^m r_i)a=\sum\limits_{i=1}^m r_ia$.
+	\end{itemize}
+\end{proposition}
+
+\begin{definition}
+	设 $M$ 是幺环 $R$ 的左模, $H$ 是 $M$ 的非空子集. 如果 $H<M$, 并且对任意的 $r\in R,h\in H$, 都有 $rh\in H$. 那么称 $H$ 是 $M$ 的\mydef{子模}.
+
+	特别的, 我们称 $\{0\}$ 和 $M$ 是 $M$ 的\mydef{平凡子模}.
+\end{definition}

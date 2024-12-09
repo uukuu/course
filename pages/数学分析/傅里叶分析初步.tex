@@ -1,0 +1,201 @@
+\chapter{\fly 分析初步}
+
+\begin{definition*}
+	设 $S$ 是一个非空集合, 我们用 $\C^S$ 表示从 $S$ 到 $\C$ 的全部映射所成之集, 也即定义在 $S$ 上的全体复值函数所成之集.
+\end{definition*}
+对任意的 $f,g\in\C^S$ 以及 $\lambda\in \C$, 令
+\begin{equation*}
+	\begin{array}{c}
+		(f+g)(x)=f(x)+g(x), \\
+		(\lambda f)(x)=\lambda f(x),
+	\end{array}
+	\quad\forall x\in S.
+\end{equation*}
+则在上述运算下 $\C^S$ 是 $\C$ 上的线性空间, 从而 $\C^S$ 有一个基.
+
+\section{\fly 级数定义}
+
+\begin{definition}[复值函数积分]
+	对于复值函数 $g(x)=u(x)+\t i v(x),\ u(x),v(x)\in \R[x]$. 若 $u(x),v(x)$ 均在 $[a,b]$ 上可积, 则定义 $$\int_a^b g(x)\td x=\int_a^b u(x)\td x+\t i\int_a^b v(x)\td x.$$
+\end{definition}
+
+不难验证, 按上述定义的复值函数积分, 也满足实值函数积分的运算法则, 如分部积分以及\hr{微积分学基本定理}.
+
+\begin{definition}\label{三角级数}\label{三角多项式}
+	设 $\mathcal{l}$ 是一个正常数, 记 $e(t):=e^{2\pi \t i t}$, 我们称形如
+	\begin{equation}\label{三角级数1}
+		\frac{a_0} 2+\sum\limits_{n=1}^\infty\left(a_n\cos\frac{2\pi nx}{\mathcal l}+b_n\sin\frac{2\pi nx}{\mathcal l}\right)
+	\end{equation}
+	\begin{equation}\label{三角级数2}
+		\sum\limits_{n\in\Z} c_ne\left(\frac{nx}{\mathcal{l}}\right)
+	\end{equation}
+	的关于变量 $x$ 的函数项级数为\textbf{三角级数 (\t{trigonometric series})}, 其中 \eqref{三角级数1} 的级数收敛是指极限 $$\lim\limits_{N\to\infty}\sum\limits_{n=-N}^N c_ne\left(\frac{nx}{\mathcal l}\right)$$ 存在. 我们称以上两个级数的部分和为\textbf{三角多项式 (\t{trigonometic ploynomial})}.
+\end{definition}
+
+利用欧拉公式 $e^{\ti\theta}=\cos\theta+\ti\sin\theta$, 我们可以探究 \eqref{三角级数1} 和 \eqref{三角级数2} 之间的关系.
+
+如果记 \begin{equation}
+	\left\{\begin{array}{l}
+		c_0 = \dfrac{a_0} 2,\\[10pt]
+		c_n = \dfrac{a_n-\ti b_n} 2,\ \ c_{-n} = \dfrac{a_n+\ti b_n} 2,\quad \forall n\geqslant 1.
+	\end{array}\right.
+\end{equation}
+
+那么就可以将 \eqref{三角级数1} 变为 \eqref{三角级数2} 的形式.
+
+\begin{remark}
+	$a_n,b_n\in\R\Leftrightarrow c_n=\overline{c_{-n}}$.
+\end{remark}
+
+我们把在区间 $[a,b]$ 上黎曼可积, 或者在 $[a,b]$ 上有有限多个奇点但积分 $\mint[a]^b |f(x)|\td x$ 收敛的全体实值函数所成之集记作 $\mathscr{R}[a,b]$.
+
+\begin{definition}
+	设 $\mathcal l$ 是一个正实数, $f(x)$ 是定义在 $\R$ 上的以 $\mathcal l$ 为周期的函数, 并且 $f\in \mathscr{R}[0,\mathcal l]$.
+
+	我们记
+	\begin{equation}\label{flya}
+		a_n=\frac 2{\mathcal{l}} \int_0^{\mathcal l} f(x)\cos\frac{2\pi n x}{\mathcal l}\td x,\quad \forall n\geqslant 0.
+	\end{equation}
+	\begin{equation}\label{flyb}
+	b_n=\frac 2{\mathcal{l}} \int_0^{\mathcal l} f(x)\sin\frac{2\pi n x}{\mathcal l}\td x,\quad \forall n\geqslant 0.
+	\end{equation}
+	\begin{equation}\label{flyc}
+	c_n=\frac 1{\mathcal{l}} \int_0^{\mathcal l} f(x)e\left(-\frac{nx}{\mathcal l}\right)\td x,\quad \forall n\geqslant 0.
+	\end{equation}
+
+	由上三式定义的\hr{三角级数}称作 $f(x)$ 的 \textbf{\fly 级数 (\fly\t{series})} 或 \textbf{\fly 展开式 (\fly\t{expansion})}, 记作
+	\begin{equation*}
+		f(x)\sim\frac{a_0} 2+\sum\limits_{n=1}^\infty\left(a_n\cos\frac{2\pi nx}{\mathcal l}+b_n\sin\frac{2\pi nx}{\mathcal l}\right)
+	\end{equation*}
+	\begin{equation*}
+		f(x)\sim\sum\limits_{n\in\Z} c_ne\left(\frac{nx}{\mathcal{l}}\right)
+	\end{equation*}
+	称 $a_n,b_n,c_n$ 为 $f(x)$ 的 \textbf{\fly 系数}. 通常将 $c_n$ 记作 $\hat{f}(n)$.
+\end{definition}
+
+\begin{remark}
+	上述定义中采用 $\sim$ 的记号是因为目前我们并不知道 $f(x)$ 的 \fly 级数是否收敛于 $f(x)$.
+\end{remark}
+
+\begin{definition}
+	设 $f$ 是定义在 $(0,\mathcal l)$ 上的函数, 如果以 $2\mathcal l$ 为周期的函数 $g$ 满足 $$g(x) = \left\{\begin{array}{c}
+		f(x),\quad x\in(0,\mathcal l) \\
+		f(-x),\quad x\in (-\mathcal l,0).
+	\end{array}\right.$$
+	则称 $g$ 为 $f$ 的\textbf{偶性延拓}, 此时 $g$ 是 $(-\mathcal l,\mathcal l)\backslash\{0\}$ 上的偶函数.
+
+	如果以 $2\mathcal l$ 为周期的函数 $h$ 满足 $$h(x) = \left\{\begin{array}{c}
+		f(x),\quad x\in(0,\mathcal l) \\
+		-f(-x),\quad x\in (-\mathcal l,0).
+	\end{array}\right.$$
+	则称 $g$ 为 $f$ 的\textbf{奇性延拓}, 此时 $h$ 是 $(-\mathcal l,\mathcal l)\backslash\{0\}$ 上的奇函数.
+\end{definition}
+
+为了方便, 我们将 $f$ 作偶性延拓/奇性延拓得到的函数仍记作 $f$.
+
+\begin{definition}
+	如果对 $f$ 做偶性延拓, 那么它的 \fly 级数中只含有余弦项, 称为 $f(x)$ 的\textbf{余弦级数}, 记作 $$f(x)\sim \frac{a_0} 2+\sum\limits_{n=1}^{\infty} a_n\cos\frac{\pi n x}{\mathcal l},$$ 其中 \begin{equation}
+		a_n=\frac 1 {\mathcal l}\int_{-\mathcal l}^{\mathcal l} f(x)\cos\frac{\pi n x}{\mathcal l}\td x=\frac 2 {\mathcal l}\int_0^{\mathcal l} f(x)\cos\frac{\pi n x}{\mathcal l}\td x.
+	\end{equation}
+
+	如果对 $f$ 做奇性延拓, 那么它的 \fly 级数中只含有正弦项, 称为 $f(x)$ 的\textbf{正弦级数}, 记作 $$f(x)\sim \sum\limits_{n=1}^{\infty} b_n\sin\frac{\pi n x}{\mathcal l},$$ 其中 \begin{equation}
+		b_n=\frac 1 {\mathcal l}\int_{-\mathcal l}^{\mathcal l} f(x)\sin\frac{\pi n x}{\mathcal l}\td x=\frac 2 {\mathcal l}\int_0^{\mathcal l} f(x)\sin\frac{\pi n x}{\mathcal l}\td x.
+	\end{equation}
+\end{definition}
+
+
+\section{局部化原理}
+
+\begin{lemma}[黎曼-勒贝格引理]\label{黎曼勒贝格引理}
+	设 $f\in\mathscr R[a,b]$(这里 $a$ 可以是 $+\infty$, $b$ 可以是 $+\infty$), 那么 $$\lim\limits_{\lambda\to\infty}\int_a^b f(x)e(\lambda x)\td x=0.$$ 特别地, $\lim\limits_{|n|\to\hat{f}(n)}=0$.
+\end{lemma}
+
+\begin{remark}
+	由引理 \ref{黎曼勒贝格引理} 以及 $$\cos\theta = \frac{e^{\ti \theta}+e^{-\ti\theta}},\qquad \sin\theta=\frac{e^{\ti\theta}-e^{-\ti\theta}}.$$
+
+	我们可以推出 $$\begin{array}{c}
+		\lim\limits_{\lambda\to\infty}\mint[a]^b f(x)\cos\lambda x\td x=0,\\[10pt]
+		\lim\limits_{\lambda\to\infty}\mint[a]^b f(x)\sin\lambda x\td x=0.
+	\end{array}$$
+
+	进而可以得到 $$\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}b_n=0.$$
+\end{remark}
+
+
+下面研究 $f(x)\in\mathscr R[0,1]$ 的 \fly 级数的收敛性问题. 而对于周期是一般的正实数的情形, 可以通过伸缩变换或者类似的讨论研究.
+
+此时 \fly 级数为 $$f(x)\sim\sum\limits_{n\in\Z}\hat f (n)e^(nx),$$ 其中 \begin{equation}\label{fhat}
+	\hat f (n)=\int_0^1 f(t)e(-nt)\td t.
+\end{equation}
+
+用 $$S_N(x)=\sum\limits_{n=-N}^N \hat f(n)e(nx)$$ 表示该 \fly 级数的部分和, 那么将 \eqref{fhat} 代入可得 \begin{equation}\label{fly部分和}
+	\setlength{\arraycolsep}{0.5pt}
+	\begin{array}{rcl}
+		S_N(x)&=&\sum\limits_{n=-N}^Ne(nx)\mint[0]^1 f(t)e(-nt)\td t=\mint[0]^1f(t)\sum\limits_{n=-N}^Ne(n(x-t))\td t\\[10pt]
+		&=&\mint[0]^1f(t)D_N(x-t)\td t.
+
+	\end{array}
+\end{equation}
+
+\begin{definition}[狄利克雷核]\label{狄利克雷核}
+	上式中 $D_N(y):=\sum\limits_{n=-N}^Ne(ny)$ 称为\textbf{狄利克雷核 (Dirichlet kernel)}.
+\end{definition}
+
+首先, $D_N(y)$ 是以 $1$ 为周期的偶函数.
+
+$y=0$ 时, 有 $D_N(0)=2N+1$.
+
+$y\in(0,1)$ 时, 有 $$
+\setlength{\arraycolsep}{0.5pt}
+\begin{array}{rcl}
+	D_N(y) &=& \dfrac{e(-Ny)(e((2N+1)y)-1)}{e(y)-1}=\dfrac{e\left(\dfrac{2N+1}{2}y\right)-e\left(-\dfrac{2N+1}{2}y\right)}{e\left(\dfrac{y}2\right)-e\left(-\dfrac y 2\right)} \\ [10pt]
+	&=&\dfrac{\sin(2N+1)\pi y}{\sin\pi y}.
+\end{array}$$
+
+那么在 \eqref{fly部分和} 中作变量替换 $t\mapsto x-t$ 可得 $$S_N(x)\int_{x-1}^x f(x-t)D_N(t)\td t.$$
+
+又被积函数的周期是 $1$. 所以 \begin{equation}
+	S_N(x) = \int_0^{\frac 1 2}(f(x+t)+f(x-t))D_N(t)\td t.
+\end{equation}
+
+此外, $D_N(t)$ 是偶函数.
+\begin{equation}
+	\int_0^{\frac 1 2}D_N(t)\td t=\frac 1 2\int_{-\frac 1 2}^{\frac 1 2}D_N(t)\td t=\frac 1 2\sum\limits_{n=-N}^N\int_{-\frac 1 2}^{\frac 1 2}e(nt)\td t=\frac 1 2.
+\end{equation}
+
+上述求和考虑交换积分求和号后用等比数列求和公式.
+
+\begin{theorem}[黎曼局部化原理]\label{fly黎曼局部化原理}
+	假设 $f$ 是以 $1$ 为周期的函数并且 $f\in\mathscr R[0,1]$, 那么对给定的 $x$, $f$ 的 \fly 级数在点 $x$ 处收敛于 $s$ 当且仅当存在 $\delta>0$ 使得
+	\begin{equation}\label{fly黎曼局部化原理式}
+		\lim\limits_{N\to\infty}\int_0^{\delta}(f(x+t)+f(x-t)-2s)\frac{\sin(2N+1)\pi t}{t}\td t=0.
+	\end{equation}
+\end{theorem}
+
+\begin{theorem}[迪尼判别法]\label{fly迪尼判别法}
+	设 $f$ 是以 $1$ 为周期的函数并且 $f\in\mathscr R[0,1]$, 如果对给定的 $x$ 及 $s$, 存在 $\delta\in(0,1)$ 使得 $\dfrac{f(x+t)+f(x-t)-2s}{t}$ 是关于变量 $t$ 的属于 $\mathscr{R}[0,\delta]$ 的函数 (单独定义该函数在 $0$ 处的值), 那么 $f$ 的 \fly 级数在 $x$ 处收敛于 $s$.
+\end{theorem}
+
+\begin{definition}\label{lpxc条件}
+	设 $f(x)$ 在 $x_0$ 的邻域 $(x_0-\delta,x_0+\delta)$ (事实上, 只要求去心邻域内) 内有定义, 若存在常数 $L>0$ 及 $\alpha>0$ 使得对任意的 $x\in(x_0-\delta,x_0)$ 有 $$|f(x)-f(x_0-0)|\leqslant L|x-x_0|^\alpha,$$
+	且对任意的 $x\in(x_0,x_0+\delta)$ 有 $$|f(x)-f(x_0+0)|\leqslant L|x-x_0|^\alpha.$$ 则称 $f(x)$ 在 $x_0$ 附近满足\textbf{$\alpha$ 阶利普希茨条件}
+\end{definition}
+
+\begin{remark*}
+	上述定理中 $f(x_0-0)$ 和 $f(x_0+0)$ 分别表示 $f(x)$ 在 $x_0$ 处的左/右极限.
+\end{remark*}
+
+\begin{remark}
+	一般而言, 我们不会去研究 $\alpha>1$ 时的情况, 因为当 $\alpha>1$ 时, 考虑 $$\left|\dfrac{f(x)-f(x_0)}{x-x_0}\right|\leqslant L x^{\alpha-1},$$ 当 $x\to x_0$ 时, 右侧为 $0$ 即 $f'(x)=0$, $f(x)$ 是常值函数.
+\end{remark}
+
+\begin{corollary}
+	设 $f$ 以 $1$ 为周期且 $f\in\mathscr R[0,1],\alpha\in(0,1]$. 如果 $f$ 在 $x$ 的附近满足 $\alpha$ 阶利普希茨条件, 那么 $f$ 的 \fly 级数在 $x$ 处收敛于 $\dfrac{f(x+0)+f(x-0)}{2}$. 特别地, 若 $x$ 是 $f$ 的连续点, 则 $f$ 的 \fly 级数在 $x$ 处收敛于 $f(x)$.
+\end{corollary}
+
+\begin{proof}
+	考虑证明 $s=\dfrac{f(x+0)+f(x-0)}{2}$ 满足定理 \ref{fly迪尼判别法} 的条件.
+\end{proof}
+
+
+

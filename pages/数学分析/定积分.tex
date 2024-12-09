@@ -1,0 +1,82 @@
+\chapter{定积分}
+	\section{定义}
+		设函数 $f(x)$ 在有界闭区间 $[a,b]$ 有定义. 若存在实数 $I$ 使得对任意的 $\varepsilon>0$，均存在 $\delta>0$，其对满足 $\max\limits_{i}\Delta x_i <\delta$ 的任意分点 
+		$$a=x_0<x_1<\cdots<x_n=b$$
+		及任意的 $\xi_i\in[x_{i-1},x_i]$ 均有
+		$$\left|\sum\limits_{i=1}^nf(\xi_i)\Delta x_i - I\right|<\varepsilon$$
+		
+		那么就称 $f(x)$ 在 $[a,b]$ 上黎曼可积。
+		
+		并称 $\sum\limits_{i=1}^n f(\xi_i)\Delta x_i$ 为黎曼和。
+		
+	\section{定积分存在的条件}
+		\subsection{达布和}
+			设函数 $f(x)$ 在区间 $[a,b]$ 上有界，在 $[a,b]$ 中插入分点 $$\alpha : a=x_0<x_1<\cdots<x_n=b,$$ 并对 $1 \le i \le n$ 记
+			$$M_i=\sup\limits_{x\in[x_{i-1},x_i]} f(x), \quad m_i=\inf\limits_{x\in[x_{i-1},x_i]}f(x).$$
+			再考虑和式
+			$$\overline{S}(\alpha)=\sum\limits_{i=1}^n M_i \Delta x_i, \quad \underline{S}(\alpha)=\sum\limits_{i=1}^n m_i \Delta x_i.$$
+			其中 $\Delta x_i=x_i-x_{i-1}$。 我们称 $\overline{S}(\alpha)$ 为达布上和，其余同理。
+			
+		\subsection{达布上下积分}
+			由 $\underline{S}(\alpha)\le \underline{S}(\alpha \cup \beta) \le \overline{S}(\alpha \cup \beta) \le \overline{S}(\beta)$
+			知集合 $\{\overline{S}(\alpha)\}$ 有下界，从而有下确界，我们记 
+			$$\overline{\int_a^b} f(x)\text{d} x = \inf\limits_{\alpha} \overline{S}(\alpha),$$
+			 并称之为达布上积分，同理我们称
+			 $$\underline{\int_a^b} f(x)\text{d} x = \sup\limits_{\alpha} \underline{S}(\alpha),$$
+			 为达布下积分。
+			 
+		\subsection{达布定理}
+			\begin{itemize}[leftmargin=1cm,itemindent=1cm]
+				\item[(1)] 设 $f(x)$ 在 $[a,b]$ 上有界，则对任意的 $\varepsilon>0$，均存在 $\delta>0$，使得对于满足 $\max\limits_{i} \Delta x_i < \delta$ 的任意分点
+				 $$a=x_0<x_1<\cdots<x_n=b$$
+				 均有 $\left|\overline{S}(\alpha)-\overline{\int_a^b} f(x) \text{d} x\right|<\varepsilon, \quad \left|\underline{S}(\alpha)-\underline{\int_a^b} f(x) \text{d} x\right|<\varepsilon$
+				 
+				 \item[(2)] 设 $f(x)$ 在 $[a,b]$ 上有界，则 $f(x)$ 在 $[a,b]$ 上黎曼可积的充要条件是
+				 $$\overline{\int_a^b} f(x) \text{d} x= \underline{\int_a^b} f(x) \text{d} x$$
+				 并且当 $f(x)$ 在 $[a,b]$ 上黎曼可积时有
+				 $$\int_a^b f(x) \text{d} x=\overline{\int_a^b} f(x) \text{d} x= \underline{\int_a^b} f(x) \text{d} x$$
+			\end{itemize}
+		
+		\subsection{振幅}
+			$\omega_i=M_i-m_i$ 为 $f(x)$ 在 $[a,b]$ 上的振幅，那么
+			$$\overline{S}(\alpha)-\underline{S}(\alpha)=\sum\limits_{i=1}^n \omega_i\Delta x_i$$
+		
+		\subsection{黎曼定理}
+			在 $[a,b]$ 上有界的函数 $f(x)$ 则 $f(x)$ 在 $[a,b]$ 上黎曼可积的充要条件是：对任意的 $\varepsilon>0$，均存在 $\delta>0$使得对于满足 $\max\limits_{i} \Delta x_i<\delta$ 的任意一组分点 
+			$$a=x_0<x_1<\cdots<x_n=b$$ 均有
+			$$\sum\limits_{i=1}^n \omega_i \Delta x_i < \varepsilon$$
+			
+			上述定理可以弱化成，黎曼可积的充要条件为，对任意的 $\varepsilon>0$ 存在一组分点 $a=x_0<x_1<\cdots<x_n=b$ 使得
+		$$\sum\limits_{i=1}^n \omega_i \Delta x_i < \varepsilon$$
+	
+	\section{勒贝格定理}
+		\subsection{零测集}
+			设 $A\subset \mathbb{R}$，若对任意的 $\varepsilon>0$，均存在至多可数个开区间 $I_n$ 使得
+			$$A\subset \bigcup\limits_{n} I_n \quad \text{且} \quad \sum\limits_{n} |I_n| <\varepsilon$$
+			那么就称 $A$ 是勒贝格零测集，其中 $|I_n|$ 表示区间 $I_n$ 的长度。 
+		\subsection{定理}
+			设 $f(x)$ 在区间 $[a,b]$ 上有界，则 $f(x)$ 在 $[a,b]$ 上黎曼可积的充要条件是 $f(x)$ 在该区间上的全部间断点构成勒贝格零测集。
+			
+			我们记 $D_f$ 表示 $f(x)$ 在 $[a,b]$ 上的全体间断点所成之集。
+			
+	\section{性质}
+		\subsection{微积分学基本定理}
+			设 $f(x)$ 在 $[a,b]$ 上可积，并对任意的 $x \in [a,b]$ 记 $$F(x)=\int_a^x f(t) \text{d}t$$ 那么
+			
+			\begin{itemize}[leftmargin=1cm,itemindent=1cm]
+				\item[(1)] $F(x)$ 在 $[a,b]$ 上连续
+				\item[(2)] 设 $x_0\in [a,b]$ 且 $f(x)$ 在 $x_0$ 处连续，则 $F(x)$ 在 $x_0$ 处可导且 $F'(x_0)=f(x_0)$
+			\end{itemize}
+		\subsection{积分第一中值定理}
+			设 $f(x)$ 在 $[a,b]$ 上连续， $g(x)$ 在 $[a,b]$ 上可积且不变号，则存在 $\xi\in [a,b]$ 使得，
+			$$\int_a^b f(x)g(x)\  \text{d} x = f(\xi)\int_a^b g(x)\  \text{d} x$$
+		\subsection{积分第二中值定理}
+			设 $f(x)$ 在 $[a,b]$ 上可积， $g(x)$ 在 $[a,b]$ 上单调且非负，
+			
+			\begin{itemize}[leftmargin=1cm, itemindent=1cm]
+				\item[(1)] 若 $g(x)$ 单调递减，则存在 $\xi \in [a,b]$ 使得，$$\int_a^b f(x)g(x) \text{d}x = g(a)\int_a^{\xi} f(x) \text{d} x$$
+				
+				\item[(2)] 若 $g(x)$ 单调递增，则存在 $\xi \in [a,b]$ 使得，$$\int_a^b f(x)g(x) \text{d} x = g(b) \int_{\xi}^b f(x) \text{d} x$$
+			\end{itemize}
+			
+			设 $f(x)$ 在 $[a,b]$ 上可积，$g(x)$ 在 $[a,b]$ 上单调，则存在 $\xi \in [a,b]$ 使得 $$\int_a^b f(x)g(x)\text{d} x = g(a)\int_a^{\xi}f(x) \text{d} x + g(b) \int_{\xi}^b f(x)\text{d} x$$

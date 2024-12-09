@@ -1,0 +1,98 @@
+\chapter{多元函数的微分}
+	\section{微分的定义}
+		\begin{definition}[可微]
+			设 $E \subseteq \set R m$, $f:E \to \set R m$. 又设 $\bm a$ 是 $E$ 的一个内点. 若存在线性映射 $L:\set R n \to \set R m$ 使得
+			$$\lim\limits_{\bm h \to 0} \dfrac{f(\bm a+\bm h)-f(\bm a)-L\bm h}{|\bm h|}=\bm 0,$$
+			则称 $f$ 在 $\bm a$ 处可微. 若 $f$ 在 $E$ 中每个点处均可微, 我们就称 $f$ 在 $E$ 上可微.
+		\end{definition}
+
+	\section{方向导数与偏导数}
+		\begin{definition}[方向导数]
+			设 $E \subseteq \set R n$, $f:E\to \set Rm$, 且 $\bm a$ 是 $E$ 的一个内点. 对 $\set Rn$ 中给定的非零向量 $\bm u$, 若极限
+			$$\lim\limits_{t\to0} \dfrac{f(\bm a+t\bm u)-f(\bm a)}{t}$$
+			存在, 我们就称 $f$ 在 $\bm a$ 处沿方向 $\bm u$ 是可微的, 并将上述极限称为 $f$ 在 $\bm a$ 处沿方向 $\bm u$ 的方向导数, 记作 $\dfrac{\partial f}{\partial\bm u}(\bm a)$.
+		\end{definition}
+
+		\begin{proposition}
+			设 $E\subseteq \set Rn$, $f:E\to \set Rm$, 且 $\bm a$ 是 $E$ 的一个内点. 若 $f$ 在 $\bm a$ 处可微, 则 $f$ 在 $\bm a$ 处的所有方向导数均存在, 并且对于 $\set Rn$ 中的任意非零向量 $\bm u$ 有
+			$$\dfrac{\partial f}{\partial \bm u}(\bm a)=f'(\bm a)\bm u.$$
+		\end{proposition}
+
+		\begin{definition}[雅可比矩阵]
+
+			\begin{equation}\label{雅可比矩阵形式}
+			f'(\bm a)=
+			\begin{bmatrix}
+				\dfrac{\partial f_1}{\partial x_1}(\bm a) & \dfrac{\partial f_1}{\partial x_2}(\bm a) & \cdots &  \dfrac{\partial f_1}{\partial x_n}(\bm a)\\[4mm]
+				\dfrac{\partial f_2}{\partial x_1}(\bm a) & \dfrac{\partial f_2}{\partial x_2}(\bm a) & \cdots &  \dfrac{\partial f_2}{\partial x_n}(\bm a)\\[4mm]
+				\vdots & \vdots &  & \vdots \\[4mm]
+				\dfrac{\partial f_m}{\partial x_1}(\bm a) & \dfrac{\partial f_m}{\partial x_2}(\bm a) & \cdots &  \dfrac{\partial f_m}{\partial x_n}(\bm a)\\
+			\end{bmatrix}
+			\end{equation}
+		\end{definition}
+
+		\begin{definition}[偏导数的链式法则]\label{偏导数的链式法则}
+			如果 $f(x_1,x_2,\ldots,x_m)$ 是一个 $m$ 元可微函数, 并且每个 $x_j$ 均是 $n$ 元可微函数 $x_j(t_1,t_2\ldots,t_n)$, 那么我们也可以把 $f$ 看作变量 $t_1,t_2,\ldots,t_n$ 的函数, 于是由\hr{链式法则}及 (\ref{雅可比矩阵形式}) 知
+
+			因此对 $1\leqslant j\leqslant n$ 有
+			\begin{equation}\label{偏导数的链式法则式}
+				\frac{\partial f}{\partial t_j} = \sum\limits_{i=1}^m\frac{\partial f}{\partial x_i}\cdot\frac{\partial x_i}{\partial t_j}.
+			\end{equation}
+			这一公式也被称作\textbf{偏导数的链式法则}.
+		\end{definition}
+
+		\begin{definition}[中值定理]
+			1
+		\end{definition}
+	\section{有限增量定理与泰勒公式}
+		\begin{definition}[范数]
+			设 $L \in \mathcal{L}(\set R n,\set R m)$, 定义 $L$ 的范数 $\|L\|$ 为
+			$$\|L\|=\sup\limits_{|\bm h |=1}|L\bm h|.$$
+			并且我们有 $|L\bm x|\le \|L\|\cdot |\bm x|,  \qquad \forall \bm x \in \set R n$.
+		\end{definition}
+
+		\begin{theorem}[有限增量定理]
+			设 $E$ 是 $\set R n$ 中的凸开集, $f:E\to \set R m$ 在 $E$ 上可微, 且存在 $M>0$ 使得对任意的 $\bm x \in E$ 均有 $\|f'(\bm x)\| \le M$. 那么对任意的 $\bm a,\bm b \in E$ 有
+			$$|f(\bm b)-f(\bm a)|\leqslant M|\bm b-\bm a|.$$
+ 		\end{theorem}
+
+	\section{反函数定理}
+		\begin{theorem}[反函数定理]
+			设 $E$ 是 $\set R n$ 中的开集, $f:E \to \set R n$ 且 $f \in C^1(E)$. 又设 $\bm a \in E$. 若 $f'(\bm a)$ 非奇异, 那么必存在 $\bm a$ 的邻域 $U$ 使得 $V=f(U)$ 是 $\set R n$ 中的开集, 且 $f|_U:U\to V$ 是双射. 此外, $g$ 表示 $f|_U$ 的逆映射, 则 $g \in C^1(V)$, 并且对任意的 $\bm y \in V$ 有
+			$$g'(\bm y)=f'(g(\bm y))^{-1}.$$
+		\end{theorem}
+
+
+		换种说法, 如果有
+		\begin{itemize}[leftmargin=1.5cm]
+			\item  $E$ 是 $\set R n$ 中的开集.
+			\item $f:E\to \set R n$ 且 $f \in C^1(E)$
+			\item $\bm a \in E$, $f'(\bm a)$ 非奇异, 即 $\det f'(\bm a) \neq 0$
+		\end{itemize}
+
+		那么
+		\begin{itemize}[leftmargin=1.5cm]
+			\item 存在 $\bm a$ 的邻域 $U$ 使得 $V=f(U)$ 是 $\set R n$ 中的开集
+			\item $f|_U:U\to V$ 是双射.
+			\item 若设 $g=f|_U^{-1}$ 则 $g\in C^1(E)$, 并且对任意的 $\bm y\in V$ 有 	$$g'(\bm y)=f'(g(\bm y))^{-1}.$$
+		\end{itemize}
+
+	\section{隐函数定理}
+		\begin{theorem}[隐函数定理]
+			设 $E$ 是 $\set R {n+m}$ 中的开集, $f=(f_1,f_2,\ldots,f_m)^T:E\to \set R m$ 连续可微. 又设 $\bm a \in \set R n$ 及 $\bm b \in \set R m$, 使得 $(\bm a,\bm b) \in E$ 且 $f(\bm a, \bm b)=\bm 0$. 现将 $f$ 的雅可比矩阵写成如下分块矩阵
+			$$\left[\dfrac{\partial f}{\partial \bm x}\quad  \dfrac{\partial f}{\partial \bm y}\right]$$
+			的形式, 其中
+			$$\dfrac{\partial f}{\partial\bm x}=\left(\dfrac{\partial f_i}{\partial x_j}\right)_{1\le i \le m, 1\le j \le n},\qquad \dfrac{\partial f}{\partial \bm y}=\left(\dfrac{\partial f_i}{\partial x_{n+j}}\right)_{1 \le i,j \le m}.$$
+			那么当 $$\det \dfrac{\partial f}{\partial \bm y}(\bm a,\bm b)\neq0$$
+			时, 存在 $\bm a$ 的邻域 $U$, $\bm b$ 的邻域 $V$ 以及唯一的连续可微映射 $g:U\to V$, 使得
+				\begin{itemize}[leftmargin=1.5cm,itemindent=0cm]
+					\item[(1)] $g(\bm a)=\bm b$.
+					\item[(2)] 对任意的 $\bm x \in U$ 有 $f(\bm x,g(\bm x))=\bm 0$.
+					\item[(3)] 对任意的 $\bm x \in U$ 有 $\det \dfrac{\partial f}{\partial \bm y}(\bm x,g(\bm x))\neq 0$, 并且
+								$$g'(\bm x)=-\left(\dfrac{\partial f}{\partial \bm y}(\bm x,g(\bm x))\right)^{-1}\dfrac{\partial f}{\partial \bm x}(\bm x,g(\bm x)).$$
+				\end{itemize}
+		\end{theorem}
+
+		\begin{definition}
+			在上述定理中, $y=g(\bm x)$
+		\end{definition}
