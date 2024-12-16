@@ -198,4 +198,105 @@ $y\in(0,1)$ 时, 有 $$
 \end{proof}
 
 
+\begin{definition}
+	设 $f$ 是定义在 $[a,b]$ 上的一个函数, 若存在 $[a,b]$ 的一个分划 $$a=x_0<x_1<\cdots<x_n=b,$$ 使得在每个子区间 $[x_{j-1},x_j]$ 上定义的函数 $$
+		g_j(x)=\left\{\begin{array}{ll}
+			f(x_{j-1}+0), &x=x_{j-1},\\
+			f(x),&x\in(x_{j-1},x_j) \\
+			f(x_j-0), & x=x_j
+		\end{array}\right.
+	$$
+	均在 $[x_{j-1},x_j]$ 上可微, 则称 $f$ 是 $[a,b]$ 上的\mydef{分段可微函数}.
+\end{definition}
 
+\begin{corollary}
+	设 $f$ 是以 $1$ 为周期且在 $[0,1]$ 上分段可微的函数, 则 $f$ 的 \fly 级数在每个点 $x$  处均收敛于 $\dfrac{f(x+0)+f(x-0)} 2$. 特别地, 若 $f$ 满足以上条件且 $x$ 是 $f$ 的连续点, 则 $f$ 的 \fly 级数在 $x$ 处收敛于 $f(x)$.
+\end{corollary}
+
+\begin{example}\label{ex:数分fly.1}
+	$$\sum\limits_{n=1}^\infty \frac{\cos 2\pi n x}{n^2}=\pi^2\left(x^2-x+\frac 1 6\right).$$
+	
+	当 $x=0$ 则有 $$\zeta(2)=\sum\limits_{n=1}^\infty \frac 1{n^2}=\frac {\pi^2} 6.$$
+	
+	$$\sum\limits_{n=1}^\infty \frac{\sin n} n=\frac{\pi-1}2.$$
+\end{example}
+
+\begin{practice}
+	\problem 
+\end{practice}
+
+\section{费耶尔定理}
+
+\begin{definition}
+	设 $\sum\limits_{n=1}^\infty u_n$ 是一个级数, 用 $S_n$ 表示其部分和, 即 $S_n=\sum\limits_{k=1}^n u_k$. 再记 $$\sigma_n=\frac{S_1+S_2+\cdots+S_n}n,$$ 并称之为 $\sum\limits{n=1}^\infty u_n$ 的第 $n$ 个\textbf{切萨罗和}. 如果 $\{\sigma_n\}$ 收敛, 则称 $\sum\limits_{n=1}^\infty u_n$ 是\mydef{切萨罗可和的}, 此时称 $\{\sigma_n\}$ 的极限为 $\sum\limits_{n=1}^\infty u_n$ 的\mydef{切萨罗和}.
+\end{definition}
+
+\begin{theorem}[费耶尔]
+	设 $f$ 是定义在 $\R$ 上的以 $1$ 为周期的函数且 $f$ 在 $[0,1]$ 上\hr{黎曼可积}, 又设 $f$ 至多有\hr{第一类间断点}, 则 $f$ 的 \fly 级数是切萨罗可和的, 且在 $x$ 处的切萨罗和为 $$\frac{f(x+0)+f(x-0)}2.$$ 特别地, 若 $x$ 是连续点, 则 $x$ 处的切萨罗和为 $f(x)$.
+\end{theorem}
+
+\begin{remark*}
+	P234
+\end{remark*}
+
+\begin{theorem}
+	设 $f$ 是 $[0,1]$ 上的连续函数且 $f(0)=f(1)$, 则对任意的 $\varepsilon>0$, 存在\hr{三角多项式} $P(x)=\sum\limits_{n=-N}^N c_ne(nx)$ 使得 $$\max\limits_{x\in[0,1]}|f(x)-P(x)|<\varepsilon$$ 
+\end{theorem}
+
+\begin{proposition}[\fly 级数的唯一性]
+	设 $f,g$ 均是以 $1$ 为周期的连续函数, 如果对任意的 $n$ 有 $\hat f(n)=\hat g(n)$, 那么 $f=g$.
+\end{proposition}
+
+\section{均值定理}
+
+\renewcommand{\tiaojian}{设 $f$ 以 $1$ 为周期且 $f\in\mathscr{R}^2[0,1]$}
+
+\begin{definition}
+	设 $f$ 是以 $1$ 为周期的实值函数, 并且 $f$ 在 $[0,1]$ 上可积或者 $f$ 在 $[0,1]$ 上有有限多个奇点但反常积分 $\mint[0]^1 f(x)^2\td x$ 收敛, 我们把满足上述条件的 $f$ 所成的集合记作 $\mathscr{R}^2[0,1]$. 值得一提的, $\mathscr{R}^2[0,1]\subseteq\mathscr{R}[0,1]$.
+\end{definition}
+
+\begin{theorem}
+	\tiaojian.
+	\begin{itemize}
+		\item[(1)] 对任意的正整数 $N$ 及复数 $\alpha_n\ (-N\leqslant n\leqslant N)$ 有
+		$$\int_0^1\left|f(x)-\sum\limits_{n=-N}^N \alpha_n e(nx)\right|^2\td x\geqslant\int_0^1\left|f(x)-\sum\limits_{n=-N}^N\hat f(x)e(nx)\right|^2\td x.$$
+		\item[(2)] 我们有 $$\int_0^1\left|f(x)-\sum\limits_{n=-N}^N\hat f(x)e(nx)\right|^2\td x=\int_0^1 f(x)^2\td x-\sum\limits_{n=-N}^N|\hat f(n)|^2$$
+	\end{itemize}
+\end{theorem}
+
+\begin{remark*}
+	注意辨别上述过程中每一项是实数还是复数, 上式中 $|x|$ 均表为复数的模长.\\[10pt]
+	
+	并利用 $\mint[0]^1 f(x)e(nx)\td x=\overline{\mint[0]^1 f(x)e(-nx)\td x}=\overline{\hat f(n)}$.\\[10pt]
+	
+	$2\Re \alpha_n\overline{\hat f(n)}=\overline{\alpha_n}\hat f(n)+\alpha_n\overline{\hat f(n)}$. 两倍实部等于自身加共轭.
+\end{remark*}
+
+\begin{theorem}[贝塞尔 (\t{Bessel}) 不等式]\label{贝塞尔不等式}
+	\tiaojian, 则对任意的整数 $N$ 有 $$\sum\limits_{n=-N}^N|\hat f(n)|^2\leqslant\int_0^1 f(x)^2\td x.$$
+\end{theorem}
+
+\begin{theorem}[\fly 级数在积分均值意义下的收敛性]
+	\tiaojian, 则有\begin{equation}
+		\lim\limits_{N\to \infty}\inf_0^1\left|f(x)-\sum\limits_{n=-N}^N \hat f(n)e(nx)\right|^2\td x = 0.
+	\end{equation}
+\end{theorem}
+
+\begin{theorem}[帕塞瓦尔 (\t{Parseval}) 恒等式]\label{帕塞瓦尔恒等式}
+	\tiaojian, 则 $$\sum\limits_{n\in\Z}|\hat f(n)|^2=\int_0^1f(x)^2\td x.$$ 如果用 $a_n,b_n$ 表示也即
+	\begin{equation}
+		\int_0^1 f(x)^2\td x=\frac{a_0^2} 4+\frac 1 2\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2).
+	\end{equation}
+\end{theorem}
+
+\begin{example}
+	利用例 \ref{ex:数分fly.1} 及上述定理知 $$\int_{-\frac 12}^{\frac 12} x^4\td x=\frac 1 {144}+\frac 1 2\sum\limits_{n=1}^\infty \frac{\pi^4n^4},$$ 整理可得 $$\zeta(4)=\sum\limits_{n=1}^\infty\frac1 {n^4}=\frac{\pi^4}{90}.$$
+\end{example}
+
+\begin{remark}
+	类似的, 设 $k\in\Z_{\geqslant1}$. 通过考察以 $1$ 为周期的函数 $$f(x)=x^k,\quad\forall x\in[-\frac{1}{2},\frac 1 2)$$ 可以归纳的证明 $$\zeta(2k)=\frac{(-1)^{k+1}B_{2k}(2\pi)^{2k}}{2(2k)!}$$ 其中 $B_n$ 是\hr{伯努利数}.
+\end{remark}
+
+\begin{theorem}[广义帕塞瓦尔恒等式]\label{广义帕塞瓦尔恒等式}
+	设 $f,g$ 均是以 $1$ 为周期的函数, 且 $f,g\in\mathscr{R}^2[0,1]$, 则 $$\sum\limits{n\in\Z}\hat f(n)\overline{\hat g (n)}=\int_0^1 f(x)g(x)\td x.$$
+\end{theorem}

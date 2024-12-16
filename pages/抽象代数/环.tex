@@ -8,7 +8,7 @@
 \end{definition}
 
 \begin{proposition}
-	环 $R$ 的子集 $R_1$ 是的子环, 当且仅当 $$a,b\in R\Rightarrow a-b\in R\wedge ab\in R.$$
+	环 $R$ 的子集 $R_1$ 是的子环, 当且仅当 $$a,b\in R_1\Rightarrow a-b\in R_1\wedge ab\in R_1.$$
 \end{proposition}
 
 \begin{definition}\label{环同态}
@@ -172,7 +172,7 @@
 \begin{example}
 	在整环 $\Z$ 中,
 	\begin{equation}
-		(n)(m)=\left\{\sum\limits_{i=1}^t(k_in)(l_im)\bigg|k_il_i\in\Z,1\leqslant i\leqslant t,t\in\N^*\right\},
+		(n)(m)=\left\{\sum\limits_{i=1}^t(k_in)(l_im)\bigg|k_il_i\in\Z,1\leqslant i\leqslant t,t\in\N^*\right\}=(nm),
 	\end{equation}
 	\begin{equation}
 		(n)\cap(m)=([n,m]),
@@ -195,6 +195,10 @@
 \begin{proposition}
 	设 $R$ 是有单位元的环, $I,J,K$ 都是 $R$ 的理想. 如果 $I$ 和 $J$ 都与 $K$ 互素, 那么 $IJ$ 也与 $K$ 互素.
 \end{proposition}
+
+\begin{proof}
+	考虑证明存在幺元.
+\end{proof}
 
 \begin{example}
 在整数环 $\Z$ 中, $(n)$ 与 $(m)$ 互素当且仅当 $(n,m)=1$.
@@ -323,7 +327,7 @@
 
 \begin{corollary}
 	设 $R$ 是交换幺环, 则
-	$$(0)\ \t{是}\ R\ \t{的一个理想}\Leftrightarrow R\ \t{是整环}$$
+	$$(0)\ \t{是}\ R\ \t{的一个素理想}\Leftrightarrow R\ \t{是整环}$$
 \end{corollary}
 
 \begin{example}\label{整数环理想都是主理想}
@@ -412,7 +416,7 @@
 	如果存在素数 $p$, 使得 $pe=0$ 且对于 $0<l<p,\ le\neq 0$, 则称\textbf{域 $F$ 的特征}为 $p$.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{四元域}
 	构造含 $4$ 个元素的域.
 
 	\begin{solution}
@@ -475,7 +479,7 @@
 	其中 $a_0+a_1\widetilde{\alpha}+\cdots+a_n\widetilde{\alpha}^n$ 称为 $\widetilde{\alpha}$ \textbf{在 $R$ 上的一个多项式}.
 \end{definition}
 
-下面我们来研究在什么条件下 $F[\widetilde{\alpha}]$ 是一个域. 由于域中非零元都不是零因子, 因此显然有一个必要条件 $\widetilde{R}$ 是\hyperref[整环]{整环}. 所以接下来的讨论都建立在 $\widetilde{R}$ 是整环的情况下.
+下面我们来研究, 当我们将上述 $R$ 取成域 $F$ 时, 在什么条件下 $F[\widetilde{\alpha}]$ 是一个域. 由于域中非零元都不是零因子, 因此显然有一个必要条件 $\widetilde{R}$ 是\hyperref[整环]{\tr{整环}}. 所以接下来的讨论都建立在 $\widetilde{R}$ 是整环的情况下.
 
 考虑下述对应法则:
 \begin{equation}

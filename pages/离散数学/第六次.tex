@@ -1,0 +1,102 @@
+\chapter*{第六次作业}
+
+\problem[习题六 54]
+
+\begin{proof}
+	设 $G$ 的生成元为 $a$, 同态为 $\sigma$, 那么 $\forall b\in \sigma(G),\ \exists a^m\in G,\ s.t. \sigma(a^m)=b$. 从而 $b=\sigma(a^m)=\sigma(a)^m$. 即 $\sigma(G)$ 中的所有元素都可以表示成 $\sigma(a)$ 的整数次幂, 进而 $\sigma(G)=\langle \sigma(a)\rangle$ 是循环群.
+\end{proof}
+
+\problem[习题六 56]
+
+\begin{proof}
+	$\forall\ a,b\in H,f(a)=g(a),f(b)=g(b),f(ab^{-1})=f(a)+f(b^{-1})=f(a)-f(b)=g(a)-g(b)=g(a)+g(b^{-1})=g(ab^{-1})\Rightarrow ab^{-1}\in H$ 从而说明 $H<X$.
+\end{proof}
+
+\problem[习题六 57]
+
+\begin{proof}
+	\begin{itemize}
+		\item[(1)] 自反性:
+			$x=x*x*x^{-1}\Rightarrow (x,x)\in R$.
+		\item[(2)] 对称性:
+			若 $(x,y)\in R,\ \exists z\in G,\ s.t. y=z*x*z^{-1}\Rightarrow x=z^{-1}*y*(z^{-1})^{-1})\Rightarrow (y,x)\in R$.
+		\item[(3)] 传递性:
+			若 $(a,b),(b,c)\in R,\ \exists d,e\in G,\ s.t. b=d*a*d^{-1},c=e*b*e^{-1}\Rightarrow c=e*d*a*d^{-1}*e^{-1}=(e*d)*a*(e*d)^{-1}\Rightarrow (a,c)\in R$.
+	\end{itemize}
+	综上, $R$ 是等价关系.
+\end{proof}
+
+\problem[习题六 58]
+
+\begin{proof}
+	\begin{itemize}
+		\item[(1)] $\forall a\in G$ 若 $a\in H$, 则有 $aH=H=Ha$, 若 $a\notin H$, 则取陪集分解 $G=H\cup aH=H\cup Ha$, 从而 $aH=Ha$.
+
+		所以 $H\lhd G$.
+		\item[(2)] $\forall a\in G$, 由于 $H$ 中元素和 $a$ 可交换从而直接有 $aH=Ha$.
+		\item[(3)] $\forall a\in G$, $a(H_1\cap H_2)=aH_1\cap aH_2=H_1a\cap H_2a(H_1\cap H_2)a$.
+	\end{itemize}
+\end{proof}
+
+\problem[习题六 59]
+
+\begin{proof}
+	零元: $1$
+
+	幺元: $0$
+
+	显然在整数中封闭并满足交换律.
+\end{proof}
+
+\problem[习题六 60(1,3,5)]
+
+\begin{itemize}
+	\item[(1)]不是, 没有幺元.
+	\item[(3)]是.
+	\item[(5)]是.
+\end{itemize}
+
+\problem[习题六 62]
+
+\begin{solution}
+	是环, 有零因子, $(x,0),(0,y),x,y\in \Q$.
+
+	幺元 $(1,1)$.
+
+	$(x,y),\ xy\neq 0$ 有逆元.
+\end{solution}
+
+\problem[习题六 65]
+
+\begin{solution}
+	\begin{itemize}
+		\item[(1)]\
+
+		\begin{itemize}
+			\item[m=6]\
+
+			子环: $\{0\},\{0,1,2,3,4,5\},\{0,2,4\},\{0,3\}$
+
+			理想: $\{0\},\{0,1,2,3,4,5\},\{0,2,4\},\{0,3\}$
+			\item[m=8]\
+
+			子环: $\{0\},\{0,1,2,3,4,5,6,7\},\{0,2,4,6\},\{0,4\}$
+
+			理想: $\{0\},\{0,1,2,3,4,5,6,7\},\{0,2,4,6\},\{0,4\}$
+			\item[m=11]\
+
+			子环: $\{0\},\{0,1,2,3,4,5,6,7,8.9,10\}$
+
+			理想: $\{0\},\{0,1,2,3,4,5,6,7,8,9,10\}$
+		\end{itemize}
+		\item[(2)]
+	\end{itemize}
+\end{solution}
+
+\problem[习题六 68(2)(4)]
+
+是.
+
+\problem[习题六 69]
+
+

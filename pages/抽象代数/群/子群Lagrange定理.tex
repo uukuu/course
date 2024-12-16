@@ -43,10 +43,10 @@
 则有 $aH=cH\Leftrightarrow c^{-1}a\in H\Leftrightarrow c^{-1}(a^{-1})^{-1}\in H\Leftrightarrow Hc^{-1}=Ha^{-1}$. 从而说明 $\sigma$ 是单射. 又 $\sigma(b^{-1}H)=Hb$, 因此 $\sigma$ 是满射, 从而 $\sigma$ 是双射.
 
 \begin{definition}
-	\noindent 设 $H<G$, 把 $(G/H)_l$ 的基数称为 $H$ 在 $G$ 中的\mydef{指数}, 记作 $[G:H]$. 
+	\noindent 设 $H<G$, 把 $(G/H)_l$ 的基数称为 $H$ 在 $G$ 中的\mydef{指数}, 记作 $[G:H]$.
 \end{definition}
 
-若 $[G:H]=r$, 则有 
+若 $[G:H]=r$, 则有
 \begin{equation}\label{左陪集分解式}
 	G=H\cup a_1 H\cup\cdots\cup a_{r-1}H,
 \end{equation}
@@ -94,15 +94,17 @@
 
 $4$ 阶群恰有两个同构类, 一类是 $4$ 阶循环群, 它的代表是 $(\Z_4,+)$; 另一类是 $4$ 阶非循环的 \Abel 群, 它的代表是 $(\Z_2\oplus\Z_2,+)$, 称它为 \mydef[Klein群]{Klein 群}, 也称为\mydef{四群}, 记作 $V$.
 
-\begin{practice}
-	\problem  设 $H,K$ 都是群 $G$ 的子群. 证明: $HK$ 为 $G$ 的子群当且仅当 $$HK=KH.$$
+\begin{practice}\label{prac:子群}
+	\problem\label{prac:子群1}  设 $H,K$ 都是群 $G$ 的子群. 证明: $HK$ 为 $G$ 的子群当且仅当 $$HK=KH.$$
 	\problem  设 $H,K$ 都是群 $G$ 的\tr{有限}子群, 证明: $$|HK|=\frac{|H|\cdot|K|}{|H\cap K|}.$$
 	\problem 设 $S$ 是群 $G$ 的一个非空子集. $G$ 的包含 $S$ 的所有子群的交集 $\bigcap\limits_{S\subseteq H<G} H$ 称为\textbf{由 S 生成的子集}, 记作 $\langle S\rangle$, 称 $S$ 是\textbf{生成元集}.
 	\problem 在 $(\C,+)$ 中, 由 $\{1,\ti\}$ 生成的子群称为\textbf{高斯整数群}.
 	\problem 群 $G$ 中元素 $a$, 如果存在 $b\in G$ 使得 $b^2=a$, 那么称 $a$ 是\textbf{平方元}, $b$ 是 $a$ 的一个\textbf{平方根}. 证明: 奇数阶群 $G$ 的每个元素 $a$ 都是平方元, 且 $a$ 的平方根唯一.
 	\begin{proof}
-		$(a^k)^2=a^{2k},\quad (a^{\frac{n+2k+1}{2}})^2=a^{2k+1}$.
-		
-		做映射 $\sigma: a^k\to a^{2k}$, 由每个元素都是平方元知是满射, 又集合元素个数相等, 从而是双射. 故每个元素的平方根唯一.
-	\end{proof} 
+		设 $|G|=2m+1$, 任给 $a\in G$ 有,
+
+		$a^{2m+1}=e\Rightarrow a=a^{2m+2}=(a^{m+1})^2$ 故 $a$ 是平方元.
+
+		做映射 $\sigma:G\to G,a\mapsto a^2$, 由每个元素都是平方元知是满射, 又集合元素个数相等, 从而是双射. 故每个元素的平方根唯一.
+	\end{proof}
 \end{practice}

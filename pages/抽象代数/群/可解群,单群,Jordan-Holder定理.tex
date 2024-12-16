@@ -1,1 +1,96 @@
 \section{可解群, 单群, \t{Jordan-Holder} 定理}
+
+\begin{definition}
+	称 $xyx^{-1}y^{-1}$ 为 $x,y$ 的\mydef{换位子}, 记作 $[x,y]$. 我们有 $$xy=yx\Leftrightarrow xyx^{-1}y^{-1}=e.$$
+\end{definition}
+
+\begin{definition}
+	群 $G$ 的所有换位子组成的子集\tr{生成}的子群称为 $G$ 的\mydef{换位子群}或\mydef{导群}, 记作 $G'$ 或 $[G,G]$, 即 $$G'=\langle\{xyx^{-1}y^{-1}|x,y\in G\}\rangle.$$ 立即可以得到 $$G\ \t{是 Abel 群}\Leftrightarrow G'=\{e\}$$
+\end{definition}
+
+\begin{proposition}
+	设 $\sigma$ 是 $G$ 到 $\widetilde{G}$ 的一个同态, 则 $$\tIm\sigma\ \t{为 Abel 群}\Leftrightarrow G'\subseteq \Ker\sigma.$$
+\end{proposition}
+
+\begin{proof}
+	\begin{equation}
+		\begin{array}{rcl}
+			\tIm\sigma\ \t{为 Abel 群} & \Leftrightarrow & \sigma(x)\sigma(y)=\sigma(y)\sigma(x),\quad\forall \sigma(x),\sigma(y)\in\tIm\sigma \\
+			&\Leftrightarrow&\sigma(xy)\sigma(x)^{-1}\sigma(y)^{-1}=\widetilde{e}\\
+			&\Leftrightarrow&\sigma(xyx^{-1}y^{-1})=\widetilde{e}\\
+			&\Leftrightarrow&xyx^{-1}y^{-1}\Ker\sigma\\
+			&\Leftrightarrow&\{xyx^{-1}y^{-1}|x,y\in G\}\subseteq\Ker\sigma
+		\end{array}
+	\end{equation}
+	又 $\Ker\sigma$ 也是一个群, 所以 $\{xyx^{-1}y^{-1}|x,y\in G\}\subseteq G'\subseteq \Ker\sigma$.
+\end{proof}
+
+\begin{proposition}
+	$G'\lhd G$.
+\end{proposition}
+
+\begin{proposition}
+	$G/G'$ 是 \Abel 群.
+\end{proposition}
+
+\begin{proposition}
+	设 $N\lhd G$, 则 $$G/N\ \t{为 Abel 群}\Leftrightarrow G'\subseteq N.$$
+\end{proposition}
+
+\begin{definition}
+	设 $G$ 是一个群, $G'$ 的换位子群记作 $G^{(2)},\ldots,G^{(k-1)}$ 的换位子群记作 $G^{(k)},\ldots$. 如果存在正整数 $k$ 使得 $G^{(k)}=\{e\}$, 那么称 $G$ 是\mydef{可解群}, 否则称\mydef{不可解群}.
+\end{definition}
+
+\begin{theorem}
+	群 $G$ 可解当且仅当存在 $G$ 的递降子群列: $$G=G_0\rhd G_1\rhd G_2\rhd\cdots\rhd G_s=\{e\}.$$ 并且每个商群 $G_{i-1}/G_i$ 都是 \Abel 群.
+\end{theorem}
+
+\begin{theorem}
+	可解群的每个子群和同态像都是可解群.
+\end{theorem}
+
+\begin{corollary}
+	可解群的商群是可解群.
+\end{corollary}
+
+\begin{theorem}
+	设 $N\lhd G$, 若 $N$ 和 $G/N$ 可解, 那么 $G$ 可解.
+\end{theorem}
+
+\begin{definition}
+	如果群 $G$ 只有平凡的正规子群 $\{e\}$ 和 $G$, 那么称 $G$ 是\mydef{单群}.
+\end{definition}
+
+\begin{theorem}\label{Abel单群}
+	\Abel 群 $G$ 是单群当且仅当 $G$ 是素数阶循环群.
+\end{theorem}
+
+\begin{theorem}
+	若非 \Abel 群 $G$ 是单群, 则 $G$ 不可解.
+\end{theorem}
+
+\begin{definition}
+	群 $G$ 的一个递降的子群列: \begin{equation}\label{次正规子群列式}
+		G=G_0\rhd G_1\rhd G_2\rhd\cdots\rhd G_r=\{e\},
+	\end{equation}
+	称为 $G$ 的一个\mydef{次正规子群列}. 其商群组 \begin{equation}
+		G_0/G_1,\quad G_1/G_2,\quad\cdots,\quad G_{r-1}/G_r
+	\end{equation}
+	称为 \eqref{次正规子群列式} 的\mydef{因子群组}, 其中含有非单位元的因子群的个数称为 \eqref{次正规子群列式} 的长度.
+\end{definition}
+
+\begin{definition}
+	群 $G$ 的一个次正规子群列如果满足每个因子群都是单群, 那么称为\mydef{合成群列}.
+\end{definition}
+
+\begin{proposition}
+	每个有限群至少有一个合成群列.
+\end{proposition}
+
+\begin{corollary}
+	有限群 $G$ 可解当且仅当存在次正规子群列满足每个因子群都是素数阶循环群.
+\end{corollary}
+
+\begin{theorem}[\t{Jordan-Holder} 定理]
+	有限群 $G$ 的任意两个无重复项的合成群列有相同的长度, 并且其因子群组能用某种方法配对, 使得对应的因子群式同构的.
+\end{theorem}

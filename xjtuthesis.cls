@@ -574,6 +574,7 @@
       \fancyhead[CE]{\wuhao \ifxjtu@bachelor
       				uuku 的课程整理
                         \fi}
+      \fancyhead[L]{\ifxjtu@inmainbody\hyperref[menu]{\bf Menu}\fi}
       \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
       \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
       \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .5pt
@@ -653,7 +654,7 @@
         \titlespacing*{\part}{0pt}{50pt}{40pt}
         \titleformat{\chapter}[block]{\bfseries\sanhao\centering}{\ifxjtu@inmainbody\ifxjtu@special\thespecial\quad\else\thechapter\quad\fi\else\fi}{0em}{}[]
         \titleformat{\chapter}[block]{\bfseries\sanhao\centering}{\ifxjtu@inmainbody\ifxjtu@special\thespecial\quad\else\thechapter\quad\fi\else\fi}{0em}{}[]
-		\titleformat{\section}[hang]{\centering\xiaosan}{}{0em}{\ifxjtu@practice 习题\quad\thesection\else\S\ \thesection\quad\fi }[\vskip -0.5em]
+		\titleformat{\section}[hang]{\centering\xiaosan}{}{0em}{\ifxjtu@practice 习题\quad\thesection\else\ifxjtu@inmainbody\S\ \thesection\quad\fi\fi }[\vskip -0.5em]
         \xjtu@inmainbodytrue
     }
     \renewcommand\xjtuendcontent{

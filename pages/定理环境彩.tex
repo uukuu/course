@@ -1,6 +1,7 @@
+\def\len{5pt}
 
 %\tcbset{parbox=false,before upper=\par,before lower=\par}
-\tcbset{breakable,before upper={\parindent2em},left=0pt,lefttitle=5pt, right = 0pt, boxrule = 0.5mm, fonttitle = \bfseries}
+\tcbset{breakable,before upper={\parindent2em},left=0pt,lefttitle=\len, right = 0pt, boxrule = 0.5mm, fonttitle = \bfseries}
 \newenvironment{theorem}[1][]{
 	\refstepcounter{mytheorem}
 	\tcbset{title = {定理\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=SeaGreen!10!CornflowerBlue!10,colframe=RoyalPurple!55!Aquamarine!100!}
@@ -23,30 +24,30 @@
 \newenvironment{proposition}[1][]{
 	\refstepcounter{mytheorem}
 	\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
-	\begin{tcolorbox}\noindent\textbf{命题\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+	\begin{tcolorbox}\noindent\hspace{\len}\textbf{命题\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
 }{\end{tcolorbox}}
 
 \newenvironment{example}[1][]{
 \refstepcounter{mytheorem}
 \tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
-\begin{tcolorbox}\noindent\textbf{例\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+\begin{tcolorbox}\noindent\hspace{\len}\textbf{例\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
 }{\end{tcolorbox}}
 
 \newenvironment{property}[1][]{
 \refstepcounter{mytheorem}
 \tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
-\begin{tcolorbox}\noindent\textbf{性质\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+\begin{tcolorbox}\noindent\hspace{\len}\textbf{性质\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
 }{\end{tcolorbox}}
 
 \newenvironment{remark}[1][]{
 	\refstepcounter{mytheorem}
 	\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
-	\begin{tcolorbox}\noindent\textbf{注\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+	\begin{tcolorbox}\noindent\hspace{\len}\textbf{注\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
 	}{\end{tcolorbox}}
 
 \newenvironment{remark*}[1][]{
 	\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
-	\begin{tcolorbox}\noindent\textbf{注.} \ifempty{#1}\relax\else(#1)\fi
+	\begin{tcolorbox}\noindent\hspace{\len}\textbf{注.} \ifempty{#1}\relax\else(#1)\fi
 	}{\end{tcolorbox}}
 
 \newenvironment{definition}[1][]{

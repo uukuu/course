@@ -1,0 +1,485 @@
+\newpage
+\chapter{往年期末}
+\chaptermark{往年期末}
+
+\section{2020 级强基数学抽象代数期末考试(回忆版, 张强)}
+
+\problem[题目1] (选择/填空)
+\begin{itemize}
+	\item[1.] 以下哪个阶数的群可以是交换单群?
+
+	$\t A. 5\hfil \t B.8\hfil \t C.12\hfil\t D.99$
+
+	\item[2.] $225$ 阶群的 \Sy[$5$] 的阶数为\_\_\_\_.
+	\item[3.] 以下不是单群的是:
+
+	$\t A. S_5\hfil \t B.D_5\hfil C.A_5\hfil D.\t{忘了}$
+\end{itemize}
+
+\problem[题目2] 给出整数加群 $(\Z,+)$ 的所有子群并说明同构关系.
+
+\problem[题目3] 给出整数环 $(\Z,+,\cdot)$ 的所有理想, 设 $I,J$ 是整数环的两个理想, 计算它们的和、交以及乘积.
+
+\problem[题目4] 证明整数加群 $(\Z,+)$ 是整数环 $(\Z,+,\cdot)$ 上的一个模, 并给出它的所有子模.
+
+\problem[题目5] 叙述中国剩余定理, 并给出如下同余方程的解:
+$$\left\{\begin{array}{ll}
+	x\equiv 1 & \bmod\ 3,\\
+	x\equiv 2 & \bmod\ 5,\\
+	x\equiv 3 & \bmod\ 7.
+\end{array}\right.$$
+
+\problem[题目 6] 设 $G$ 是 $2022$ 阶群.
+
+\begin{itemize}
+	\item[(1)] $G$ 是单群吗?
+	\item[(2)] $G$ 是可解群吗?
+	\item[(3)] 如果 $G$ 可交换, 证明它是循环群.
+\end{itemize}
+
+\problem[题目 7] 设群 $G$ 作用在集合 $\Omega$ 上, 且 $G$ 包含一个子群 $N$, 它在 $\Omega$ 上的作用传递. 证明: $G=G_\alpha N,\ \forall \alpha\in \Omega$, 其中 $G_\alpha$ 是 $\alpha$ 的稳定子群.
+
+\problem[题目 8] 构造一个 $4$ 个元素的域, 并写出其中的加法和乘法.
+
+\problem[题目 9] 叙述理想互素的定义并证明任意两个不同的极大理想一定是互素的.
+
+\newpage
+
+\section*{参考解答}
+
+涉及概念: \hr{单群},\hyperref[Sylow1]{Sylow 群},\hr{可解群},\hr{理想},\hr{模},\hr{理想的互素}, \hr{极大理想}, \hr{域扩张}, \hr{齐性空间}, \hr{中国剩余定理}.
+
+\problem[题目1]
+\begin{solution}\
+
+	\begin{itemize}
+		\item[1.] 交换\hr{单群}, 要求可交换且只有平凡\hr{正规子群}. 根据定理 \ref{Abel单群}, 只能是素数阶循环群, 所以选 \t A.
+		\item[2.] $25$ 阶.
+		\item[3.] 由 $A_5\lhd S_5$ 故 $\t A. S_5$ 不是单群.
+	\end{itemize}
+
+\end{solution}
+
+\problem[题目2]
+\begin{solution}
+	所有子群: $m\Z,\ m\in \Z_{\geqslant0}$.
+
+	当 $m\neq 0$ 时, $m\Z$ 是无限阶循环群, 生成元为 $m$, 所以有 $m\Z\cong \Z$.
+
+	可取映射 $\sigma:\Z\to m\Z,\ a\mapsto ma$.
+
+	故所有不为单位元集 $(\{0\})$ 的子群都与 $\Z$ 同构.
+\end{solution}
+
+\problem[题目 3]
+\begin{solution}
+	整数环的理想: $(m),\quad m\in \Z_{\geqslant 0}$.
+
+	设 $I=(n),J=(m)$.
+
+	$I+J=((n,m))$, 其中 $(n,m)$ 表示 $n,m$ 的最大公约数.
+
+	$I\cap J=([n,m])$, 其中 $[n,m]$ 表示 $n,m$ 的最小公倍数.
+
+	$IJ=(nm)$.
+\end{solution}
+
+\problem[题目 5]
+
+\begin{solution}
+	叙述参照定理 \ref{中国剩余定理}.
+
+	$x=52+105k,\quad k\in \Z$.
+\end{solution}
+
+\problem[题目 6]
+
+\begin{solution}\
+	首先有 $2022=2\times 3\times 337$.
+	\begin{itemize}
+		\item[(1)]不是, 对于 $p=337$, \Sy[337] 的个数 $r$ 满足, $r\equiv 1(\bmod 337),r\mid 6$, 从而 $r=1$. 根据推论 \ref{coro:Sylow1} 可知 \Sy[337] 是 $G$ 的正规子群.
+		\item[(2)]是, 对于 $6$ 阶群, 考虑 \Sy[3] 子群的个数只能为 $1$ 个, 从而 \Sy[3] 子群是 $6$ 阶群的正规子群, 从而 $6$ 阶群可解, 进而有 $G_{337}$ 可解, $G/G_{337}$ 为 $6$ 阶群可解, 从而 $G$ 可解.
+		\item[(3)] 由 $2022=2\times 3\times 337$ 及定理 \ref{有限Abel群} 可知, $G\cong (\Z_2,+)\oplus(\Z_3,+)\oplus(\Z_{337},+)\cong(\Z_{2022},+)$ 从而 $G$ 是循环群.
+	\end{itemize}
+
+\end{solution}
+
+
+\problem[题目 7]
+
+\begin{proof}
+	显然有 $G_\alpha N\subseteq G$. 下证 $G\subseteq G_\alpha N$.
+
+	$\forall g\in G$, 设 $g\circ \alpha = \beta$,
+
+	由于 $N$ 在 $\Omega$ 上的作用传递, 从而 $\exists\ n\in N$, 满足 $\beta=n\circ \alpha$. 又 $N<G\Leftrightarrow n^{-1}\in N$, 考虑 $n^{-1}$ 引出的双射, $n^{-1}\circ(g\circ \alpha)=n^{-1}\circ \beta=n^{-1}\circ(n\circ \alpha)$.
+
+	又根据作用的结合律, 得到 $(n^{-1}g)\circ \alpha=\alpha$, 从而 $n^{-1}g\in G_\alpha$, 即 $\exists b\in G_\alpha,\ s.t. n^{-1}g=b\Leftrightarrow\ g=nb\in  NG_\alpha$.
+
+	最后由于, $N,G_\alpha,NG_\alpha=G$ 都是 $G$ 的子群, 根据习题 \ref{prac:子群} 中题目 \ref{prac:子群1},可知 $G_\alpha N=N G_\alpha$.
+
+	所以有 $G=G_\alpha N$.
+
+\end{proof}
+
+\problem[题目 8]
+
+\begin{solution}
+	参照例 \ref{四元域}.
+\end{solution}
+
+\problem[题目 9]
+
+叙述参照定义 \ref{理想的互素}.
+
+\begin{proof}
+	首先有 $I+J$ 是理想, 若 $I,J$ 不互素, 则有 $I+J\neq R$, 又有 $I\subseteq I+J$, 这与 $I$ 是极大理想矛盾, 从而 $I,J$ 互素.
+\end{proof}
+
+\newpage
+\section{2021 级强基数学抽象代数期末考试(回忆版, 张强)}
+
+\problem[题目 1](选择与填空)
+\begin{itemize}
+	\item[1.] 下面那个数字可以作为交换单群的阶?
+
+	$\t A.2\hfil \t B. 8\hfil\t C. 15\hfil \t D.2022$
+	\item[2.] 下面哪个 $n$ 会使得 $S_n$ 不可解?
+
+	$\t A.1\hfil \t B. 3\hfil\t C. 4\hfil \t D.2022$
+	\item[3.] $8$ 阶群有\_\_\_\_种不同构的表示.
+	\item[4.] 正四面体群的阶数是\_\_\_\_.
+\end{itemize}
+
+\problem[题目 2] 设 $A=\{f:\R\to\R\}$, 为实数域上所有连续函数组成的集合.
+\begin{itemize}
+	\item[(1)] $A$ 中函数的加法与乘法是否构成环?
+	\item[(2)] 设 $I=\{f\in A:f(1)=0\ \t{或}\ f(2)=0\}$, 那么 $I$ 是否构成环 $A$ 的一个理想.
+	\item[(3)] 设 $I=\{f\in A:f(1)=0\}$, 那么 $I$ 是否构成环 $A$ 的一个极大理想.
+	\item[(4)] $A$ 是否为主理想整环.
+\end{itemize}
+
+\problem[题目 3]
+\begin{itemize}
+	\item[1.] 给出自由模的定义, 并举一个简单的例子.
+	\item[2.] 自由模的子模是否也为自由模.
+\end{itemize}
+
+\problem[题目 4] 求 $\overline{4}$ 在 $\Z_{85}$ 中的平方根.
+
+\problem[题目 5]
+\begin{itemize}
+	\item[1.] 构造一个 $27$ 元域, 并说明其加法与乘法.
+	\item[2.] 写出所构造的域的所有理想.
+\end{itemize}
+
+\problem[题目 6] 设 $G$ 是 $2023$ 阶群.
+
+\begin{itemize}
+	\item[(1)] $G$ 是单群吗?
+	\item[(2)] $G$ 是可解群吗?
+	\item[(3)] 如果 $G$ 可交换, 求其所有同构类型.
+\end{itemize}
+
+\problem[题目 7]
+\begin{itemize}
+	\item[1.] 写出环的单位群的概念.
+	\item[2.] 写出 $M_2(\Z_2)$ 的单位群的同构类型.
+\end{itemize}
+
+\newpage
+
+\section*{参考解答}
+
+涉及定义: \hr{单群}, \hr{可解群}, \hr{单位群}, \hr{理想}, \hr{自由模}, \hr{单位群}, \hr{主理想整环}, \hr{中国剩余定理}, \hyperref[Sylow3]{Sylow 第三定理}.
+
+\problem[题目 1]
+
+\begin{solution}\
+
+	\begin{itemize}
+		\item[1.] $\t A.2$, 有限交换单群一定是素数阶循环群.
+
+		\item[2.] $\t D.2022$, 当 $n\geqslant 5$ 时, $S_n'=A_n,A_n'=A_n$.
+
+		\item[3.] 一共有 $5$ 种, 分别为 $(\Z_8,+),(\Z_4,+)\oplus(\Z_2,+),(\Z_2,+)\oplus(\Z_2,+)\oplus(\Z_2,+),D_4,Q$.
+
+		\item[4.] $12$ 阶, $1+3+8$.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 2]
+
+\begin{solution}\
+	\begin{itemize}
+		\item[(1)] 构成环.
+		
+		$\forall f,g\in A$, 函数的加法和乘法满足加法交换律, 乘法结合律, 乘法分配律.
+		且存在负元 $-f$, 零元 $0$.
+		
+		$f+g,\ fg$ 也为连续函数, 故对加法和乘法封闭.
+		
+		\item[(2)] 构成一个理想.
+		
+		$\forall g\in A,f\in I,\ f(1)=0$, $(gf)(1)=g(1)f(1)=g(1)\times 0=0,\ (fg)(1)=f(1)g(1)=0\times g(1)=0$, 从而 $fg,gf\in I$. 若 $f(2)=0$ 同理.
+		
+		综上 $I$ 是 $A$ 的理想.
+		
+		\item[(3)] 不是极大理想. 类似上一问, 我们可以证明 $I$ 是理想, 并记上问中理想为 $J$, 显然有 $I\subseteq J$, 又对于函数 $f(x)=x\notin J$, 从而 $J\neq A$, 所以 $I$ 不是极大理想.
+		
+		\item[(4)] 不是主理想整环.
+		
+		对于第三问中的理想, $x-1,e^x-e$ 都是该理想的元素, 而这两个函数显然不能由彼此有限表示, 从而该理想不是主理想, 进而环 $A$ 不是主理想整环.
+		
+		也可以通过说明 $A$ 有零因子, 从而不是整环.
+		
+		例如取连续函数 
+		$$f(x)=\left\{\begin{array}{cl}
+			x & x\in (0,1], \\
+			2-x & x\in (1,2], \\
+			0 & \t {otherwise}.
+		\end{array}\right.,\quad g(x)=\left\{
+			\begin{array}{cl}
+				x-2 & x\in (2,3], \\
+				4-x & x\in (3,4], \\
+				0 & \t {otherwise}.
+			\end{array}
+		\right.$$
+		
+		显然有 $f(x)g(x)=0$. 故存在零因子. 不是整环.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 4]
+
+\begin{solution}
+	
+由 $\Z_{85}\cong \Z_{5}\oplus\Z_{17}$.
+
+考虑映射 $$\begin{array}{rcl}
+	\sigma: \Z_{85}&\to&\Z_5\oplus\Z_{17}\\
+	n&\mapsto&(n\%5,n\%17)
+\end{array}$$
+是双射, 从而 $\Z_{85}$ 中 $4$ 的平方根, 对应的元素在 $\Z_5$ 和 $\Z_{17}$ 中也为平方根.
+
+$\overline{4}$ 在 $\Z_{5}$ 中的平方根为 $2,3$.
+
+$\overline{4}$ 在 $\Z_{17}$ 中的平方根为 $2,15$.
+
+接下来使用中国剩余定理, 解如下四个同余方程.
+
+$$\begin{array}{lr}
+	\left\{\begin{array}{ll}
+		x\equiv 2 & (\bmod\ 5) \\
+		x\equiv 2 & (\bmod\ 17)
+	\end{array}\right.
+	&
+	\left\{\begin{array}{ll}
+		x\equiv 2 & (\bmod\ 5) \\
+		x\equiv 15 & (\bmod\ 17)
+	\end{array}\right.
+	\\[25pt]
+	\left\{\begin{array}{ll}
+		x\equiv 3 & (\bmod\ 5) \\
+		x\equiv 2 & (\bmod\ 17)
+	\end{array}\right.
+	&
+	\left\{\begin{array}{ll}
+		x\equiv 3 & (\bmod\ 5) \\
+		x\equiv 15 & (\bmod\ 17)
+	\end{array}\right.
+\end{array}$$
+
+综上, $\overline{4}$ 的平方根为 $\overline{2},\overline{32},\overline{53},\overline{83}$.
+
+\end{solution}
+
+\problem[题目 5]
+
+\begin{solution}\
+	\begin{itemize}
+		\item[(1)] 在 $\Z_3[x]$ 中取二次不可约多项式 $m(x)=x^3+2x+1$.
+		
+		那么 $\Z_3[x]/(m(x))$ 是一个 $27$ 元域. 设 $u=x+(m(x))$, 那么该域的元素形如 $c_0+c_1u+c_2u^2,\ c_0,c_1,c_2\in\Z_3$.
+		
+		其运算法则与正常 $\Z_3[x]$ 上的多项式运算法则相似, 差别在于需要用 $u^3=u+2$ 将多项式的次数降至 $2$ 次及以下.
+		
+		\item[(2)] 域只有平凡的理想 $\{0\},\Z_3[x]/(x^3+2x+1)$.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 6]
+
+\begin{solution}
+	$2023=7\times 17^2$.
+	
+	考虑 \Sy[17] 根据, \t{Sylow} 第三定理, 该子群个数 $r$ 满足 $$r\equiv 1\ (\bmod\ 17)\wedge r\mid 7$$ 从而 $r=1$, \Sy[17] 是正规子群.
+	
+	\begin{itemize}
+		\item[(1)] $2023$ 阶群有非平凡正规子群, 从而不是单群.
+		\item[(2)] 由于 $p$-群可解, $G_{2023}/G_{289},G_{289}$ 均可解, 从而 $2023$ 阶群可解.
+		\item[(3)] 有限 \Abel 群的同构类型.
+		
+		$(\Z_7,+)\oplus(\Z_{289},+),(\Z_7,+)\oplus(\Z_{17},+)\oplus(\Z_{17},+)$.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 7]
+
+\begin{solution}\
+	\begin{itemize}
+		\item[(1)] 环上所有对乘法可逆的元素所构成的子集称为环的单位群. (可逆元也称单位).
+		
+		\item[(2)] $M_2(\Z_2)$ 中可逆的元素有
+		
+		$\left(\begin{array}{cc}1 & 0\\0 & 1\end{array}\right),
+		\left(\begin{array}{cc}0 & 1\\1 & 0\end{array}\right),
+		\left(\begin{array}{cc}1 & 0\\1 & 1\end{array}\right),
+		\left(\begin{array}{cc}1 & 1\\0 & 1\end{array}\right),
+		\left(\begin{array}{cc}0 & 1\\1 & 1\end{array}\right),
+		\left(\begin{array}{cc}1 & 1\\1 & 0\end{array}\right).
+		$
+		即 $M_2(\Z_2)$ 的单位群是 $6$ 阶群.
+		
+		而 $2p$ 阶群要么是循环群, 要么同构于 $D_p$.
+		
+		由 
+		$\left(\begin{array}{cc}1 & 0\\1 & 1\end{array}\right)\left(\begin{array}{cc}1 & 1\\0 & 1\end{array}\right)=
+		\left(\begin{array}{cc}1 & 1\\1 & 0\end{array}\right)$,
+		$\left(\begin{array}{cc}1 & 1\\0 & 1\end{array}\right)\left(\begin{array}{cc}1 & 0\\1 & 1\end{array}\right)=
+		\left(\begin{array}{cc}0 & 1\\1 & 1\end{array}\right)$. 
+		
+		可知该群不是循环群, 从而该单位群同构于 $D_3$.
+	\end{itemize}
+\end{solution}
+
+\newpage
+\section{2022 级数试抽象代数期末考试(回忆版, 张强)}
+
+\problem[题目 1] (不定项选择)
+
+\begin{itemize}
+	\item[1.] 下面哪些可以作为交换单群的阶数?
+
+	$\t A.2\hfil \t B. 3\hfil\t C. 24\hfil \t D.25$
+
+	\item[2.] 下面哪些群是可解群?
+
+	选项丢失.jpg
+
+	\item[3.] 下面哪个环与其它环不同构?
+
+	$\t A.\Z\hfil \t B. 2\Z\hfil\t C. 3\Z\hfil \t D.\Z_p$
+
+	\item[4.] 下面哪些阶数的群一定不是单群?
+
+	$\t A.4\hfil \t B. 5\hfil\t C. 72\hfil \t D.73$
+\end{itemize}
+
+\problem[题目 2]
+
+\begin{itemize}
+	\item[(1)] 写出整数环的所有子环.
+
+	\item[(2)] 写出整数环的全部理想, 及理想间的和、交以及乘积.
+
+	\item[(3)] 极大理想的定义, 及整数环的全部极大理想.
+\end{itemize}
+
+\problem[题目 3]
+
+\begin{itemize}
+	\item[(1)] 构造一个 $9$ 元域, 并写出元素的运算.
+
+	\item[(2)] 写出该域的全部理想.
+\end{itemize}
+
+\problem[题目 4]写出 $f(x)=x^4-3$ 的分裂域及一组基.
+
+\problem[题目 5] 模的定义是什么? 自由模的子模是自由模吗? 为什么?
+
+\problem[题目 6] $S_3$ 和 $D_3$ 是否同构? 为什么?
+
+\problem[题目 7] $385$ 阶 $G$ 群有一个指数为 $5$ 的子群 $H$, 证明 $H\lhd G$.
+
+\problem[题目 8] 设 $G$ 是 $2024$ 阶群.
+
+\begin{itemize}
+	\item[(1)] $G$ 是单群吗?
+	\item[(2)] $G$ 是可解群吗?
+\end{itemize}
+
+\section*{参考解答}
+
+\problem[题目 1]
+
+\begin{solution}\
+	\begin{itemize}
+		\item[1.] $\t A.2,\t B.3$.
+		\item[3.] $\t D.\Z_p$.
+		\item[4.] $\t A.4,\t C.72$.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 2]
+
+\begin{solution}\
+	\begin{itemize}
+		\item[(1)] 子环: $m\Z$.
+		\item[(2)] 理想: $(m)$.
+
+		设 $I=(n),J=(m)$.
+
+		$I+J=((n,m))$, 其中 $(n,m)$ 表示 $n,m$ 的最大公约数.
+
+		$I\cap J=([n,m])$, 其中 $[n,m]$ 表示 $n,m$ 的最小公倍数.
+
+		$IJ=(nm)$.
+
+		\item[(3)]定义 \ref{极大理想}.
+
+		整数环的全部极大理想是所有素理想 $(p)$, $p$ 为素数.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 3]
+
+\begin{solution}\
+	\begin{itemize}
+		\item[(1)] 在 $\Z_3[x]$ 中取二次不可约多项式 $m(x)=x^2+1$.
+
+		那么 $\Z_3[x]/(m(x))$ 是一个 $9$ 元域. 设 $u=x+(m(x))$, 那么该域的元素形如 $c_0+c_1x,\ c_0,c_1\in\Z_3$.
+
+		其运算法则与正常 $\Z_3[x]$ 上的多项式运算法则相似, 差别在于需要用 $u^2=\overline{2}$ 将多项式的次数降至 $1$ 次及以下.
+
+		\item[(2)] 域只有平凡的理想 $\{0\},\Z_3[x]/(x^2+1)$.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 4]2023 级强基没讲第四章, 不会.
+
+\problem[题目 6]
+
+\begin{solution}
+	同构, $2p$ 阶群或者为循环群, 或者同构于 $D_p$. 从而 $S_3\cong D_3$.
+\end{solution}
+
+\problem[题目 7] 参考习题 \ref{prac:群作用} 题目 \ref{prac:群作用2}.
+
+\problem[题目 8]
+
+\begin{solution}
+	$2024=2^3*11*23$.
+	
+	考虑 \Sy[23] 根据, \t{Sylow} 第三定理, 该子群个数 $r$ 满足 $$r\equiv 1\ (\bmod\ 23)\wedge r\mid 88$$ 从而 $r=1$, \Sy[23] 是正规子群.
+	
+	\begin{itemize}
+		\item[(1)] $2024$ 阶群有非平凡正规子群, 从而不是单群.
+		\item[(2)] 类似上述讨论, 可以同样证明, 对于 $88$ 阶群, \Sy[11] 是其正规子群, 从而 $G_{88}/G_{11},G_{8}$ 都是 $p$-群可解.
+		
+		进而 $G_{2024}/G_{23},G_{23}$ 均可解, 从而 $2024$ 阶群可解.
+		
+	\end{itemize}
+\end{solution}
+\newpage
+\section{2022 级强基数学抽象代数期末考试(非张强)}

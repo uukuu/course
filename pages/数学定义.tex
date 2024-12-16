@@ -34,7 +34,7 @@
 	\ifempty{#1}
 	\par\arabic{myproblem}.
 	\else
-	\par#1
+	\par\textbf{#1}.
 	\fi
 }
 
@@ -62,6 +62,8 @@
 \newcommand{\mydef}[2][]{\label{\ifempty{#1}#2\else #1\fi}\textbf{#2}}
 %\newcommand{\mydef}[1]{\label{#1}\textbf{#1}}
 
+\newcommand{\tiaojian}{}
+
 %抽象代数
 
 \newcommand{\Aut}{\t {Aut}}  %自同构群
@@ -69,7 +71,7 @@
 \newcommand{\Ker}{\t {Ker}}  %核空间
 \newcommand{\tIm}{\t {Im}}  %像空间
 
-\newcommand{\Sy}{\t{Sylow} $p$-子群} %Sylow p-子群
+\newcommand{\Sy}[1][$p$]{\t{Sylow} #1-子群} %Sylow p-子群
 \newcommand{\lAbel}{有限 \t{Abel}\ }
 \newcommand{\Abel}{\t{Abel}\ }
 \newcommand{\rad}{\t{rad}\ }

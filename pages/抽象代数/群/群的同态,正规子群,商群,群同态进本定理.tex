@@ -1,1 +1,70 @@
-\section{群的同态, 正规子群, 商群, 群同态进本定理}
+\section{群的同态, 正规子群, 商群, 群同态基本定理}
+
+\begin{definition}[群同态]
+	若群 $G$ 到群 $\widetilde{G}$ 有一个映射 $\sigma$, 使得 $$\sigma(ab)=\sigma(a)\sigma(b),\quad\forall a,b\in G.$$
+	则称 $\sigma$ 是\textbf{同态}.
+\end{definition}
+
+\begin{property}
+	\begin{itemize}
+		\item[(1)] $\sigma(e)=\widetilde{e}$.
+		\item[(2)] $\sigma(a^{-1})=\sigma(a)^{-1}$.
+		\item[(3)] 若 $H<G$, 则 $\sigma(H)<\widetilde{G}$.
+		\item[(4)] $|\sigma(a)|\big||a|$.
+	\end{itemize}
+\end{property}
+
+\begin{definition}
+	$\Ker\sigma:=\{a\in G|\sigma(a)=\widetilde{e}\}$, 称为 $\sigma$ 的\textbf{核}.
+\end{definition}
+
+\begin{proposition}
+	设 $\sigma$ 是群同态, 则 $\forall a\in G$, 有 $$a(\Ker\sigma)=(\Ker\sigma)a.$$
+\end{proposition}
+
+\begin{definition}
+	如果群 $G$ 的子群 $H$ 满足: $\forall a\in G$, 有 $$aH=Ha.$$
+	那么称 $H$ 是 $G$ 的\mydef{正规子群}, 记作 $H\lhd G$.
+
+	特别地, $\{e\}$ 和 $G$ 称为 $G$ 的\textbf{平凡正规子群}.
+\end{definition}
+
+\begin{proposition}
+	群同态的核 $\Ker\sigma$ 是 $G$ 的正规子群.
+\end{proposition}
+
+\begin{proposition}
+	群 $G$ 的子群 $H$ 是正规子群当且仅当 $$aHa^{-1}=H,\quad\forall a\in G.$$
+\end{proposition}
+
+\begin{definition}
+	设 $H$ 是 $G$ 的子群, 任取 $a\in G$, $aHa^{-1}$ 也是 $G$ 的子群, 称之为 $H$ 的\mydef{共轭子群}.
+\end{definition}
+
+\begin{proposition}
+	$H\lhd G\Leftrightarrow\ \forall\ a\in G,h\in H,\ aha^{-1}\in H$
+\end{proposition}
+
+\begin{definition}
+	当 $N\lhd G$ 时, 有 $(G/N)_l=(G/N)_r$, 此时记作 $(G/N)$. 并在其上定义乘法 $(aN)(bN)=abN$. 可以验证, 在这个运算下 $(G/N)$ 构成群, 并称之为\mydef{商群}.
+\end{definition}
+
+\begin{proposition}
+	设 $G$ 为\tr{有限群}, $N\lhd G$, 则 $|G/N|=\dfrac{|G|}{|N|}.$
+\end{proposition}
+
+\begin{theorem}[群同态基本定理]
+	设 $\sigma$ 是群 $G$ 到 $\widetilde{G}$ 的一个同态, 则 $\Ker\sigma$ 是 $G$ 的一个正规子群, 且 $$G/\Ker\sigma\cong\tIm\sigma.$$
+\end{theorem}
+
+\begin{theorem}[第一群同构定理]
+	设 $G$ 是一个群, $H<G,N\lhd G$, 则 
+	\begin{itemize}
+		\item[(1)] $HN<G$;
+		\item[(2)] $H\cap N\lhd H,\ H/(H\cap N)\cong (HN)/N$.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}[第二群同构定理]
+	设 $G$ 是一个群, $N\lhd G$, $H$ 是 $G$ 的包含 $N$ 的\hr{正规子群}, 则 $H/N\lhd G/N$, 且 $$(G/N)/(H/N)\cong G/H.$$
+\end{theorem}
