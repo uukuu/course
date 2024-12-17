@@ -11,83 +11,85 @@
 \contentsline {section}{\numberline {1.7}可解群, 单群, \text {Jordan-Holder} 定理}{15}{section.1.1.7}%
 \contentsline {section}{\numberline {1.8}群在集合上的作用, 轨道-稳定子定理}{18}{section.1.1.8}%
 \contentsline {section}{\numberline {1.9}Sylow 定理}{24}{section.1.1.9}%
-\contentsline {section}{\numberline {1.10}有限 \text {Abel} 群和有限生成的 \text {Abel} 群的结构}{25}{section.1.1.10}%
-\contentsline {section}{\numberline {1.11}自由群}{25}{section.1.1.11}%
-\contentsline {chapter}{\numberline {第二章}环的理想, 域的构造}{26}{chapter.1.2}%
-\contentsline {section}{\numberline {2.1}环同态, 理想, 商环}{26}{section.1.2.1}%
-\contentsline {section}{\numberline {2.2}理想的运算, 环的直和}{28}{section.1.2.2}%
-\contentsline {section}{\numberline {2.3}素理想和极大理想}{33}{section.1.2.3}%
-\contentsline {section}{\numberline {2.4}有限域的构造, 构造扩域的途径}{35}{section.1.2.4}%
-\contentsline {section}{\numberline {2.5}分式域}{40}{section.1.2.5}%
-\contentsline {chapter}{\numberline {第三章}整环的整除性}{41}{chapter.1.3}%
-\contentsline {section}{\numberline {3.1}整除关系, 不可约元, 素元, 最大公因子}{41}{section.1.3.1}%
-\contentsline {section}{\numberline {3.2}欧几里得整环, 主理想整环, 唯一因子分解整环}{42}{section.1.3.2}%
-\contentsline {section}{\numberline {3.3}诺特环}{45}{section.1.3.3}%
-\contentsline {chapter}{\numberline {第四章}域扩张, 伽罗瓦理论}{47}{chapter.1.4}%
-\contentsline {section}{\numberline {4.1}域扩张的性质}{47}{section.1.4.1}%
-\contentsline {chapter}{\numberline {第五章}模}{48}{chapter.1.5}%
-\contentsline {section}{\numberline {5.1}环上的模, 子模, 商模, 模同态}{48}{section.1.5.1}%
-\contentsline {chapter}{\numberline {第六章}往年期末}{50}{chapter.1.6}%
-\contentsline {section}{\numberline {6.1}2020 级强基数学抽象代数期末考试(回忆版, 张强)}{50}{section.1.6.1}%
-\contentsline {section}{\numberline {6.2}2021 级强基数学抽象代数期末考试(回忆版, 张强)}{53}{section.1.6.2}%
-\contentsline {section}{\numberline {6.3}2022 级数试抽象代数期末考试(回忆版, 张强)}{57}{section.1.6.3}%
-\contentsline {section}{\numberline {6.4}2022 级强基数学抽象代数期末考试(非张强)}{60}{section.1.6.4}%
-\contentsline {part}{II\hspace {1em}数学分析}{61}{part.2}%
-\contentsline {chapter}{数学分析定义及主要定理}{62}{chapter*.4}%
-\contentsline {chapter}{积分表}{63}{chapter*.5}%
-\contentsline {chapter}{\numberline {第一章}多元函数极限}{64}{chapter.2.1}%
-\contentsline {section}{\numberline {1.1}$\mathbb {R}^n$ 中的点集}{64}{section.2.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}邻域、开集}{64}{subsection.2.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}聚点、闭集}{65}{subsection.2.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}连通集}{67}{subsection.2.1.1.3}%
-\contentsline {section}{\numberline {1.2}多元函数的极限}{68}{section.2.1.2}%
-\contentsline {section}{\numberline {1.3}连续映射}{69}{section.2.1.3}%
-\contentsline {chapter}{\numberline {第二章}多元函数的微分}{71}{chapter.2.2}%
-\contentsline {section}{\numberline {2.1}微分的定义}{71}{section.2.2.1}%
-\contentsline {section}{\numberline {2.2}方向导数与偏导数}{71}{section.2.2.2}%
-\contentsline {section}{\numberline {2.3}有限增量定理与泰勒公式}{72}{section.2.2.3}%
-\contentsline {section}{\numberline {2.4}反函数定理}{72}{section.2.2.4}%
-\contentsline {section}{\numberline {2.5}隐函数定理}{73}{section.2.2.5}%
-\contentsline {chapter}{\numberline {第三章}含参变量的积分与反常积分}{74}{chapter.2.3}%
-\contentsline {chapter}{专题一\hskip 1em\relax 欧拉积分}{75}{chapter*.6}%
-\contentsline {section}{\numberline {3$\varepsilon $.1}第一型欧拉积分}{75}{section.2.3.1}%
-\contentsline {section}{\numberline {3$\varepsilon $.2}第二型欧拉积分}{76}{section.2.3.2}%
-\contentsline {subsection}{\numberline {3$\varepsilon $.2.1}定义}{76}{subsection.2.3.2.1}%
-\contentsline {subsection}{\numberline {3$\varepsilon $.2.2}性质}{78}{subsection.2.3.2.2}%
-\contentsline {subsection}{\numberline {3$\varepsilon $.2.3}应用}{82}{subsection.2.3.2.3}%
-\contentsline {chapter}{\numberline {第四章}重积分}{90}{chapter.2.4}%
-\contentsline {section}{\numberline {4.1}若尔当测度}{90}{section.2.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}简单集合的测度}{90}{subsection.2.4.1.1}%
-\contentsline {section}{\numberline {4.2}闭矩形上的积分}{91}{section.2.4.2}%
-\contentsline {section}{\numberline {4.3}有界集上的积分}{91}{section.2.4.3}%
-\contentsline {section}{\numberline {4.4}富比尼定理}{91}{section.2.4.4}%
-\contentsline {section}{\numberline {4.5}变量替换}{91}{section.2.4.5}%
-\contentsline {section}{\numberline {4.6}反常重积分}{91}{section.2.4.6}%
-\contentsline {chapter}{专题二\hskip 1em\relax 双曲几何下的面积}{95}{chapter*.7}%
-\contentsline {chapter}{\numberline {第五章}曲线积分}{96}{chapter.2.5}%
-\contentsline {section}{\numberline {5.1}曲线的弧长}{96}{section.2.5.1}%
-\contentsline {section}{\numberline {5.2}第一型曲线积分}{98}{section.2.5.2}%
-\contentsline {section}{\numberline {5.3}第二型曲线积分}{99}{section.2.5.3}%
-\contentsline {section}{\numberline {5.4}格林公式}{101}{section.2.5.4}%
-\contentsline {section}{\numberline {5.5}应用: 调和函数}{103}{section.2.5.5}%
-\contentsline {chapter}{\numberline {第六章}曲面积分}{105}{chapter.2.6}%
-\contentsline {section}{\numberline {6.1}曲面的面积}{105}{section.2.6.1}%
-\contentsline {section}{\numberline {6.2}第一型曲面积分}{106}{section.2.6.2}%
-\contentsline {section}{\numberline {6.3}曲面的侧与定向}{106}{section.2.6.3}%
-\contentsline {section}{\numberline {6.4}第二型曲面积分}{106}{section.2.6.4}%
-\contentsline {section}{\numberline {6.5}高斯公式}{106}{section.2.6.5}%
-\contentsline {section}{\numberline {6.6}斯托克斯公式}{106}{section.2.6.6}%
-\contentsline {chapter}{\numberline {第七章}\text {Fourier}\ 分析初步}{107}{chapter.2.7}%
-\contentsline {section}{\numberline {7.1}\text {Fourier}\ 级数定义}{107}{section.2.7.1}%
-\contentsline {section}{\numberline {7.2}局部化原理}{109}{section.2.7.2}%
-\contentsline {section}{\numberline {7.3}费耶尔定理}{113}{section.2.7.3}%
-\contentsline {section}{\numberline {7.4}均值定理}{114}{section.2.7.4}%
+\contentsline {section}{1.9$\varepsilon $\hskip 1em\relax 2025阶群}{26}{myproblem.1.1.9.1}%
+\contentsline {section}{\numberline {1.10}有限 \text {Abel} 群和有限生成的 \text {Abel} 群的结构}{28}{section.1.1.10}%
+\contentsline {section}{\numberline {1.11}自由群}{28}{section.1.1.11}%
+\contentsline {chapter}{\numberline {第二章}环的理想, 域的构造}{29}{chapter.1.2}%
+\contentsline {section}{\numberline {2.1}环同态, 理想, 商环}{29}{section.1.2.1}%
+\contentsline {section}{\numberline {2.2}理想的运算, 环的直和}{31}{section.1.2.2}%
+\contentsline {section}{\numberline {2.3}素理想和极大理想}{36}{section.1.2.3}%
+\contentsline {section}{\numberline {2.4}有限域的构造, 构造扩域的途径}{38}{section.1.2.4}%
+\contentsline {section}{\numberline {2.5}分式域}{43}{section.1.2.5}%
+\contentsline {chapter}{\numberline {第三章}整环的整除性}{44}{chapter.1.3}%
+\contentsline {section}{\numberline {3.1}整除关系, 不可约元, 素元, 最大公因子}{44}{section.1.3.1}%
+\contentsline {section}{\numberline {3.2}欧几里得整环, 主理想整环, 唯一因子分解整环}{45}{section.1.3.2}%
+\contentsline {section}{\numberline {3.3}诺特环}{48}{section.1.3.3}%
+\contentsline {chapter}{\numberline {第四章}域扩张, 伽罗瓦理论}{50}{chapter.1.4}%
+\contentsline {section}{\numberline {4.1}域扩张的性质}{50}{section.1.4.1}%
+\contentsline {chapter}{\numberline {第五章}模}{51}{chapter.1.5}%
+\contentsline {section}{\numberline {5.1}环上的模, 子模, 商模, 模同态}{51}{section.1.5.1}%
+\contentsline {section}{\numberline {5.2}自由模}{53}{section.1.5.2}%
+\contentsline {chapter}{\numberline {第六章}往年期末}{55}{chapter.1.6}%
+\contentsline {section}{\numberline {6.1}2020 级强基数学抽象代数期末考试(回忆版, 张强)}{55}{section.1.6.1}%
+\contentsline {section}{\numberline {6.2}2021 级强基数学抽象代数期末考试(回忆版, 张强)}{58}{section.1.6.2}%
+\contentsline {section}{\numberline {6.3}2022 级数试抽象代数期末考试(回忆版, 张强)}{63}{section.1.6.3}%
+\contentsline {section}{\numberline {6.4}2022 级强基数学抽象代数期末考试(非张强)}{66}{section.1.6.4}%
+\contentsline {part}{II\hspace {1em}数学分析}{67}{part.2}%
+\contentsline {chapter}{数学分析定义及主要定理}{68}{chapter*.4}%
+\contentsline {chapter}{积分表}{69}{chapter*.5}%
+\contentsline {chapter}{\numberline {第一章}多元函数极限}{70}{chapter.2.1}%
+\contentsline {section}{\numberline {1.1}$\mathbb {R}^n$ 中的点集}{70}{section.2.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}邻域、开集}{70}{subsection.2.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}聚点、闭集}{71}{subsection.2.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}连通集}{73}{subsection.2.1.1.3}%
+\contentsline {section}{\numberline {1.2}多元函数的极限}{74}{section.2.1.2}%
+\contentsline {section}{\numberline {1.3}连续映射}{75}{section.2.1.3}%
+\contentsline {chapter}{\numberline {第二章}多元函数的微分}{77}{chapter.2.2}%
+\contentsline {section}{\numberline {2.1}微分的定义}{77}{section.2.2.1}%
+\contentsline {section}{\numberline {2.2}方向导数与偏导数}{77}{section.2.2.2}%
+\contentsline {section}{\numberline {2.3}有限增量定理与泰勒公式}{78}{section.2.2.3}%
+\contentsline {section}{\numberline {2.4}反函数定理}{78}{section.2.2.4}%
+\contentsline {section}{\numberline {2.5}隐函数定理}{79}{section.2.2.5}%
+\contentsline {chapter}{\numberline {第三章}含参变量的积分与反常积分}{80}{chapter.2.3}%
+\contentsline {chapter}{专题一\hskip 1em\relax 欧拉积分}{81}{chapter*.6}%
+\contentsline {section}{\numberline {3$\varepsilon $.1}第一型欧拉积分}{81}{section.2.3.1}%
+\contentsline {section}{\numberline {3$\varepsilon $.2}第二型欧拉积分}{82}{section.2.3.2}%
+\contentsline {subsection}{\numberline {3$\varepsilon $.2.1}定义}{82}{subsection.2.3.2.1}%
+\contentsline {subsection}{\numberline {3$\varepsilon $.2.2}性质}{84}{subsection.2.3.2.2}%
+\contentsline {subsection}{\numberline {3$\varepsilon $.2.3}应用}{88}{subsection.2.3.2.3}%
+\contentsline {chapter}{\numberline {第四章}重积分}{96}{chapter.2.4}%
+\contentsline {section}{\numberline {4.1}若尔当测度}{96}{section.2.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}简单集合的测度}{96}{subsection.2.4.1.1}%
+\contentsline {section}{\numberline {4.2}闭矩形上的积分}{97}{section.2.4.2}%
+\contentsline {section}{\numberline {4.3}有界集上的积分}{97}{section.2.4.3}%
+\contentsline {section}{\numberline {4.4}富比尼定理}{97}{section.2.4.4}%
+\contentsline {section}{\numberline {4.5}变量替换}{97}{section.2.4.5}%
+\contentsline {section}{\numberline {4.6}反常重积分}{97}{section.2.4.6}%
+\contentsline {chapter}{专题二\hskip 1em\relax 双曲几何下的面积}{101}{chapter*.7}%
+\contentsline {chapter}{\numberline {第五章}曲线积分}{102}{chapter.2.5}%
+\contentsline {section}{\numberline {5.1}曲线的弧长}{102}{section.2.5.1}%
+\contentsline {section}{\numberline {5.2}第一型曲线积分}{104}{section.2.5.2}%
+\contentsline {section}{\numberline {5.3}第二型曲线积分}{105}{section.2.5.3}%
+\contentsline {section}{\numberline {5.4}格林公式}{107}{section.2.5.4}%
+\contentsline {section}{\numberline {5.5}应用: 调和函数}{109}{section.2.5.5}%
+\contentsline {chapter}{\numberline {第六章}曲面积分}{111}{chapter.2.6}%
+\contentsline {section}{\numberline {6.1}曲面的面积}{111}{section.2.6.1}%
+\contentsline {section}{\numberline {6.2}第一型曲面积分}{112}{section.2.6.2}%
+\contentsline {section}{\numberline {6.3}曲面的侧与定向}{112}{section.2.6.3}%
+\contentsline {section}{\numberline {6.4}第二型曲面积分}{112}{section.2.6.4}%
+\contentsline {section}{\numberline {6.5}高斯公式}{112}{section.2.6.5}%
+\contentsline {section}{\numberline {6.6}斯托克斯公式}{112}{section.2.6.6}%
+\contentsline {chapter}{\numberline {第七章}\text {Fourier}\ 分析初步}{113}{chapter.2.7}%
+\contentsline {section}{\numberline {7.1}\text {Fourier}\ 级数定义}{113}{section.2.7.1}%
+\contentsline {section}{\numberline {7.2}局部化原理}{116}{section.2.7.2}%
+\contentsline {section}{\numberline {7.3}费耶尔定理}{119}{section.2.7.3}%
+\contentsline {section}{\numberline {7.4}均值定理}{120}{section.2.7.4}%
 \ttl@change@i {\@ne }{chapter}{0em}{}{\thecontentslabel \quad }{}{\dotfill \contentspage [{\makebox [0pt][r]{\thecontentspage }}]}\relax 
 \ttl@change@v {chapter}{}{}{}\relax 
 \ttl@change@i {\@ne }{section}{1.5em}{}{\thecontentslabel \quad }{}{\dotfill \contentspage [{\makebox [0pt][r]{\thecontentspage }}]}\relax 
 \ttl@change@v {section}{}{}{}\relax 
 \ttl@change@i {\@ne }{subsection}{3.8em}{}{\thecontentslabel \quad }{}{\dotfill \contentspage [{\makebox [0pt][r]{\thecontentspage }}]}\relax 
 \ttl@change@v {subsection}{}{}{}\relax 
-\contentsline {chapter}{参考文献}{117}{mytheorem.2.7.4.7}%
-\contentsline {chapter}{致谢}{118}{appendix*.9}%
+\contentsline {chapter}{参考文献}{123}{mytheorem.2.7.4.7}%
+\contentsline {chapter}{致谢}{124}{appendix*.9}%
 \contentsfinish 

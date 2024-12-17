@@ -55,3 +55,16 @@
 \begin{definition}
 	称 $Q=\{\pm\ 1,\pm\ \t i,\pm\ \t j,\pm\ \t k\}$ 为四元数群, 容易验证 $Q$ 对于上述乘法构成一个群.
 \end{definition}
+
+\begin{practice}\label{prac:Sylow}
+	\problem\label{prac:Sylow1} 证明: $p$-群都可解.
+	\begin{proof}
+		设群 $G$ 的阶为 $p^\alpha$.
+
+		根据 \t{Sylow} 第一定理, $G$ 有 $p^{\alpha-1}$ 阶子群, 根据习题 \ref{prac:群作用} 题目 \ref{prac:群作用2} 可知 $p^{\alpha-1}$ 阶群是正规子群.
+
+		从而存在 $G_1$ 满足 $G\rhd G_1$, 且 $G/G_1$ 是素数阶循环群.
+
+		如此反复, 我们可以取出 $G\rhd G_1\rhd G_2\rhd\cdots\rhd G_{\alpha}=\{e\}$. 因此 $p$-群可解.
+	\end{proof}
+\end{practice}

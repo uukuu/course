@@ -1,31 +1,27 @@
 \def\len{5pt}
 
+\newtcolorbox{mybox}{colback=white,colframe=white,colbacktitle=white,coltitle=black}
+
 %\tcbset{parbox=false,before upper=\par,before lower=\par}
 \tcbset{breakable,before upper={\parindent2em},left=0pt,lefttitle=\len, right = 0pt, boxrule = 0.5mm, fonttitle = \bfseries}
 \newenvironment{theorem}[1][]{
 	\refstepcounter{mytheorem}
-	\tcbset{title = {定理\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=SeaGreen!10!CornflowerBlue!10,colframe=RoyalPurple!55!Aquamarine!100!}
-	\begin{tcolorbox}
+	\begin{tcolorbox}[title = {定理\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=SeaGreen!10!CornflowerBlue!10,colframe=RoyalPurple!55!Aquamarine!100!]
 }{\end{tcolorbox}}
 
 \newenvironment{lemma}[1][]{
 	\refstepcounter{mytheorem}
-	\tcbset{title = {引理\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=Salmon!20,colframe=Salmon!90!Black}
-	\noindent\begin{tcolorbox}
+	\begin{tcolorbox}[title = {引理\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=Salmon!20,colframe=Salmon!90!Black]
 }{\end{tcolorbox}}
 
 
 \newenvironment{corollary}[1][]{
 	\refstepcounter{mytheorem}
-	\tcbset{title = {推论\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=Emerald!10,colframe=cyan!40!black}
-	\noindent\begin{tcolorbox}
+	\begin{tcolorbox}[title = {推论\themytheorem \ifempty{#1}\relax\else.(#1)\fi },colback=Emerald!10,colframe=cyan!40!black]
 }{\end{tcolorbox}}
 
-\newenvironment{proposition}[1][]{
-	\refstepcounter{mytheorem}
-	\tcbset{title = {},colback=white,colframe=white,colbacktitle=white,coltitle=black}
-	\begin{tcolorbox}\noindent\hspace{\len}\textbf{命题\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
-}{\end{tcolorbox}}
+\newenvironment{proposition}[1][]{\refstepcounter{mytheorem}\begin{mybox}\noindent\hspace{\len}\textbf{命题\themytheorem.} \ifempty{#1}\relax\else(#1)\fi
+}{\end{mybox}}
 
 \newenvironment{example}[1][]{
 \refstepcounter{mytheorem}

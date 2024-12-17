@@ -530,21 +530,41 @@
 \xjtu@specialfalse
 \newcommand{\specialtrue}{\xjtu@specialtrue}
 \newcommand{\specialfalse}{\xjtu@specialfalse}
+\newif\ifxjtu@specialsection
+\xjtu@specialsectionfalse
+\newcommand{\specialsectiontrue}{\xjtu@specialsectiontrue}
+\newcommand{\specialsectionfalse}{\xjtu@specialsectionfalse}
 \newcounter{special}[part]
 \renewcommand{\thespecial}{专题\zhnum{special}}
 \counterwithin{chapter}{part}
 \numberwithin{figure}{chapter}
 \renewcommand{\thechapter}{第\zhnum{chapter}章}
-\renewcommand{\thesection}{\arabic{chapter}\ifxjtu@special$\varepsilon$\fi.\arabic{section}}
-\renewcommand{\thesubsection}{\arabic{chapter}\ifxjtu@special$\varepsilon$\fi.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesection}{\arabic{chapter}\ifxjtu@special$\varepsilon$\fi.\arabic{section}\ifxjtu@specialsection$\varepsilon$\fi}
+\renewcommand{\thesubsection}{\arabic{chapter}\ifxjtu@special$\varepsilon$\fi.\arabic{section}\ifxjtu@specialsection$\varepsilon$\fi.\arabic{subsection}}
 
+%定理定义编号
+\newcounter{mytheorem}[section]
+\newcounter{mydef}[section]
+\newcounter{myproblem}[section]
+
+\renewcommand{\themydef}{\arabic{section}\ifxjtu@specialsection$\varepsilon$\fi.\arabic{mydef}}
+\renewcommand{\themytheorem}{\arabic{section}\ifxjtu@specialsection$\varepsilon$\fi.\arabic{mytheorem}}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 
 \newcommand{\specialchapter}[1]{
-	\stepcounter{special}
+	\refstepcounter{special}
 	\setcounter{section}{0}
 	\chapter*{\thespecial \quad #1}
 	\chaptermark{#1}
 	\addcontentsline{toc}{chapter}{\thespecial \quad #1}
+}
+
+\newcommand{\specialsection}[1]{
+	\stepcounter{section}
+	\addtocounter{section}{-1}
+	\section*{\quad #1}
+	\sectionmark{#1}
+	\addcontentsline{toc}{section}{\thesection \quad #1}
 }
 
 \newif\ifxjtu@practice
@@ -574,7 +594,7 @@
       \fancyhead[CE]{\wuhao \ifxjtu@bachelor
       				uuku 的课程整理
                         \fi}
-      \fancyhead[L]{\ifxjtu@inmainbody\hyperref[menu]{\bf Menu}\fi}
+      \fancyhead[L]{\ifxjtu@inmainbody\hyperref[menu]{\bf Contents}\fi}
       \fancyfoot[OR,EL]{\xiaowu ~\thepage~}
       \renewcommand{\headrulewidth}{\if@mainmatter 0.5pt\else 0pt \fi}
       \renewcommand{\headrule}{\hrule \@height \headrulewidth \@width \headwidth \vskip .5pt

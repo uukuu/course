@@ -3,9 +3,9 @@
 \newcommand{\ifempty}[1]{\ifnum\pdf@strcmp{#1}{}=\z@}
 \makeatother
 
-\newcounter{mytheorem}[section]
-\newcounter{mydef}[section]
-\newcounter{myproblem}[section]
+%\newcounter{mytheorem}[section]
+%\newcounter{mydef}[section]
+%\newcounter{myproblem}[section]
 %\newcounter{special}[part]
 %\counterwithin{chapter}{part}
 %\numberwithin{figure}{chapter}
@@ -13,9 +13,9 @@
 %\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 %\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
 %\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-\renewcommand{\themydef}{\arabic{section}.\arabic{mydef}}
-\renewcommand{\themytheorem}{\arabic{section}.\arabic{mytheorem}}
-\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+%\renewcommand{\themydef}{\arabic{section}.\arabic{mydef}}
+%\renewcommand{\themytheorem}{\arabic{section}.\arabic{mytheorem}}
+%\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
 
 \numberwithin{equation}{chapter}
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
@@ -34,7 +34,7 @@
 	\ifempty{#1}
 	\par\arabic{myproblem}.
 	\else
-	\par\textbf{#1}.
+	\noindent\textbf{#1}.
 	\fi
 }
 

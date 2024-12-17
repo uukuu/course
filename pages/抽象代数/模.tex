@@ -51,5 +51,82 @@
 	设 $M$ 是幺环 $R$ 的左模, $H$ 是 $M$ 的非空子集. 如果 $H<M$, 并且对任意的 $r\in R,h\in H$, 都有 $rh\in H$. 那么称 $H$ 是 $M$ 的\mydef{子模}.
 
 	特别的, 我们称 $\{0\}$ 和 $M$ 是 $M$ 的\mydef{平凡子模}.
-
 \end{definition}
+
+\begin{remark*}
+	下面的研究均针对左模, 对于右模的结论可类似得到.
+	
+	因而下述商模等定义可看作左商模等.
+\end{remark*}
+
+\begin{definition}\label{子模的和}
+	设 $\{H_i\}$ 是 $M$ 的子模, 规定 $$H_1+H_2+\cdots+H_t:=\{h_1+h_2+\cdots+h_t|h_i\in H_i\}.$$ 容易验证这是 $M$ 的一个子模, 称为子模的\textbf{和}.
+	
+	如果 $H_1+H_2+\cdots+H_t$ 中每个元素的表示方式均唯一, 那么称之为\mydef[模的内直和]{内直和}.
+\end{definition}
+
+\begin{definition}
+	设 $M$ 和 $\widetilde{M}$ 是 $R$ 的两个左模, 如果存在一个\tr{群同态} $\eta$, 并且 $\eta$ 和环 $R$ 的作用可交换, 即 $$\eta(rx)=r[\eta(x)],\quad \forall r\in R,x\in M.$$ 那么称 $\eta$ 为\mydef{模同态}, 如果 $\eta$ 是群同构, 则称为\mydef{模同构}.
+\end{definition}
+
+\begin{definition}
+	类似群和环中的定义, 我们可以定义模对其子模的\mydef{商模}.
+\end{definition}
+
+类似的, 我们也有下述定理.
+
+\begin{theorem}[模同态基本定理]
+	设 $M$ 和 $\widetilde{M}$ 都是左 $R$-模, 若 $\eta$ 是模同态, 则 $\Ker\eta$ 是 $M$ 的一个子模, $\tIm$ 是 $\widetilde{M}$ 的一个子模, 且有 $$M/\Ker\eta\cong\tIm\eta.$$
+\end{theorem}
+
+\section{自由模}
+
+\begin{definition}\label{自由模的基}
+	设 $R$ 是幺环, $M$ 是左 $R$-模. 如果 $M$ 有一个子集 $S$, 满足
+	\begin{itemize}
+		\item[(1)] $M$ 中每个元素 $x$ 能表示成 $S$ 中有限多个元素的 \textbf{$R$-线性组合}: $$x=r_1\alpha_{i_1}+r_2\alpha_{i_2}+\cdots+r_m\alpha_{i_m},$$ 其中 $\{\alpha_{i_1},\alpha_{i_2},\ldots,\alpha_{i_m}\}\subseteq S,\ r_1,r_2,\ldots,r_m\in R,m\in \N^*$.
+		\item[(2)] $S$ 的任一有限子集 $S_1=\{\alpha_{j_1},\alpha_{j_2},\ldots,\alpha_{j_t}\}$ 是 \textbf{$R$-线性无关的}, 即从 $r_1\alpha_{j_1}+r_2\alpha_{j_2}+\cdots+r_t\alpha_{j_t}=0$ 可以推出 $$r_1=r_2=\cdots=r_t=0,$$
+	\end{itemize}
+	那么称 $S$ 是 $M$ 的一个\textbf{基}.
+\end{definition}
+
+\begin{definition}\label{自由模}
+	若左 $R$-模 $M$ 有一个基, 则称 $M$ 是\textbf{自由左 $R$-模}.
+\end{definition}
+
+\begin{theorem}
+	设 $M$ 是一个自由左 $R$-模, $\alpha_1,\alpha_2,\ldots,\alpha_n$ 是 $M$ 的一个基. 设 $\widetilde{M}$ 是任一左 $R$-模, 任取 $\widetilde{M}$ 的 $n$ 个元素 $\beta_1,\beta_2,\ldots,\beta_n$. 令 $$\begin{array}{rcl}
+	\sigma:M& \to & \widetilde{M}\\
+	x=\sum\limits{i=1}^n r_i\alpha_i & \mapsto & \sum\limits_{i=1}r_i\beta_i,
+	\end{array}$$ 则 $\sigma$ 是模同态, 且 $\sigma(\alpha_i)=\beta_i$. 并且满足把 $\alpha_i$ 映成 $\beta_i$ 的模同态是唯一的.
+\end{theorem}
+
+\begin{theorem}
+	设 $M$ 是一个以 $\alpha_1,\alpha_2,\ldots,\alpha_n$ 为基的自由左 $R$-模, 则 $M\cong R^n$.
+\end{theorem}
+
+\begin{lemma}
+	
+\end{lemma}
+
+\begin{theorem}
+	设 $R$ 是交换幺环, $M$ 是有有限基的自由模, 则 $M$ 的任意两个基所含元素个数相等.
+\end{theorem}
+
+\begin{definition}
+	设 $R$ 是交换幺环, $M$ 是一个有有限基的自由模, 则 $M$ 的基所含的元素个数称为 $M$ 的\mydef[自由模的秩]{秩}.
+\end{definition}
+
+\begin{theorem}
+	设 $R$ 是\hr{主理想整环}, $M$ 是秩为 $n$ 的自由模, 则 $M$ 的任意子模 $N$ 也是自由模, 且 $N$ 的秩不超过 $n$.
+\end{theorem}
+
+\begin{remark*}
+	如果 $R$ 不是主理想整环, 那么自由模的子模不一定是自由模, 可参考下述例子.
+\end{remark*}
+
+\begin{example}
+	设 $R=\Z_6$, 则 $R$ 是秩为 $1$ 的自由模, 但 $2R=\{0,2,4\}$ 是 $R$ 的子模却不是自由模.
+	
+	可以发现 $2R$ 中的元素自身就线性相关, 故均不在基中, 从而 $2R$ 没有基.
+\end{example}

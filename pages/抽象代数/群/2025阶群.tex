@@ -1,0 +1,140 @@
+\specialsectiontrue
+\specialsection{2025阶群}
+
+在准备 $2023$ 级强基抽象代数期末考试前, 按照对张强往年题的观察应该会考察 $2025$ 阶群是否可解, 是否为单群.
+由于证明过程过为复杂, 故写下本部分作为记录.
+
+设群 $G$, $|G|=2025$.
+
+我们先来证明 $2025$ 阶群不是单群, 为了证明这件事, 我们先来证明一个引理.
+
+\begin{lemma}\label{lemma:2025.1}
+	如果 $G$ 是单群, 那么 $G$ 不存在指数小于等于 $9$ 的子群.
+\end{lemma}
+
+\begin{proof}
+	设 $H$ 是 $G$ 的非平凡子群, 且 $[G:H]=k$, 其中 $k\leqslant 9$.
+
+	考虑 $G$ 在 $(G/H)_l$ 上的作用, 由于 $|(G/H)_l|=[G:H]=k$
+	就引起了 $G$ 到 $S_k$ 的一个同态 $\sigma$, 显然有 $\Ker\sigma\neq G$, 有 $G$ 是单群, $\Ker\sigma\lhd G$, 所以 $\Ker\sigma=\{e\}$.
+
+	从而 $G\cong \tIm\sigma < S_k\Rightarrow |G|\big| k!$, 即 $2025|k!\Rightarrow k\geqslant 10$.
+
+	综上, $G$ 不存在指数小于等于 $9$ 的子群.
+\end{proof}
+
+下面我们来证明 $2025$ 阶群不是单群.
+
+\begin{proof}
+
+利用 \t{Sylow} 第三定理, 我们设 $n_3$ 表示 \Sy[3]的个数, $n_5$ 表示 \Sy[5] 的个数.
+
+那么就有 $$\begin{array}{ll}
+	n_3\equiv 1(\bmod\ 3) & n_3\mid 25\\
+	n_5\equiv 1(\bmod\ 5) & n_5\mid 81
+\end{array}$$
+
+从而 $n_3=\{1,25\},n_5=\{1,81\}$.
+
+\noindent\textbf{第一种情况}  $n_5=1$
+
+那么 \Sy[5]是正规子群, 从而 $G$ 不是单群.
+
+\noindent\textbf{第二种情况} $n_5=81$
+
+如果这 $81$ 个 \Sy[5]两两的交均为 $\{e\}$, 那么考虑 $G$ 中 $5$ 阶和 $25$ 阶元的个数就是 $81\times(25-1)$.
+
+剩下的元素个数就是 $81$ 个, 又根据 \t{Sylow} 第一定理, 一定存在 \Sy[3], 并且 $5$ 阶元和 $25$ 阶元显然不是 \Sy[3]的元素, 所以 \Sy[3]的元素只能在剩下的 $81$ 个元素中. 而 \Sy[3]的阶又是 $81$, 所以这 $81$ 个元素恰好构成唯一的一个 \Sy[3]. 从而 \Sy[3]是正规子群, $G$ 不是单群.
+
+如果存在两个 \Sy[5]的交不只是 $\{e\}$, 记作 $P,Q$, 由于子群的交仍是子群, 所以 $K:=P\cap Q<G$, $|P\cap Q|=5$.
+
+设 $G$ 的所有子群所成的集合为 $\Omega$. 考虑 $G$ 在 $\Omega$ 上的共轭作用. 从而有正规化子 $N_G(K)=\{g\in G|gKg^{-1}=K\}$.
+
+由于 $25$ 阶群是 $p^2$ 阶群, 从而 $P,Q$ 都是 \Abel 群, 所以 $P,Q$ 中元素都和 $K$ 可交换, 即 $P\cup Q\subseteq N_G(K)$.
+
+所以有 $P<N_G(K),\ N_G(K)<G$ 即 $25\big||N_G(K)|,\ |N_G(K)|\big|2025$.
+
+接下来有两种不同的证明方式, 一种是估计 $N_G(K)$ 的阶并利用引理 \ref{lemma:2025.1} 找矛盾, 另一种是直接考虑 $N_G(K)$ 所有可能的阶去推矛盾.
+
+\noindent\textbf{法一:}
+
+我们记 $\widetilde{G}=N_G(K)$, 那么有
+
+由于 $|\widetilde{G}|=5^2m,\ (5,m)=1$. 所以 $P,Q$ 是 $\widetilde{G}$ 上两个不同的 \Sy[5]. 根据 \t{Sylow} 第三定理, $\widetilde{G}$ 中 \Sy[5]至少有 $5+1=6$ 个.
+
+考虑群 $\widetilde{G}$ 在 $\widetilde{G}$ 的所有子群的集合上的共轭作用, 有轨道 $|\widetilde{G}(P)|\geqslant 6$, 正规化子 $|N_{\widetilde{G}}(P)|\geqslant|P|=25$.
+
+从而根据轨道-稳定子定理, $|\widetilde{G}|=|\widetilde{G}(P)|\cdot|N_{\widetilde{G}}(P)|\geqslant 150$.
+
+即 $|N_G(K)|\geqslant 150$.
+
+从而 $[G:N_G(K)]\leqslant\frac{2025}{150}=13.5$.
+
+又 $[G:N_G(K)]|2025$, 可得 $[G:N_G(K)]=1,3,5,9$.
+
+当 $[G:N_G(K)]=1$ 时, 即 $N_G(K)=G$, 从而 $K$ 是 $G$ 的正规子群, $G$ 不是单群.
+
+当 $[G:N_G(K)]=3,5,9$ 时, 根据引理 \ref{lemma:2025.1}, 如果 $G$ 是单群将不存在这样的子群 $N_G(K)$ 矛盾, 所以 $G$ 不是单群.
+
+\noindent\textbf{法二:}
+
+我们考虑 $P,Q$ 中的元素, 有 $|P\cup Q|=|P|+|Q|-|P\cap Q|=45$. 所以有 $|N_G(K)|\geqslant 45$.
+又 $25\big||N_G(K)|,\ |N_G(K)|\big|2025$, 从而 $|N_G(K)|=75,225,675$.
+对这三个阶数分别使用 \t{Sylow} 第三定理, 可以知道 $n_5$ 均为 $1$, 即 \Sy[5]的个数都只有一个.
+但我们又有 $P,Q$ 已经是 $N_G(K)$ 的两个不同的 \Sy[5], 所以不可能存在这种情况.
+
+从而我们更进一步的说明了 $n_5=81$ 时, \Sy[3]只有一个, 即 \Sy[3]是正规子群.
+
+至此我们就说明了 $2025$ 阶群不是单群.
+\end{proof}
+
+\begin{remark}
+	其实, 如果定义集合的中心化子 $C_G(S)=\{g\in G|ag=ga,\forall a\in S\}$. 可以发现在上述证明过程中 $C_G(K)$ 和 $N_G(K)$ 是等价的, 但要注意根据这二者的定义不难发现 $C_G(K)\subseteq N_G(K)$, 只是在本题证明过程中看上去是等价的.
+\end{remark}
+
+接下来我们来说明 $G$ 是可解群.
+
+如果在证明单群时采用了法一的证法, 我们就并没有在之前的过程中得到 $G$ 的任一明确的正规子群, 只是知道肯定有非平凡的正规子群.
+
+下面我们先对法一的证法进行可解的证明.
+
+\noindent\textbf{基于法一:}
+
+同样的, 我们先来看证明一个引理.
+
+\begin{lemma}\label{lemma:2025.2}
+	设群 $N$ 的阶为 $2025$ 的不等于 $1$ 的真因子, 则 $N$ 可解.
+\end{lemma}
+
+\begin{proof}\
+	\begin{itemize}
+		\item[(1)] $|N|=3^{\alpha},\ \alpha\in\{1,2,3,4\}$ 或 $|N|=5^\beta,\ \beta\in\{1,2\}$.
+
+		此时 $N$ 是 $p$-群, 根据习题 \ref{prac:Sylow} 题目 \ref{prac:Sylow1}, 可知 $N$ 可解.
+
+		\item[(2)] $|N|=3^\alpha\times 5,\ \alpha\in\{1,2,3,4\}$.
+
+		根据 \t{Sylow} 第三定理, $n_3\equiv 1(\bmod\ 3)$ 且 $n_3\mid 5$, 从而 $n_3=1$.
+		\Sy[3]是 $N$ 的正规子群, 记 \Sy[3]为 $H$. 那么 $H,N/H$ 均是 $p$-群可解, 进而 $N$ 可解.
+
+		\item[(3)] $|N|=3^\alpha\times 5^2,\ \alpha\in\{1,2,3\}$.
+
+		根据 \t{Sylow} 第三定理, $n_5\equiv 1(\bmod\ 5)$ 且 $n_5\mid 3^\alpha$, 从而 $n_5=1$.
+		\Sy[5]是 $N$ 的正规子群, 记 \Sy[5]为 $H$. 那么 $H,N/H$ 均是 $p$-群可解, 进而 $N$ 可解.
+	\end{itemize}
+\end{proof}
+
+有了上述引理, 和之前的证明, 很容易就得到下述证明过程.
+
+\begin{proof}
+	由于 $2025$ 阶群不是单群, 故存在非平凡正规子群 $N$, 那么考虑 $N$ 和 $G/N$ 其阶均满足引理 \ref{lemma:2025.2} 的条件, 从而由引理可知 $N$ 和 $G/N$ 均可解, 故 $2025$ 阶群可解.
+\end{proof}
+
+\noindent\textbf{基于法二:}
+
+\begin{proof}
+	在之前的证明过程中, 我们已经知道 $G$ 要么有一个正规的 \Sy[5], 要么有一个正规的 \Sy[3]. 故 $G$ 商去这个正规子群后是 $p$-群可解, 这个正规子群自身也是 $p$-群可解, 从而 $G$ 可解.
+\end{proof}
+
+至此, 我们就证明了 $2025$ 阶群不是单群, 并且是可解群.
+\specialsectionfalse

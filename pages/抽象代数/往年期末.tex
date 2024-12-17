@@ -84,6 +84,14 @@ $$\left\{\begin{array}{ll}
 	$IJ=(nm)$.
 \end{solution}
 
+\problem[题目 4]
+
+\begin{solution}
+	按照\hr{模}的定义验证即可.
+	
+	所有子模 $(m\Z,+)$.
+\end{solution}
+
 \problem[题目 5]
 
 \begin{solution}
@@ -213,27 +221,27 @@ $$\left\{\begin{array}{ll}
 \begin{solution}\
 	\begin{itemize}
 		\item[(1)] 构成环.
-		
+
 		$\forall f,g\in A$, 函数的加法和乘法满足加法交换律, 乘法结合律, 乘法分配律.
 		且存在负元 $-f$, 零元 $0$.
-		
+
 		$f+g,\ fg$ 也为连续函数, 故对加法和乘法封闭.
-		
+
 		\item[(2)] 构成一个理想.
-		
+
 		$\forall g\in A,f\in I,\ f(1)=0$, $(gf)(1)=g(1)f(1)=g(1)\times 0=0,\ (fg)(1)=f(1)g(1)=0\times g(1)=0$, 从而 $fg,gf\in I$. 若 $f(2)=0$ 同理.
-		
+
 		综上 $I$ 是 $A$ 的理想.
-		
+
 		\item[(3)] 不是极大理想. 类似上一问, 我们可以证明 $I$ 是理想, 并记上问中理想为 $J$, 显然有 $I\subseteq J$, 又对于函数 $f(x)=x\notin J$, 从而 $J\neq A$, 所以 $I$ 不是极大理想.
-		
+
 		\item[(4)] 不是主理想整环.
-		
+
 		对于第三问中的理想, $x-1,e^x-e$ 都是该理想的元素, 而这两个函数显然不能由彼此有限表示, 从而该理想不是主理想, 进而环 $A$ 不是主理想整环.
-		
+
 		也可以通过说明 $A$ 有零因子, 从而不是整环.
-		
-		例如取连续函数 
+
+		例如取连续函数
 		$$f(x)=\left\{\begin{array}{cl}
 			x & x\in (0,1], \\
 			2-x & x\in (1,2], \\
@@ -245,15 +253,34 @@ $$\left\{\begin{array}{ll}
 				0 & \t {otherwise}.
 			\end{array}
 		\right.$$
-		
+
 		显然有 $f(x)g(x)=0$. 故存在零因子. 不是整环.
+	\end{itemize}
+\end{solution}
+
+\problem[题目 3]
+
+\begin{solution}
+	\begin{itemize}
+		\item[1.]自由模的定义: 对于模 $M$, 存在 $M$ 的子集 $S$, 满足
+		\begin{itemize}
+			\item[(1)] 对于 $M$ 中的任意元素, 可以由 $S$ 中有限个元素的线性组合表示, 形如 $$x=r_1\alpha_{i_1}+r_2\alpha_{i_2}+\cdots+r_m\alpha_{i_m}$$
+			\item[(2)] 对于 $S$ 的任意有限子集 $S_1$, $S_1$ 中元素, 在 $R$ 中线性无关, 即由 $$r_1\alpha_1+r_2\alpha_2+\cdots+r_t\alpha_t=0$$ 可推出 $r_1=r_2=\cdots=r_t=0$.
+		\end{itemize}
+		则称 $S$ 是 $M$ 的基, $M$ 是自由模.
+		
+		简单例子, $(\Z_6,+)$ 是 $(\Z_6,+,\cdot)$ 上的自由模.
+		
+		\item[2.] 自由模的子模不一定是自由模.
+		
+		同上题例子, 取子模 $2\Z_6=\{0,2,4\}$, 该子模中任一元素在 $\Z_6$ 中线性相关, 即均不能作为基中元素, 从而该子模不是自由模.
 	\end{itemize}
 \end{solution}
 
 \problem[题目 4]
 
 \begin{solution}
-	
+
 由 $\Z_{85}\cong \Z_{5}\oplus\Z_{17}$.
 
 考虑映射 $$\begin{array}{rcl}
@@ -299,11 +326,11 @@ $$\begin{array}{lr}
 \begin{solution}\
 	\begin{itemize}
 		\item[(1)] 在 $\Z_3[x]$ 中取二次不可约多项式 $m(x)=x^3+2x+1$.
-		
+
 		那么 $\Z_3[x]/(m(x))$ 是一个 $27$ 元域. 设 $u=x+(m(x))$, 那么该域的元素形如 $c_0+c_1u+c_2u^2,\ c_0,c_1,c_2\in\Z_3$.
-		
+
 		其运算法则与正常 $\Z_3[x]$ 上的多项式运算法则相似, 差别在于需要用 $u^3=u+2$ 将多项式的次数降至 $2$ 次及以下.
-		
+
 		\item[(2)] 域只有平凡的理想 $\{0\},\Z_3[x]/(x^3+2x+1)$.
 	\end{itemize}
 \end{solution}
@@ -312,14 +339,14 @@ $$\begin{array}{lr}
 
 \begin{solution}
 	$2023=7\times 17^2$.
-	
+
 	考虑 \Sy[17] 根据, \t{Sylow} 第三定理, 该子群个数 $r$ 满足 $$r\equiv 1\ (\bmod\ 17)\wedge r\mid 7$$ 从而 $r=1$, \Sy[17] 是正规子群.
-	
+
 	\begin{itemize}
 		\item[(1)] $2023$ 阶群有非平凡正规子群, 从而不是单群.
 		\item[(2)] 由于 $p$-群可解, $G_{2023}/G_{289},G_{289}$ 均可解, 从而 $2023$ 阶群可解.
 		\item[(3)] 有限 \Abel 群的同构类型.
-		
+
 		$(\Z_7,+)\oplus(\Z_{289},+),(\Z_7,+)\oplus(\Z_{17},+)\oplus(\Z_{17},+)$.
 	\end{itemize}
 \end{solution}
@@ -329,9 +356,9 @@ $$\begin{array}{lr}
 \begin{solution}\
 	\begin{itemize}
 		\item[(1)] 环上所有对乘法可逆的元素所构成的子集称为环的单位群. (可逆元也称单位).
-		
+
 		\item[(2)] $M_2(\Z_2)$ 中可逆的元素有
-		
+
 		$\left(\begin{array}{cc}1 & 0\\0 & 1\end{array}\right),
 		\left(\begin{array}{cc}0 & 1\\1 & 0\end{array}\right),
 		\left(\begin{array}{cc}1 & 0\\1 & 1\end{array}\right),
@@ -340,15 +367,15 @@ $$\begin{array}{lr}
 		\left(\begin{array}{cc}1 & 1\\1 & 0\end{array}\right).
 		$
 		即 $M_2(\Z_2)$ 的单位群是 $6$ 阶群.
-		
+
 		而 $2p$ 阶群要么是循环群, 要么同构于 $D_p$.
-		
-		由 
+
+		由
 		$\left(\begin{array}{cc}1 & 0\\1 & 1\end{array}\right)\left(\begin{array}{cc}1 & 1\\0 & 1\end{array}\right)=
 		\left(\begin{array}{cc}1 & 1\\1 & 0\end{array}\right)$,
 		$\left(\begin{array}{cc}1 & 1\\0 & 1\end{array}\right)\left(\begin{array}{cc}1 & 0\\1 & 1\end{array}\right)=
-		\left(\begin{array}{cc}0 & 1\\1 & 1\end{array}\right)$. 
-		
+		\left(\begin{array}{cc}0 & 1\\1 & 1\end{array}\right)$.
+
 		可知该群不是循环群, 从而该单位群同构于 $D_3$.
 	\end{itemize}
 \end{solution}
@@ -394,7 +421,7 @@ $$\begin{array}{lr}
 	\item[(2)] 写出该域的全部理想.
 \end{itemize}
 
-\problem[题目 4]写出 $f(x)=x^4-3$ 的分裂域及一组基.
+\problem[题目 4] 写出 $f(x)=x^4-3$ 的分裂域及一组基.
 
 \problem[题目 5] 模的定义是什么? 自由模的子模是自由模吗? 为什么?
 
@@ -409,6 +436,7 @@ $$\begin{array}{lr}
 	\item[(2)] $G$ 是可解群吗?
 \end{itemize}
 
+\newpage
 \section*{参考解答}
 
 \problem[题目 1]
@@ -456,7 +484,9 @@ $$\begin{array}{lr}
 	\end{itemize}
 \end{solution}
 
-\problem[题目 4]2023 级强基没讲第四章, 不会.
+\problem[题目 4] 2023 级强基没讲第四章, 不会.
+
+\problem[题目 5] 同上套期末第 3 题. 
 
 \problem[题目 6]
 
@@ -469,16 +499,16 @@ $$\begin{array}{lr}
 \problem[题目 8]
 
 \begin{solution}
-	$2024=2^3*11*23$.
-	
+	$2024=2^3\times11\times23$.
+
 	考虑 \Sy[23] 根据, \t{Sylow} 第三定理, 该子群个数 $r$ 满足 $$r\equiv 1\ (\bmod\ 23)\wedge r\mid 88$$ 从而 $r=1$, \Sy[23] 是正规子群.
-	
+
 	\begin{itemize}
 		\item[(1)] $2024$ 阶群有非平凡正规子群, 从而不是单群.
 		\item[(2)] 类似上述讨论, 可以同样证明, 对于 $88$ 阶群, \Sy[11] 是其正规子群, 从而 $G_{88}/G_{11},G_{8}$ 都是 $p$-群可解.
-		
+
 		进而 $G_{2024}/G_{23},G_{23}$ 均可解, 从而 $2024$ 阶群可解.
-		
+
 	\end{itemize}
 \end{solution}
 \newpage
